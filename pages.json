@@ -1,0 +1,539 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "慢慢向好",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		// {
+		//     "path" : "pages/fund/fund",
+		//     "style" : {
+		//     	"navigationBarTitleText": "基金理财",
+		//     	// #ifdef H5
+		//     	"navigationStyle": "custom",
+		//     	// #endif 
+		//     	"app-plus": {
+		//     		"titleNView": false
+		//     	}
+		//     }
+		// },
+		// {
+		//     "path" : "pages/stock/stock",
+		//     "style" : {
+		// 		"navigationBarTitleText": "股票",
+		// 		// #ifdef H5
+		// 		"navigationStyle": "custom",
+		// 		// #endif 
+		// 		"app-plus": {
+		// 			"titleNView": false
+		// 		}
+		// 	}
+		// },
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/scenicspot/scenicspot",
+			"style": {
+				"navigationBarTitleText": "景区导航",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		// {
+		//     "path" : "pages/financialTraining/financialTraining",
+		//     "style" : {
+		// 		"navigationBarTitleText": "财商培养",
+		// 		// #ifdef H5
+		// 		"navigationStyle": "custom",
+		// 		// #endif 
+		// 		"app-plus": {
+		// 			"titleNView": false
+		// 		}
+		// 	}
+		// },
+		{
+			"path": "pages/financialTraining/detail",
+			"style": {
+				"navigationBarTitleText": "历史明细",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/financialTraining/history",
+			"style": {
+				"navigationBarTitleText": "历史汇总",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/user/aboutUs",
+			"style": {
+				"navigationBarTitleText": "关于我们",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		// {
+		//     "path" : "pages/stock/detail_s",
+		//     "style" : {
+		// 		"navigationBarTitleText": "股票详情",
+		// 		// #ifdef H5
+		// 		"navigationStyle": "custom",
+		// 		// #endif 
+		// 		"app-plus": {
+		// 			// #ifdef MP-WEIXIN
+		// 			"titleNView": {
+		// 				"type": "transparent"
+		// 			}
+		// 			// #endif 
+		// 		}
+		// 	}
+		// },
+		// {
+		//     "path" : "pages/stock/detail_s_linkage",
+		//     "style" : {
+		// 		"navigationBarTitleText": "股票详情联动",
+		// 		// #ifdef H5
+		// 		"navigationStyle": "custom",
+		// 		// #endif 
+		// 		"app-plus": {
+		// 			// #ifdef MP-WEIXIN
+		// 			"titleNView": {
+		// 				"type": "transparent"
+		// 			}
+		// 			// #endif 
+		// 		}
+		// 	}
+		// },
+		// {
+		//     "path" : "pages/fund/detail_f",
+		//     "style" : {
+		// 		"navigationBarTitleText": "基金详情",
+		// 		// #ifdef H5
+		// 		"navigationStyle": "custom",
+		// 		// #endif 
+		// 		"app-plus": {
+		// 			// #ifdef MP-WEIXIN
+		// 			"titleNView": {
+		// 				"type": "transparent"
+		// 			}
+		// 			// #endif 
+		// 		}
+		// 	}
+		// },
+		{
+			"path": "pages/emmenia/emmenia",
+			"style": {
+				"navigationBarTitleText": "姨妈记录",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/emmenia/add_emmenia",
+			"style": {
+				"navigationBarTitleText": "添加记录",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/emmenia/statistic_emmenia",
+			"style": {
+				"navigationBarTitleText": "统计",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/emmenia/edite_emmenia",
+			"style": {
+				"navigationBarTitleText": "修改",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/emmenia/sete_emmenia",
+			"style": {
+				"navigationBarTitleText": "设置",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/compounds/compounds",
+			"style": {
+				"navigationBarTitleText": "复利计算",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/memorandum/memorandum",
+			"style": {
+				"navigationBarTitleText": "备忘录",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/validTerm/validTerm",
+			"style": {
+				"navigationBarTitleText": "有效期记录",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/timingReminder/timingReminder",
+			"style": {
+				"navigationBarTitleText": "定时提醒",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/scrawl/scrawl",
+			"style": {
+				"navigationBarTitleText": "涂鸦",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/index/miniLife",
+			"style": {
+				"navigationBarTitleText": "极简生活",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/specialEffect/firework",
+			"style": {
+				"navigationBarTitleText": "烟花",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		},
+		{
+			"path": "pages/specialEffect/wave",
+			"style": {
+				"navigationBarTitleText": "波浪",
+				// #ifdef H5
+				"navigationStyle": "custom",
+				// #endif 
+				"app-plus": {
+					// #ifdef MP-WEIXIN
+					"titleNView": {
+						"type": "transparent"
+					}
+					// #endif 
+				}
+			}
+		}
+
+
+	],
+
+	"subPackages": [{
+			"root": "pagesShow", //文件夹名称，  pages文件夹同级新建一个就行
+			"pages": [{
+					"path": "index/index",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "搜索列表",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				},
+				{
+					"path": "login/login",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "账号密码登录",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				},
+				{
+					"path": "upload/upload_img",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "上传图片",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				},
+				{
+					"path": "qrcode/qrcode",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "生成二维码",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				}
+				
+
+			]
+		}
+
+	],
+	"preloadRule": {
+		"pages/index/index": {
+			"network": "all",
+			"packages": ["pagesShow"]
+		}
+
+	},
+
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "慢慢向好",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#bfbfbf",
+		"selectedColor": "#1296db",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/homeH.png",
+				"selectedIconPath": "static/home.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/index/miniLife",
+				"iconPath": "static/miniLifeH.png",
+				"selectedIconPath": "static/miniLife.png",
+				"text": "极简生活"
+			}, {
+				"pagePath": "pages/scrawl/scrawl",
+				"iconPath": "static/memorandumH.png",
+				"selectedIconPath": "static/memorandum.png",
+				"text": "涂鸦"
+			}, {
+				"pagePath": "pages/compounds/compounds",
+				"iconPath": "static/compoundsH.png",
+				"selectedIconPath": "static/compounds.png",
+				"text": "复利计算"
+			}
+			// #ifdef MP-WEIXIN
+			// ,{
+			// 	"pagePath": "pages/memorandum/memorandum",
+			// 	"iconPath": "static/memorandumH.png",
+			// 	"selectedIconPath": "static/memorandum.png",
+			// 	"text": "备忘录"
+			// }
+			// #endif 
+			// #ifndef MP-WEIXIN
+			// ,{
+			// 	"pagePath": "pages/financialTraining/financialTraining",
+			// 	"iconPath": "static/fundH.png",
+			// 	"selectedIconPath": "static/fund.png",
+			// 	"text": "财商培养"
+			// }
+			// #endif
+			// ,
+			// {
+			// 	"pagePath": "pages/fund/fund",
+			// 	"iconPath": "static/fundH.png",
+			// 	"selectedIconPath": "static/fund.png",
+			// 	"text": "基金理财"
+			// }
+			// ,
+			// {
+			// 	"pagePath": "pages/stock/stock",
+			// 	"iconPath": "static/stockH.png",
+			// 	"selectedIconPath": "static/stock.png",
+			// 	"text": "股票"
+			// }
+			,
+			{
+				"pagePath": "pages/user/user",
+				"iconPath": "static/userH.png",
+				"selectedIconPath": "static/user.png",
+				"text": "我的"
+			}
+		]
+	}
+}

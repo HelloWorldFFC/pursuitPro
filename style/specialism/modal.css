@@ -1,0 +1,63 @@
+.cf-modal-mask {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #000;
+	opacity: 0.5;
+	overflow: hidden;
+	z-index: 998;
+}
+
+.cf-modal-dialog {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	/* padding: 30rpx 0 0; */
+	overflow: hidden;
+	position: fixed;
+	top: 30%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: 999;
+	/*小于车牌键盘的z-index使之在输键盘确认之前不能点查询或别的地方*/
+	background: white;
+	/* border-radius: 5rpx; */
+
+
+}
+
+.cf-modal-dialog-content {
+	/* width: 606upx; */
+	/* height: 752upx; */
+	height: 100%;
+	/* background: url("http://small-live.oss-cn-shenzhen.aliyuncs.com/carMall/images/sys/versionUp.jpg") no-repeat center center;
+		background-size: 100% 100%; */
+}
+
+.cf-modalBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* font-size: 44rpx; */
+
+}
+
+.cf-closeBox {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	font-size: 40upx;
+	
+}
+
+.cf-close{
+	float: right;
+	color: #FFFFFF;
+	background: #1296db;
+	padding: 10upx 20upx;
+}
