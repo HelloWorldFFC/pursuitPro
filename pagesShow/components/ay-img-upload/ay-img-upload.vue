@@ -17,6 +17,9 @@
 </template>
 
 <script>
+	//#ifdef APP-PLUS
+	import permit_app from "./permit_app.js";
+	// #endif
 	export default {
 		props: {
 			list: {
@@ -25,6 +28,7 @@
 					return []
 				}
 			},
+			
 			sourceType: { //选择照片来源 【ps：H5就别费劲了，设置了也没用。不是我说的，官方文档就这样！！！】
 				type: Array,
 				default: () => ['album', 'camera'],
@@ -106,24 +110,40 @@
 				});
 				// #endif
 			},
-			appCamera(index) {
-				var cmr = plus.camera.getCamera();
+			async appCamera(index) {
+				var cmr = plus.camera.getCamera(1);
 				var res = cmr.supportedImageResolutions[0];
 				var fmt = cmr.supportedImageFormats[0];
 				//console.log("Resolution: " + res + ", Format: " + fmt);
-				cmr.captureImage((path)=> {
-						alert("Capture image success: " + path);
-						this.chooseSuccessMethod([path],index)
-					},
-					(error) =>{
-						//alert("Capture image failed: " + error.message);
-						console.log("Capture image failed: " + error.message);
-						that.$api.msg('失败！请重新选择');
-					}, {
-						resolution: res,
-						format: fmt
+				
+				try {
+					let isAndroid = false ;
+				    const res = uni.getSystemInfoSync();
+				    if(res.platform == 'android'){
+						isAndroid = true ;
+					}else{
+						isAndroid = false ;
 					}
-				);
+					var iscan = await permit_app.req_Permit_any(isAndroid,permit_app.p_ID_anrd.camera,permit_app.p_ID_ios.camera,'相机')
+					if(iscan){
+						cmr.captureImage((path)=> {
+								console.log("Capture image success: " + path);
+								this.chooseSuccessMethod([path],index)
+							},
+							(error) =>{
+								console.log("Capture image failed: " + error.message);
+								that.$api.msg('失败！请重新选择');
+							}, {
+								resolution: res,
+								format: fmt
+							}
+						);
+					}
+					
+				} catch (e) {
+				    // error
+				}
+				
 			},
 			appGallery(maxNum,index) {
 				plus.gallery.pick((res) => {
