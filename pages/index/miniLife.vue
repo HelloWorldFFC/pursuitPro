@@ -36,7 +36,7 @@
 					},
 					{
 						title: '景区导航',
-						toPageUrl: '/pages/scenicspot/scenicspot',
+						toPageUrl: '/pagesScan/scenicspot/scenicspot',
 					},
 					{
 						title: '有效期记录',

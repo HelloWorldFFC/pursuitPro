@@ -48,18 +48,6 @@
 				}
 			}
 		},
-		{
-			"path": "pages/scenicspot/scenicspot",
-			"style": {
-				"navigationBarTitleText": "景区导航",
-				// #ifdef H5
-				"navigationStyle": "custom",
-				// #endif 
-				"app-plus": {
-					"titleNView": false
-				}
-			}
-		},
 		// {
 		//     "path" : "pages/financialTraining/financialTraining",
 		//     "style" : {
@@ -450,18 +438,47 @@
 						}
 					}
 				}
-				
+
+
+			]
+		},
+		{
+			"root": "pagesScan", //文件夹名称，  pages文件夹同级新建一个就行
+			"pages": [{
+					"path": "scenicspot/scenicspot",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "景区导航",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				}
+
 
 			]
 		}
+
 
 	],
 	"preloadRule": {
 		"pages/index/index": {
 			"network": "all",
 			"packages": ["pagesShow"]
+		},
+		"pages/index/index": {
+			"network": "all",
+			"packages": ["pagesScan"]
 		}
-
 	},
 
 	"globalStyle": {

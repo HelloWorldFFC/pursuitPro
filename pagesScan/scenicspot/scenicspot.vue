@@ -37,7 +37,8 @@
 
 <script>
 	import kefu from '@/components/kefu.vue';
-	import comm from '../../api/comm.js'
+	import comm from '@/api/comm.js'
+	import jsondata from '../js/jsondata.js'
 	export default {
 		components: {
 			kefu,
@@ -50,7 +51,7 @@
 		},
 		async onLoad() {
 			let that = this;
-			let list = await this.$api.json('scenicspotList');
+			let list = jsondata.scenicspotList;
 			that.list = list.data;
 		},
 		onShow() {

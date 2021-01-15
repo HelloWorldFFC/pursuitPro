@@ -1,7 +1,7 @@
 var uiOperat = require('./uiOperat.js');
 var timeConvert = require('./timeConvert.js');
- export const base_url = 'http://49.235.125.175:9090';
- //export const base_url='https://www.happydayday.website:8080';
+ export const base_url = '';
+ //export const base_url='';
 
 export const myRequest = (options)=>{	
 	return new Promise((resolve,reject)=>{
