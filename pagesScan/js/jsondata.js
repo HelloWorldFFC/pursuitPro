@@ -5,26 +5,9 @@ const ministry_url = {
 	cult_tour_scenicspot_5A: 'https://zwfw.mct.gov.cn/scenicspot',
 
 }
-const scenicspotList = {
+const scenicspotList_5A = {
 	"success": true,
-	"data": [{
-			province: '陕西',
-			scenicspotList: [{
-				id: '0100001',
-				title: '陕西历史博物馆',
-				subtitle: '不含临时、专题展览',
-				city: '西安市',
-				area: '雁塔区',
-				grade: '5A',
-				address: {
-					name: '',
-					longitude: 108.961495, //经度
-					latitude: 34.230523, //纬度
-					address: '西安市雁塔区小寨东路91号'
-				},
-				phone: '02985269547',
-			}, ],
-		},
+	"data": [
 		{
 			province: '北京',
 			scenicspotList: [{
@@ -3624,8 +3607,8 @@ const scenicspotList = {
 					address: {
 						name: '',
 						longitude: 107.008267, //经度
-						latitude: 31.28.89408, //纬度
-						address: '重庆綦江区经开区黑山谷景区南门小石林'
+						latitude: 28.89408, //纬度
+						address: '重庆綦江区经开区黑山谷景区南门小石林',
 					},
 					phone: '13372607085',
 					
@@ -4624,46 +4607,344 @@ const scenicspotList = {
 					},
 					phone: '',
 				},
-
+				{
+					id: '2900003',
+					title: '青海省海北州阿咪东索景区',
+					subtitle: '2020',
+					city: '海北藏族自治州',
+					area: '祁连县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 100.327255, //经度
+						latitude: 38.105218, //纬度
+						address: '青海省海北藏族自治州祁连县阿咪东索景区(小东索旅游公路东)'
+					},
+					phone: '',
+					
+				},
+				{
+					id: '2900004',
+					title: '青海省青海湖景区',
+					subtitle: '2011',
+					city: '海南藏族自治州',
+					area: '共和县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 100.502975, //经度
+						latitude: 36.584302, //纬度
+						address: '青海省海南藏族自治州共和县京拉线(109国道北侧)'
+					},
+					phone: '',
+					
+				},
 			],
 		},
 		
 		{
-			province: '天津',
+			province: '宁夏',
 			scenicspotList: [{
-					id: '0200001',
-					title: '嘉峪关市嘉峪关文物景区',
+					id: '3000001',
+					title: '中卫市沙坡头旅游景区',
 					subtitle: '2007',
-					city: '天津市',
-					area: '南开区',
+					city: '中卫市',
+					area: '沙坡头区',
 					grade: '5A',
 					address: {
 						name: '',
-						longitude: 117.199184, //经度
-						latitude: 39.149532, //纬度
-						address: '南开区通北路'
+						longitude: 105.008511, //经度
+						latitude: 37.483402, //纬度
+						address: '宁夏省中卫市沙坡头区迎水桥镇'
 					},
-					phone: '02227356128',
+					phone: '09553988699',
+					
 				},
 				{
-					id: '0200002',
-					title: '天津盘山风景名胜区',
-					subtitle: '2007',
-					city: '天津市',
-					area: '蓟州区',
+					id: '3000002',
+					title: '宁夏银川镇北堡西部影视城',
+					subtitle: '2011',
+					city: '银川市',
+					area: '西夏区',
 					grade: '5A',
 					address: {
 						name: '',
-						longitude: 117.288913, //经度
-						latitude: 40.102982, //纬度
-						address: '蓟州区官庄镇莲花岭村'
+						longitude: 106.077995, //经度
+						latitude: 38.62169, //纬度
+						address: '银川市西夏区镇北堡110国道路东'
 					},
-					phone: '02229828186',
+					phone: '09512136068',
+					
+				},
+				{
+					id: '3000003',
+					title: '石嘴山市沙湖旅游景区',
+					subtitle: '2007',
+					city: '石嘴山市',
+					area: '平罗县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 106.368212, //经度
+						latitude: 38.807523, //纬度
+						address: '宁夏回族自治区石嘴山市平罗县姚沙公路'
+					},
+					phone: '09526685530',
+					
+				},
+				{
+					id: '3000004',
+					title: '银川市灵武水洞沟旅游区',
+					subtitle: '2015',
+					city: '石嘴山市',
+					area: '平罗县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 106.516645, //经度
+						latitude: 38.296946, //纬度
+						address: '银川市灵武市临河镇'
+					},
+					phone: '09515014338',
+					
+				},
+			],
+		},
+		
+		{
+			province: '新疆',
+			scenicspotList: [{
+					id: '3100001',
+					title: '乌鲁木齐天山大峡谷景区',
+					subtitle: '2014',
+					city: '乌鲁木齐市',
+					area: '乌鲁木齐县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 87.448265, //经度
+						latitude: 43.499344, //纬度
+						address: '新疆维吾尔自治区乌鲁木齐市乌鲁木齐县板房沟乡'
+					},
+					phone: '09917629111',
+					
+				},
+				{
+					id: '3100002',
+					title: '吐鲁番市葡萄沟风景区',
+					subtitle: '2007',
+					city: '吐鲁番市',
+					area: '高昌区',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 89.249626, //经度
+						latitude: 43.005375, //纬度
+						address: '新疆维吾尔自治区吐鲁番市高昌区京新高速与Z474交叉口东北侧'
+					},
+					phone: '09958614543',
+					
+				},
+				{
+					id: '3100003',
+					title: '喀什地区喀什噶尔老城景区',
+					subtitle: '2007',
+					city: '喀什市',
+					area: '',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 75.995373, //经度
+						latitude: 39.478666, //纬度
+						address: '新疆维吾尔自治区喀什地区喀什市解放北路'
+					},
+					phone: '',
+					
+				},
+				{
+					id: '3100004',
+					title: '喀什地区泽普金湖杨景区',
+					subtitle: '2013',
+					city: '泽普县',
+					area: '',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 76.988309, //经度
+						latitude: 38.036071, //纬度
+						address: '泽普县镇西南泽普金湖杨国家森林公园附近'
+					},
+					phone: '',
+					
+				},
+				{
+					id: '3100005',
+					title: '巴音郭楞蒙古自治州博斯腾湖景区',
+					subtitle: '2014',
+					city: '巴音郭楞蒙古自治州',
+					area: '博湖县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 86.731618, //经度
+						latitude: 41.842626, //纬度
+						address: '巴音郭楞蒙古自治州博湖县(博斯腾湖阿洪口)'
+					},
+					phone: '',
+					
+				},
+				{
+					id: '3100006',
+					title: '新疆伊犁那拉提旅游风景区',
+					subtitle: '2011',
+					city: '伊犁哈萨克自治州',
+					area: '新源县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 84.032821, //经度
+						latitude: 43.325552, //纬度
+						address: '新疆维吾尔自治区伊犁哈萨克自治州新源县那拉提镇218国道'
+					},
+					phone: '09995291888',
+				},
+				{
+					id: '3100007',
+					title: '新疆天山天池风景名胜区',
+					subtitle: '2007',
+					city: '昌吉回族自治州',
+					area: '阜康市',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 88.135728, //经度
+						latitude: 43.887382, //纬度
+						address: '昌吉回族自治州阜康市天山天池风景区游客集散中心'
+					},
+					phone: '4008706110',
+					
+				},
+				{
+					id: '3100008',
+					title: '新疆生产建设兵团第十师白沙湖景区',
+					subtitle: '2017',
+					city: '昌吉回族自治州',
+					area: '阜康市',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 87.975164, //经度
+						latitude: 44.254985, //纬度
+						address: '昌吉回族自治州阜康市205县道六运湖农场'
+					},
+					phone: '',
+					
+				},
+				{
+					id: '3100009',
+					title: '新疆自治区伊犁州喀拉峻景区',
+					subtitle: '2016',
+					city: '伊犁哈萨克自治州',
+					area: '特克斯县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 82.044236, //经度
+						latitude: 43.104481, //纬度
+						address: '新疆维吾尔自治区伊犁哈萨克自治州特克斯县276乡道附近'
+					},
+					phone: '18999199370',
+					
+				},
+				{
+					id: '3100010',
+					title: '新疆自治区巴音州和静巴音布鲁克景区',
+					subtitle: '2016',
+					city: '巴音郭楞蒙古自治州',
+					area: '和静县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 84.439264, //经度
+						latitude: 42.769767, //纬度
+						address: '新疆维吾尔自治区巴音郭楞蒙古自治州和静县'
+					},
+					phone: '',
+					
+				},
+				{
+					id: '3100011',
+					title: '阿勒泰地区喀纳斯景区',
+					subtitle: '2007',
+					city: '阿勒泰地区',
+					area: '布尔津县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 87.138377, //经度
+						latitude: 48.513535, //纬度
+						address: '新疆维吾尔自治区阿勒泰地区布尔津县232省道'
+					},
+					phone: '09066326004',
+					
+				},
+				{
+					id: '3100012',
+					title: '阿勒泰地区富蕴可可托海景区',
+					subtitle: '2012',
+					city: '阿勒泰地区',
+					area: '富蕴县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 89.888248, //经度
+						latitude: 47.228231, //纬度
+						address: '阿勒泰地区富蕴县可可托海镇'
+					},
+					phone: '09068781188',
+					
+				},
+				{
+					id: '3100013',
+					title: '新疆维吾尔自治区克拉玛依市世界魔鬼城景区',
+					subtitle: '2020',
+					city: '克拉玛依市',
+					area: '乌尔禾区',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 85.754111, //经度
+						latitude: 46.136384, //纬度
+						address: '新疆克拉玛依市乌尔禾区龙脊路200号'
+					},
+					phone: '09906964701',
+					
+				},
+				{
+					id: '3100014',
+					title: '新疆维吾尔自治区喀什地区帕米尔旅游区',
+					subtitle: '2019',
+					city: '喀什地区',
+					area: '塔什库尔干塔吉克自治县',
+					grade: '5A',
+					address: {
+						name: '',
+						longitude: 75.20885, //经度
+						latitude: 37.801109, //纬度
+						address: '新疆维吾尔自治区喀什地区塔什库尔干塔吉克自治县提孜那甫乡'
+					},
+					phone: '',
+					
 				},
 		
 			],
 		},
-		
+
+	]
+}
+const scenicspotList = {
+	"success": true,
+	"data": [
 		{
 			province: '陕西',
 			scenicspotList: [{
@@ -4781,8 +5062,8 @@ const scenicspotList = {
 					phone: '02985122000',
 				},
 				{
-
-
+		
+		
 					title: '白鹿原影视景区',
 					subtitle: '',
 					city: '西安市',
@@ -4797,7 +5078,7 @@ const scenicspotList = {
 					phone: '02982842666',
 				},
 				{
-
+		
 					title: '白鹿原白鹿仓景区',
 					subtitle: '',
 					city: '西安市',
@@ -4895,7 +5176,7 @@ const scenicspotList = {
 					},
 					phone: '02936201810',
 				},
-
+		
 				// 西安大唐西市文化景区	上王村景区
 				// 西安博物院（小雁塔）	临潼奥特莱斯景区
 				// 西安世博园	金鼎蓝田玉文化石艺博览馆
@@ -4923,12 +5204,11 @@ const scenicspotList = {
 				// 	永兴坊景区
 			]
 		},
-
-	]
+	],
 }
-
 
 export default {
 	ministry_url,
 	scenicspotList,
+	scenicspotList_5A,
 }

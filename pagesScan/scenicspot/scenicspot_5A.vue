@@ -4,8 +4,8 @@
 		<kefu></kefu>
 		<!-- #endif -->
 		<scroll-view scroll-y class="cf-scrollBox ">
-			<ayitemone :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemone>
-			
+			<!-- <ayitemone :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemone> -->
+			<ayitemtwo :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemtwo>
 			<view class="cf-bottomCenter" v-if="list.length>0">已经到底啦~</view>
 			<view class="cf-bottomCenter cf-colorHui" v-if="list.length>0">如有错误请联系客服</view>
 		</scroll-view>
@@ -14,6 +14,7 @@
 
 <script>
 	import ayitemone from '../components/ay-item/ay-item-one.vue';
+	import ayitemtwo from '../components/ay-item/ay-item-two.vue';
 	import kefu from '@/components/kefu.vue';
 	import comm from '@/api/comm.js'
 	import jsondata from '../js/jsondata.js'
@@ -21,6 +22,7 @@
 		components: {
 			kefu,
 			ayitemone,
+			ayitemtwo,
 		},
 		data() {
 			return {
@@ -29,7 +31,8 @@
 		},
 		async onLoad() {
 			let that = this;
-			let list = jsondata.scenicspotList;
+			//let list = jsondata.scenicspotList;
+			let list = jsondata.scenicspotList_5A;
 			that.list = list.data;
 		},
 		onShow() {
