@@ -79,8 +79,8 @@ const versionNumber = '1.1.4';
 		longitude : parseFloat(gcjLatLon.lon)	
 	}
  	
- 	console.log('ret.latitude',ret.latitude);
- 	console.log('ret.longitude',ret.longitude);
+ 	//console.log('ret.latitude',ret.latitude);
+ 	//console.log('ret.longitude',ret.longitude);
   	return ret;
   }
  
@@ -95,8 +95,8 @@ const versionNumber = '1.1.4';
  	
  	ret.longitude = wgsLatLon.lon;
  	ret.latitude = wgsLatLon.lat;
- 	console.log('ret.latitude',ret.latitude);
- 	console.log('ret.longitude',ret.longitude);
+ 	//console.log('ret.latitude',ret.latitude);
+ 	//console.log('ret.longitude',ret.longitude);
   	return ret;
   }
 

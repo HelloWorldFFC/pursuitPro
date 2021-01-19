@@ -1,18 +1,28 @@
 <template>
 	<view class="content">
+		<view style="position: fixed;top: 0;left: 0;z-index: 99999;">
+			<view style="position: relative;">
+				<dropdownFilter :filterData='filterData' :defaultIndex='defaultIndex' :composeList="composeList" @onSelected='onSelected'
+				 :themeColor="themeColor"></dropdownFilter>
+			</view>
+		</view>
 		<!-- #ifdef MP-WEIXIN -->
 		<kefu></kefu>
 		<!-- #endif -->
-		<scroll-view scroll-y class="cf-scrollBox ">
+		<scroll-view scroll-y class="cf-scrollBox scrollBox" :lower-threshold="800" @scrolltolower="scrolltolowerFun">
 			<!-- <ayitemone :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemone> -->
 			<ayitemtwo :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemtwo>
-			<view class="cf-bottomCenter" v-if="list.length>0">已经到底啦~</view>
+			<uniloadmore v-if="list.length>0" :status="loadingType"></uniloadmore>
+			<!-- <view class="cf-bottomCenter" v-if="list.length>0">已经到底啦~</view> -->
 			<view class="cf-bottomCenter cf-colorHui" v-if="list.length>0">如有错误请联系客服</view>
 		</scroll-view>
 	</view>
 </template>
 
 <script>
+	import uniloadmore from '../components/uni-load-more/uni-load-more.vue'
+	import dropdownFilter from '../components/ay-dropdown-filter/ay-dropdown-filter.vue'
+	import scenicspot from '../js/scenicspot.js'
 	import ayitemone from '../components/ay-item/ay-item-one.vue';
 	import ayitemtwo from '../components/ay-item/ay-item-two.vue';
 	import kefu from '@/components/kefu.vue';
@@ -23,17 +33,176 @@
 			kefu,
 			ayitemone,
 			ayitemtwo,
+			dropdownFilter,
+			uniloadmore,
 		},
 		data() {
 			return {
-				list: []
+				//分页相关
+				sum_Yun: 0,
+				page: 1,
+				pageSize: 10,
+				isHaveNextPage: true, //记录是否还有下一页
+				loadingType: 'more', //加载更多状态
+				
+				//筛选相关
+				themeColor: '#33CCCC',
+				filterData: [
+					[{
+							text: '全部',
+							value: ''
+						},
+						{
+							text: '北京',
+							value: '01'
+						}, {
+							text: '天津',
+							value: '02'
+						}, {
+							text: '河北',
+							value: '03'
+						}, {
+							text: '山西',
+							value: '04'
+						},
+						{
+							text: '内蒙古',
+							value: '05'
+						}, {
+							text: '辽宁',
+							value: '06'
+						}, {
+							text: '吉林',
+							value: '07'
+						}, {
+							text: '黑龙江',
+							value: '08'
+						},
+						{
+							text: '上海',
+							value: '09'
+						}, {
+							text: '江苏',
+							value: '10'
+						}, {
+							text: '浙江',
+							value: '11'
+						}, {
+							text: '安徽',
+							value: '12'
+						},
+						{
+							text: '福建',
+							value: '13'
+						}, {
+							text: '江西',
+							value: '14'
+						}, {
+							text: '山东',
+							value: '15'
+						}, {
+							text: '河南',
+							value: '16'
+						},
+						{
+							text: '湖北',
+							value: '17'
+						},
+						{
+							text: '湖南',
+							value: '18'
+						}, {
+							text: '广东',
+							value: '19'
+						}, {
+							text: '广西',
+							value: '20'
+						}, {
+							text: '海南',
+							value: '21'
+						},
+						{
+							text: '重庆',
+							value: '22'
+						}, {
+							text: '四川',
+							value: '23'
+						}, {
+							text: '贵州',
+							value: '24'
+						}, {
+							text: '云南',
+							value: '25'
+						},
+						{
+							text: '西藏',
+							value: '26'
+						}, {
+							text: '陕西',
+							value: '27'
+						}, {
+							text: '甘肃',
+							value: '28'
+						}, {
+							text: '青海',
+							value: '29'
+						},
+						{
+							text: '宁夏',
+							value: '30'
+						}, {
+							text: '新疆',
+							value: '31'
+						}
+					],
+					[{
+							text: '全部',
+							value: ''
+						},
+						{
+							text: '2007年-2011年',
+							value: '2007-2011'
+						},
+						{
+							text: '2012年-2016年',
+							value: '2012-2016'
+						},
+						{
+							text: '2017年-2020年',
+							value: '2017-2020'
+						},
+						{
+							text: '2020年-至今',
+							value: '2020-'
+						},
+					],
+
+					[{
+						text: '距离优先',
+						value: '0'
+					}, {
+						text: '年份优先',
+						value: '1'
+					}]
+				],
+				defaultIndex: [0, 0,0],
+				composeList: [{
+					name: '省份',
+					isHen: true,
+				}],
+				list: [],
+				list_all: [],
+				list_all_yu: [],
 			}
 		},
 		async onLoad() {
 			let that = this;
 			//let list = jsondata.scenicspotList;
-			let list = jsondata.scenicspotList_5A;
-			that.list = list.data;
+			let list = scenicspot.get_list_now(jsondata.scenicspotList_5A.data);
+			//that.list = list;
+			that.list_all = list ;
+			that.list_all_yu = list ;
+			that.loadData();
 		},
 		onShow() {
 
@@ -45,6 +214,139 @@
 		},
 		// #endif
 		methods: {
+			onSelected(res) {
+				//[[{"text":"<1折","value":"0.9","select":true}],[{"text":"距离优先","value":"距离优先","select":true}]]
+				 console.log('res  ' + JSON.stringify(res))
+				// console.log('res  ' + JSON.stringify(res[0]))
+				// console.log('res  ' + JSON.stringify(res[0][0].value))
+				let that = this;
+				let one = res[0][0].value;
+				let two = res[1][0].value;
+				let thr = res[2][0].value;
+				console.log(' one ' + one + ' two ' + two+ ' thr ' + thr);
+				
+				let list_all = that.list_all_yu;
+				
+				if(one.length>0){
+					list_all = scenicspot.getList_fr_pvie(list_all,res[0][0].text)
+				}
+				if(two.length>0){
+					list_all = scenicspot.getList_fr_year(list_all,two)
+				}else{
+					
+				}
+				if(thr==1){
+					list_all = scenicspot.getList_st_year(list_all);
+				}
+				
+				//console.log(list_all)
+				that.initFenYe();
+				//console.log(that.list)
+				that.list_all = list_all;
+				that.loadData();
+			},
+			scrolltolowerFun(){
+				let that = this;
+				that.page ++;
+				that.loadData('more');
+			},
+			initFenYe(){
+				let that = this;
+				that.sum_Yun = 0;
+				that.page =  1;
+				that.pageSize =  10;
+				that.isHaveNextPage =  true; //记录是否还有下一页
+				that.loadingType =  'more'; //加载更多状态
+				that.list = [];
+			},
+			//请求数据
+			async loadData(type = 'load') {
+				let that = this;
+				if (type === 'more') {
+					if (that.loadingType === 'nomore') {
+						
+						return; //没有更多直接返回
+					}
+					that.loadingType = 'loading';
+				} else {
+					that.loadingType = 'more'
+				}
+				that.getlist(type);
+			},
+			// //前端分页
+			async getlist(type = 'load') {
+				let that = this;
+				let list = [];
+				
+				that.sum_Yun = that.list_all.length;
+				
+				//防止第一页就没有填满数据
+				let shao = true ;
+				let gou = true ;
+				while ((shao)&&(gou))
+				{
+					//console.log('shao  ------'+shao+'gou  ------'+gou)
+					
+					list = await that.getlist_FenYe(that.list_all);
+					shao = list.scenicspotList.length < that.pageSize ? true :false ;
+					
+					
+					that.isHaveNextPage = that.isHaveNextPageFun(that.sum_Yun);
+								
+					list = that.list.concat(list); //concat用于连接两个或多个数组
+								
+					that.loadingType = (!that.isHaveNextPage) ? 'nomore' : 'more';
+					//console.log(list)
+					that.list = list;
+					
+					
+					gou = that.page < that.sum_Yun? true :false ;
+					if(shao){
+						that.page ++ ;
+					}
+					//console.log('shao  ------'+shao+'gou  ------'+gou)
+				}
+				
+				
+				
+			
+				
+			},
+			getlist_FenYe(list_all) {
+				let that = this;
+				let list = [];
+				let lastpage = that.page;
+				let pageSize = that.pageSize;
+				// let lastCount = (lastpage - 1) * pageSize;
+				// console.log('lastCount' + lastCount);
+				//list = list_all.slice(lastCount, lastCount + pageSize);
+				list = list_all[that.page - 1] ;
+				return list;
+			},
+			isHaveNextPageFun(sum) {
+				let that = this;
+				let isHaveNext = false;
+				// let lastpage = that.page;
+				// let page = lastpage;
+				// let pageSize = that.pageSize;
+			
+				// if (sum % pageSize == 0) {
+				// 	page = parseInt(sum / pageSize)
+				// } else {
+				// 	page = parseInt(sum / pageSize) + 1;
+				// }
+				
+				//console.log('page ' + page + ' lastpage ' + lastpage)
+				// if (page > lastpage) {
+				// 	isHaveNext = true;
+				// }
+				if(that.page<sum){
+					isHaveNext = true;
+				}
+				return isHaveNext;
+			},
+			
+
 			toAddress(item) {
 				let that = this;
 				let latitude = item.address.latitude;
@@ -82,4 +384,7 @@
 		background-color: $uni-color-white;
 	}
 
+	.scrollBox {
+		padding-top: 90upx;
+	}
 </style>

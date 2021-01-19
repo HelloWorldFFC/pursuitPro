@@ -14,14 +14,14 @@ const delta = (lat, lon) => {
 	// ee = (a^2 - b^2) / a^2;
 	var a = 6378245.0; //  a: 卫星椭球坐标投影到平面地图坐标系的投影因子。
 	var ee = 0.00669342162296594323; //  ee: 椭球的偏心率。
-	var dLat =  transformLat(lon - 105.0, lat - 35.0);
-	var dLon =  transformLon(lon - 105.0, lat - 35.0);
-	var radLat = lat / 180.0 *  PI;
+	var dLat = transformLat(lon - 105.0, lat - 35.0);
+	var dLon = transformLon(lon - 105.0, lat - 35.0);
+	var radLat = lat / 180.0 * PI;
 	var magic = Math.sin(radLat);
 	magic = 1 - ee * magic * magic;
 	var sqrtMagic = Math.sqrt(magic);
-	dLat = (dLat * 180.0) / ((a * (1 - ee)) / (magic * sqrtMagic) *  PI);
-	dLon = (dLon * 180.0) / (a / sqrtMagic * Math.cos(radLat) *  PI);
+	dLat = (dLat * 180.0) / ((a * (1 - ee)) / (magic * sqrtMagic) * PI);
+	dLon = (dLon * 180.0) / (a / sqrtMagic * Math.cos(radLat) * PI);
 	return {
 		'lat': dLat,
 		'lon': dLon
@@ -30,13 +30,13 @@ const delta = (lat, lon) => {
 
 //WGS-84 to GCJ-02
 const gcj_encrypt = (wgsLat, wgsLon) => {
-	if ( outOfChina(wgsLat, wgsLon))
+	if (outOfChina(wgsLat, wgsLon))
 		return {
 			'lat': wgsLat,
 			'lon': wgsLon
 		};
 
-	var d =  delta(wgsLat, wgsLon);
+	var d = delta(wgsLat, wgsLon);
 	return {
 		'lat': wgsLat + d.lat,
 		'lon': wgsLon + d.lon
@@ -45,13 +45,13 @@ const gcj_encrypt = (wgsLat, wgsLon) => {
 
 //GCJ-02 to WGS-84
 const gcj_decrypt_To_wgs = (gcjLat, gcjLon) => {
-	if ( outOfChina(gcjLat, gcjLon))
+	if (outOfChina(gcjLat, gcjLon))
 		return {
 			'lat': gcjLat,
 			'lon': gcjLon
 		};
 
-	var d =  delta(gcjLat, gcjLon);
+	var d = delta(gcjLat, gcjLon);
 	return {
 		'lat': gcjLat - d.lat,
 		'lon': gcjLon - d.lon
@@ -72,7 +72,7 @@ const gcj_decrypt_exact = (gcjLat, gcjLon) => {
 	while (1) {
 		wgsLat = (mLat + pLat) / 2;
 		wgsLon = (mLon + pLon) / 2;
-		var tmp =  gcj_encrypt(wgsLat, wgsLon)
+		var tmp = gcj_encrypt(wgsLat, wgsLon)
 		dLat = tmp.lat - gcjLat;
 		dLon = tmp.lon - gcjLon;
 		if ((Math.abs(dLat) < threshold) && (Math.abs(dLon) < threshold))
@@ -98,12 +98,15 @@ const bd_encrypt = (gcjLat, gcjLon) => {
 		y = gcjLat;
 	var z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * x_pi);
 	var theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * x_pi);
-	bdLon = z * Math.cos(theta) + 0.0065;
-	bdLat = z * Math.sin(theta) + 0.006;
+	let bdLon = z * Math.cos(theta) + 0.0065;
+	let bdLat = z * Math.sin(theta) + 0.006;
 	return {
 		'lat': bdLat,
 		'lon': bdLon
 	};
+}
+const gcj_encrypt_To_bd = (gcjLat, gcjLon) => {
+	return bd_encrypt(gcjLat, gcjLon);
 }
 //BD-09 to GCJ-02
 const bd_decrypt_To_gcj = (bdLat, bdLon) => {
@@ -118,11 +121,12 @@ const bd_decrypt_To_gcj = (bdLat, bdLon) => {
 		'lon': gcjLon
 	};
 }
+
 //WGS-84 to Web mercator
 //mercatorLat -> y mercatorLon -> x
 const mercator_encrypt = (wgsLat, wgsLon) => {
 	var x = wgsLon * 20037508.34 / 180.;
-	var y = Math.log(Math.tan((90. + wgsLat) *  PI / 360.)) / ( PI / 180.);
+	var y = Math.log(Math.tan((90. + wgsLat) * PI / 360.)) / (PI / 180.);
 	y = y * 20037508.34 / 180.;
 	return {
 		'lat': y,
@@ -142,7 +146,7 @@ const mercator_encrypt = (wgsLat, wgsLon) => {
 const mercator_decrypt = (mercatorLat, mercatorLon) => {
 	var x = mercatorLon / 20037508.34 * 180.;
 	var y = mercatorLat / 20037508.34 * 180.;
-	y = 180 /  PI * (2 * Math.atan(Math.exp(y *  PI / 180.)) -  PI / 2);
+	y = 180 / PI * (2 * Math.atan(Math.exp(y * PI / 180.)) - PI / 2);
 	return {
 		'lat': y,
 		'lon': x
@@ -161,8 +165,8 @@ const mercator_decrypt = (mercatorLat, mercatorLon) => {
 // two point's distance
 const distance = (latA, lonA, latB, lonB) => {
 	var earthR = 6371000.;
-	var x = Math.cos(latA *  PI / 180.) * Math.cos(latB *  PI / 180.) * Math.cos((lonA - lonB) *  PI / 180);
-	var y = Math.sin(latA *  PI / 180.) * Math.sin(latB *  PI / 180.);
+	var x = Math.cos(latA * PI / 180.) * Math.cos(latB * PI / 180.) * Math.cos((lonA - lonB) * PI / 180);
+	var y = Math.sin(latA * PI / 180.) * Math.sin(latB * PI / 180.);
 	var s = x + y;
 	if (s > 1) s = 1;
 	if (s < -1) s = -1;
@@ -179,21 +183,48 @@ const outOfChina = (lat, lon) => {
 }
 const transformLat = (x, y) => {
 	var ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * Math.sqrt(Math.abs(x));
-	ret += (20.0 * Math.sin(6.0 * x *  PI) + 20.0 * Math.sin(2.0 * x *  PI)) * 2.0 / 3.0;
-	ret += (20.0 * Math.sin(y *  PI) + 40.0 * Math.sin(y / 3.0 *  PI)) * 2.0 / 3.0;
-	ret += (160.0 * Math.sin(y / 12.0 *  PI) + 320 * Math.sin(y *  PI / 30.0)) * 2.0 / 3.0;
+	ret += (20.0 * Math.sin(6.0 * x * PI) + 20.0 * Math.sin(2.0 * x * PI)) * 2.0 / 3.0;
+	ret += (20.0 * Math.sin(y * PI) + 40.0 * Math.sin(y / 3.0 * PI)) * 2.0 / 3.0;
+	ret += (160.0 * Math.sin(y / 12.0 * PI) + 320 * Math.sin(y * PI / 30.0)) * 2.0 / 3.0;
 	return ret;
 }
 const transformLon = (x, y) => {
 	var ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * Math.sqrt(Math.abs(x));
-	ret += (20.0 * Math.sin(6.0 * x *  PI) + 20.0 * Math.sin(2.0 * x *  PI)) * 2.0 / 3.0;
-	ret += (20.0 * Math.sin(x *  PI) + 40.0 * Math.sin(x / 3.0 *  PI)) * 2.0 / 3.0;
-	ret += (150.0 * Math.sin(x / 12.0 *  PI) + 300.0 * Math.sin(x / 30.0 *  PI)) * 2.0 / 3.0;
+	ret += (20.0 * Math.sin(6.0 * x * PI) + 20.0 * Math.sin(2.0 * x * PI)) * 2.0 / 3.0;
+	ret += (20.0 * Math.sin(x * PI) + 40.0 * Math.sin(x / 3.0 * PI)) * 2.0 / 3.0;
+	ret += (150.0 * Math.sin(x / 12.0 * PI) + 300.0 * Math.sin(x / 30.0 * PI)) * 2.0 / 3.0;
 	return ret;
 }
 
+const getRad = (d) => {
+	var PI = Math.PI;
+	return d * PI / 180.0;
+}
+/**
+ * 获取两个经纬度之间的距离
+ * @param lat1 第一点的纬度
+ * @param lng1 第一点的经度
+ * @param lat2 第二点的纬度
+ * @param lng2 第二点的经度
+ * @returns {Number}
+ */
+const getDistance = (lat1, lng1, lat2, lng2) => {
+	var radLat1 = getRad(lat1);
+	var radLat2 = getRad(lat2);
+	var a = radLat1 - radLat2;
+	var b = getRad(lng1) - getRad(lng2);
+	var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(
+		b / 2), 2)));
+	s = s * 6378.137;
+	// EARTH_RADIUS;
+	s = Math.round(s * 10000) / 10000;
+	return s ;
+}
 
 module.exports = {
-	bd_decrypt_To_gcj : bd_decrypt_To_gcj ,
-	gcj_decrypt_To_wgs : gcj_decrypt_To_wgs ,
+	bd_decrypt_To_gcj: bd_decrypt_To_gcj,
+	gcj_decrypt_To_wgs: gcj_decrypt_To_wgs,
+
+	gcj_encrypt_To_bd,
+	getDistance,
 }

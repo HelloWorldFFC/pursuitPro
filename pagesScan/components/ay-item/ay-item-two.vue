@@ -1,10 +1,15 @@
 <template>
 	<view>
 		<view class="contentBox" v-for="(item, index) in list" :key="index">
-			<view class="province">{{item.province}}</view>
+			<view class="cf-hengCenter oneBox">
+				<view class="province">{{item.province}}</view>
+				<view class="sumNum">({{item.scenicspotList.length}}个)</view>
+			</view>
+			
 			<view class="infoBox" v-for="(item2, index2) in item.scenicspotList" :key="index2">
 				<view @tap="toAddress(item2)">
 					<view class="iconfont icon-daohangdizhi"></view>
+					<view class="distance">{{item2.distance}}</view>
 				</view>
 				<view class="rightBox">
 					<view class="titleBox" @tap="toAddress(item2)">
@@ -12,7 +17,8 @@
 							<view class="title">{{item2.title}}</view>
 							
 						</view>
-						<view class="subtitle" >{{'---'+item2.city + item2.area+'('+item2.subtitle+')'}}</view>
+						<view class="area" >{{item2.city + item2.area}}</view>
+						<view class="subtitle" >{{'---'+item2.subtitle}}</view>
 					</view>
 					<view>
 		
@@ -69,16 +75,26 @@
 	.contentBox {
 			width: 100%;
 		}
-	
+	.oneBox{
+		text-align: center;
+		padding: 20upx;
+		border-radius: 100upx;
+		box-shadow:2px 2px 5px #999;
+		border-bottom: $uni-color-base solid 4upx;
+		background: $uni-color-white;
 		.province {
-			text-align: center;
-			padding: 20upx;
+			
 			font-size: $font-lgg;
 			// margin-bottom: 4upx;
-			border-bottom: $uni-color-base solid 4upx;
-			background: $uni-color-white;
+			
 		}
-	
+		.sumNum{
+			padding-top: 6upx;
+			padding-left: 20upx;
+			font-size: $font-lg;
+		}
+	}
+		
 		.infoBox {
 			padding-top: 10upx;
 			border-bottom: $uni-color-base solid 2upx;
@@ -91,7 +107,15 @@
 			background: $uni-color-white;
 			padding-bottom: 20rpx;
 			position: relative;
-	
+			
+			.distance{
+				font-size: $font-smm;
+				color: $uni-color-dan;
+					
+				padding-top: 10upx;
+				padding-left: 10upx;
+			}
+			
 			.rightBox {
 				width: 100%;
 				display: flex;
@@ -112,7 +136,13 @@
 					.title {
 						font-size: $font-lg;
 					}
-	
+					
+					.area{
+						font-size: $font-sm;
+						color: $uni-color-dan;
+							
+						padding-top: 10upx;
+					}
 					
 	
 					.subtitle {

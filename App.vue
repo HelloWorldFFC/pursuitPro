@@ -15,6 +15,13 @@
 			emmeniaCancel : '',//记录提醒的取消操作
 			validTermList : [],
 			timingReminder :'',
+			latlgitude: {
+				// longitude: 113.9261566840278,
+				// latitude: 22.54893717447917,
+				//不是当前位置，容易看出授权后的效果
+				latitude: 22.5427624046,
+				longitude: 114.0579724734,
+			},
 		},
 		onLaunch: function() {
 			console.log('App Launch')
