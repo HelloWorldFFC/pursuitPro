@@ -17,10 +17,10 @@
 			timingReminder :'',
 			latlgitude: {
 				//不是当前位置，容易看出授权后的效果
-				// latitude: 22.5427624046,
-				// longitude: 114.0579724734,
-				latitude: 39.806466,
-				longitude: 98.226473,
+				latitude: 22.5427624046,
+				longitude: 114.0579724734,
+				// latitude: 39.806466,
+				// longitude: 98.226473,
 			},
 		},
 		onLaunch: function() {

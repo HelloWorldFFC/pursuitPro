@@ -207,7 +207,9 @@
 			// #ifndef MP-WEIXIN
 			that.loadData_init()
 			// #endif
-
+			// #ifdef MP-WEIXIN
+			this.getLocation_wx();
+			// #endif
 		},
 		onReady: function() {
 			let that = this;
@@ -217,9 +219,7 @@
 		},
 		onShow() {
 			let that = this;
-			// #ifdef MP-WEIXIN
-			this.getLocation_wx();
-			// #endif
+			
 		},
 		// #ifdef MP-WEIXIN
 		//微信小程序的分享

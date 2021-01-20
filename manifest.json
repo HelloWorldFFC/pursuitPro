@@ -67,10 +67,11 @@
         },
         "usingComponents" : true,
         // "navigateToMiniProgramAppIdList": [""],
-        "permission" : {},
-        // "scope.userLocation": {
-        // 	"desc": "你的位置信息将用于家人为您守护"
-        // }
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "您的位置信息将用于为您展示附近景点"
+            }
+        },
         "optimization" : {
             "subPackages" : true
         },
