@@ -1,5 +1,6 @@
 <template>
-	<view :class="isAndroid?'uni-load-more':'uni-load-more1'">
+	<!-- :class="isAndroid?'uni-load-more':'uni-load-more1'" -->
+	<view class="uni-load-more">
 		<view class="uni-load-more__img" v-show="status === 'loading' && showIcon">
 			<view class="load1">
 				<view :style="{background:color}"></view>
@@ -54,7 +55,7 @@
 		},
 		data() {
 			return {
-				isAndroid: this.isAndroid,
+				
 			}
 		}
 	}
@@ -72,14 +73,14 @@
 		
 	}
 	
-	.uni-load-more1 {
+	/* .uni-load-more1 {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
 		height: 200upx;
 		padding-bottom: 100upx;
-	}
+	} */
 
 	.uni-load-more__text {
 		font-size: 28upx;

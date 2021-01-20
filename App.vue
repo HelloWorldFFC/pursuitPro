@@ -16,11 +16,11 @@
 			validTermList : [],
 			timingReminder :'',
 			latlgitude: {
-				// longitude: 113.9261566840278,
-				// latitude: 22.54893717447917,
 				//不是当前位置，容易看出授权后的效果
-				latitude: 22.5427624046,
-				longitude: 114.0579724734,
+				// latitude: 22.5427624046,
+				// longitude: 114.0579724734,
+				latitude: 39.806466,
+				longitude: 98.226473,
 			},
 		},
 		onLaunch: function() {

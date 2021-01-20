@@ -221,3 +221,20 @@ page,
 .cf-p-m{
 	padding: 20upx 16upx;
 }
+.cf-btmC-fixed-box{
+	position: fixed;
+	bottom: 0upx;
+	left: 0;
+	width: 100%;
+}
+.cf-btmC-fixed{
+	width: 100%;
+	text-align: center;
+	margin-bottom: 30upx;
+	margin-top: 30upx;
+}
+.cf-origin-m {
+	text-decoration: underline;
+	color: #0081FF;
+	font-size: 20upx;
+}

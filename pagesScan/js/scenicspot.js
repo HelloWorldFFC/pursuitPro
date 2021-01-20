@@ -30,7 +30,7 @@ const getList = (list_data, lat_local, lng_local) => {
 				area: item2.area,
 				grade: item2.grade,
 				address: {
-					name: item2.address.name,
+					name: item2.title,
 					longitude: item2.address.longitude,
 					latitude: item2.address.latitude,
 					address: item2.address.address,
@@ -110,7 +110,7 @@ const getList_fr_year = (list, year) => {
 	let start = yearArr[0] ;
 	let end = yearArr[1] || '';
 	console.log(year)
-	let scenicspotList = 
+	console.log(' start ' + start + ' end ' + end);
 	list.forEach(item => {
 		item.scenicspotList = item.scenicspotList.filter(item2 => item2.yearNum >= start)
 		if(end.length>0){

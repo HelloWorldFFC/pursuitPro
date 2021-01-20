@@ -9,13 +9,17 @@
 		<!-- #ifdef MP-WEIXIN -->
 		<kefu></kefu>
 		<!-- #endif -->
-		<scroll-view scroll-y class="cf-scrollBox scrollBox" :lower-threshold="800" @scrolltolower="scrolltolowerFun">
+		<scroll-view scroll-y class="cf-scrollBox scrollBox" :scroll-top="scrollTop" :lower-threshold="800" @scrolltolower="scrolltolowerFun">
 			<!-- <ayitemone :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemone> -->
 			<ayitemtwo :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemtwo>
 			<uniloadmore v-if="list.length>0" :status="loadingType"></uniloadmore>
-			<!-- <view class="cf-bottomCenter" v-if="list.length>0">已经到底啦~</view> -->
-			<view class="cf-bottomCenter cf-colorHui" v-if="list.length>0">如有错误请联系客服</view>
+			<view v-if="list.length>0" class="cf-bottomCenter cf-origin-m" >信息来源于：中华人民共和国文化和旅游部（截止2021年）</view>
+			
 		</scroll-view>
+		<view class="cf-btmC-fixed-box">
+			<view class="cf-btmC-fixed cf-colorHui" v-if="list.length>0">如有错误请联系客服</view>
+		</view>
+		
 	</view>
 </template>
 
@@ -38,13 +42,15 @@
 		},
 		data() {
 			return {
+				//切换选项
+				scrollTop : 0 ,
 				//分页相关
 				sum_Yun: 0,
 				page: 1,
 				pageSize: 10,
 				isHaveNextPage: true, //记录是否还有下一页
 				loadingType: 'more', //加载更多状态
-				
+
 				//筛选相关
 				themeColor: '#33CCCC',
 				filterData: [
@@ -160,16 +166,16 @@
 							value: ''
 						},
 						{
-							text: '2007年-2011年',
-							value: '2007-2011'
+							text: '2007年-2010年',
+							value: '2007-2010'
 						},
 						{
-							text: '2012年-2016年',
-							value: '2012-2016'
+							text: '2011年-2014年',
+							value: '2011-2014'
 						},
 						{
-							text: '2017年-2020年',
-							value: '2017-2020'
+							text: '2015年-2019年',
+							value: '2015-2019'
 						},
 						{
 							text: '2020年-至今',
@@ -185,27 +191,35 @@
 						value: '1'
 					}]
 				],
-				defaultIndex: [0, 0,0],
+				defaultIndex: [0, 0, 0],
 				composeList: [{
 					name: '省份',
 					isHen: true,
 				}],
 				list: [],
 				list_all: [],
-				list_all_yu: [],
+
 			}
 		},
 		async onLoad() {
 			let that = this;
 			//let list = jsondata.scenicspotList;
-			let list = scenicspot.get_list_now(jsondata.scenicspotList_5A.data);
-			//that.list = list;
-			that.list_all = list ;
-			that.list_all_yu = list ;
-			that.loadData();
+			// #ifndef MP-WEIXIN
+			that.loadData_init()
+			// #endif
+
+		},
+		onReady: function() {
+			let that = this;
+
+
+
 		},
 		onShow() {
-
+			let that = this;
+			// #ifdef MP-WEIXIN
+			this.getLocation_wx();
+			// #endif
 		},
 		// #ifdef MP-WEIXIN
 		//微信小程序的分享
@@ -214,57 +228,79 @@
 		},
 		// #endif
 		methods: {
+			loadData_init() {
+				let that = this;
+				that.initFenYe();
+				
+				uni.showLoading({
+					title: '加载中',
+					mask: true,
+				})
+				
+				let list = scenicspot.get_list_now(jsondata.scenicspotList_5A.data);
+				that.list_all = list;
+				that.loadData();
+			},
 			onSelected(res) {
-				//[[{"text":"<1折","value":"0.9","select":true}],[{"text":"距离优先","value":"距离优先","select":true}]]
-				 console.log('res  ' + JSON.stringify(res))
+				//console.log('res  ' + JSON.stringify(res))
 				// console.log('res  ' + JSON.stringify(res[0]))
 				// console.log('res  ' + JSON.stringify(res[0][0].value))
 				let that = this;
 				let one = res[0][0].value;
 				let two = res[1][0].value;
 				let thr = res[2][0].value;
-				console.log(' one ' + one + ' two ' + two+ ' thr ' + thr);
+				//console.log(' one ' + one + ' two ' + two + ' thr ' + thr);
 				
-				let list_all = that.list_all_yu;
+				uni.showLoading({
+					title: '加载中',
+					mask: true,
+				})
 				
-				if(one.length>0){
-					list_all = scenicspot.getList_fr_pvie(list_all,res[0][0].text)
+				var list_all = scenicspot.get_list_now(jsondata.scenicspotList_5A.data);
+				console.log(list_all)
+				if (one.length > 0) {
+					list_all = scenicspot.getList_fr_pvie(list_all, res[0][0].text)
 				}
-				if(two.length>0){
-					list_all = scenicspot.getList_fr_year(list_all,two)
-				}else{
-					
+				if (two.length > 0) {
+					list_all = scenicspot.getList_fr_year(list_all, two)
+				} else {
+
 				}
-				if(thr==1){
+				if (thr == 1) {
 					list_all = scenicspot.getList_st_year(list_all);
 				}
-				
-				//console.log(list_all)
+
+				console.log(list_all)
 				that.initFenYe();
 				//console.log(that.list)
 				that.list_all = list_all;
 				that.loadData();
 			},
-			scrolltolowerFun(){
+			scrolltolowerFun() {
 				let that = this;
-				that.page ++;
+				that.page++;
 				that.loadData('more');
 			},
-			initFenYe(){
+			initFenYe() {
 				let that = this;
 				that.sum_Yun = 0;
-				that.page =  1;
-				that.pageSize =  10;
-				that.isHaveNextPage =  true; //记录是否还有下一页
-				that.loadingType =  'more'; //加载更多状态
+				that.page = 1;
+				that.pageSize = 10;
+				that.isHaveNextPage = true; //记录是否还有下一页
+				that.loadingType = 'more'; //加载更多状态
 				that.list = [];
+				
+				that.scrollTop = 0.01;
+				that.$nextTick(function() {
+					that.scrollTop = 0;
+				})
 			},
 			//请求数据
 			async loadData(type = 'load') {
 				let that = this;
 				if (type === 'more') {
 					if (that.loadingType === 'nomore') {
-						
+
 						return; //没有更多直接返回
 					}
 					that.loadingType = 'loading';
@@ -277,40 +313,36 @@
 			async getlist(type = 'load') {
 				let that = this;
 				let list = [];
-				
+
 				that.sum_Yun = that.list_all.length;
-				
+
 				//防止第一页就没有填满数据
-				let shao = true ;
-				let gou = true ;
-				while ((shao)&&(gou))
-				{
+				let shao = true;
+				let gou = true;
+				while ((shao) && (gou)) {
 					//console.log('shao  ------'+shao+'gou  ------'+gou)
-					
+
 					list = await that.getlist_FenYe(that.list_all);
-					shao = list.scenicspotList.length < that.pageSize ? true :false ;
-					
-					
+					shao = list.scenicspotList.length < that.pageSize ? true : false;
+
+
 					that.isHaveNextPage = that.isHaveNextPageFun(that.sum_Yun);
-								
+
 					list = that.list.concat(list); //concat用于连接两个或多个数组
-								
+
 					that.loadingType = (!that.isHaveNextPage) ? 'nomore' : 'more';
 					//console.log(list)
 					that.list = list;
-					
-					
-					gou = that.page < that.sum_Yun? true :false ;
-					if(shao){
-						that.page ++ ;
+
+
+					gou = that.page < that.sum_Yun ? true : false;
+					if (shao) {
+						that.page++;
 					}
 					//console.log('shao  ------'+shao+'gou  ------'+gou)
 				}
-				
-				
-				
-			
-				
+
+				uni.hideLoading();
 			},
 			getlist_FenYe(list_all) {
 				let that = this;
@@ -320,7 +352,7 @@
 				// let lastCount = (lastpage - 1) * pageSize;
 				// console.log('lastCount' + lastCount);
 				//list = list_all.slice(lastCount, lastCount + pageSize);
-				list = list_all[that.page - 1] ;
+				list = list_all[that.page - 1];
 				return list;
 			},
 			isHaveNextPageFun(sum) {
@@ -329,23 +361,22 @@
 				// let lastpage = that.page;
 				// let page = lastpage;
 				// let pageSize = that.pageSize;
-			
+
 				// if (sum % pageSize == 0) {
 				// 	page = parseInt(sum / pageSize)
 				// } else {
 				// 	page = parseInt(sum / pageSize) + 1;
 				// }
-				
+
 				//console.log('page ' + page + ' lastpage ' + lastpage)
 				// if (page > lastpage) {
 				// 	isHaveNext = true;
 				// }
-				if(that.page<sum){
+				if (that.page < sum) {
 					isHaveNext = true;
 				}
 				return isHaveNext;
 			},
-			
 
 			toAddress(item) {
 				let that = this;
@@ -371,6 +402,102 @@
 					phoneNumber: item.phone
 				});
 			},
+			//#ifdef MP-WEIXIN
+			//1. uniapp弹窗弹出获取授权（地理，个人微信信息等授权信息）弹窗
+			getAuthorizeInfo_wx(a = "scope.userLocation") {
+				var that = this;
+				uni.authorize({
+					scope: a,
+					success() { //1.1 允许授权
+						that.getLocationInfo_wx();
+					},
+					fail() { //1.2 拒绝授权
+						//没有获取当前位置，就取默认的位置
+						that.loadData_init();
+
+						console.log("你拒绝了授权，无法获得周边信息")
+						uni.showModal({
+							title: '您未授权位置功能',
+							content: '暂时不能实时更新数据',
+							confirmText: '去设置',
+							success: res => {
+								if (res.confirm) {
+									//打开设置页面
+									uni.openSetting({
+										success: res => {
+											if (res.authSetting[a]) {
+
+											}
+										}
+									});
+								}
+							}
+						});
+					}
+				})
+			},
+			getLocationInfo_wx() { //2. 获取地理位置
+				var that = this;
+				console.log('getLocationInfo_wx：');
+				uni.getLocation({
+					type: 'gcj02',
+					success: function(res) {
+						let longitude = res.longitude;
+						let latitude = res.latitude;
+						console.log('当前位置的经度：' + res.longitude);
+						console.log('当前位置的纬度：' + res.latitude);
+						getApp().globalData.latlgitude = {
+							latitude: latitude,
+							longitude: longitude,
+						};
+						that.loadData_init();
+
+					},
+					fail: function(err) {
+
+					}
+				});
+				// var _this = this;
+				// uni.getLocation({
+				// 	type: 'wgs84',
+				// 	success(res) {
+				// 		console.log("你当前经纬度是：")
+				// 		console.log(res)
+				// 		let latitude, longitude;
+				// 		latitude = res.latitude.toString();
+				// 		longitude = res.longitude.toString();
+				// 		uni.request({
+				// 			header: {
+				// 				"Content-Type": "application/text"
+				// 			},
+				// 			url: 'http://apis.map.qq.com/ws/geocoder/v1/?location=' + latitude + ',' + longitude +
+				// 				'&key=MVGBZ-R2U3U-W5CVY-2PQID-AT4VZ-PDF35',
+				// 			success(re) {
+				// 				console.log("中文位置")
+				// 				console.log(re)
+				// 				if (re.statusCode === 200) {
+				// 					console.log("获取中文街道地理位置成功")
+				// 				} else {
+				// 					console.log("获取信息失败，请重试！")
+				// 				}
+				// 			}
+				// 		});
+				// 	}
+				// });
+			},
+			getLocation_wx(a = "scope.userLocation") { // 3. 检查当前是否已经授权访问scope属性，参考下截图
+				var that = this;
+				uni.getSetting({
+					success(res) {
+						if (!res.authSetting[a]) { //3.1 每次进入程序判断当前是否获得授权，如果没有就去获得授权，如果获得授权，就直接获取当前地理位置
+							that.getAuthorizeInfo_wx()
+						} else {
+							that.getLocationInfo_wx()
+						}
+					}
+				});
+			},
+			// #endif
 		}
 
 	}
@@ -386,5 +513,7 @@
 
 	.scrollBox {
 		padding-top: 90upx;
+		padding-bottom: 80upx;
+		
 	}
 </style>

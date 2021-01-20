@@ -115,6 +115,17 @@
 				padding-top: 10upx;
 				padding-left: 10upx;
 			}
+			/* #ifdef MP-WEIXIN */
+			.distance{
+				font-size: $font-sm;
+				color: $uni-color-dan;
+					
+				padding-top: 10upx;
+				padding-left: 10upx;
+			}
+			
+			/* #endif */
+			
 			
 			.rightBox {
 				width: 100%;
@@ -160,6 +171,13 @@
 						font-size: $font-smm;
 						color: $uni-color-hui;
 					}
+					/* #ifdef MP-WEIXIN */
+					.nophone{
+						font-size: $font-sm;
+						color: $uni-color-hui;
+					}
+					
+					/* #endif */
 					.grade {
 						padding-top: 10upx;
 						color: #FFD700;
