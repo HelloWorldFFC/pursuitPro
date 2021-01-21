@@ -5,37 +5,51 @@
 				<view class="province">{{item.province}}</view>
 				<view class="sumNum">({{item.scenicspotList.length}}个)</view>
 			</view>
-
-			<view class="infoBox" v-for="(item2, index2) in item.scenicspotList" :key="index2">
-				<view @tap="toAddress(item2)">
-					<view class="iconfont icon-daohangdizhi"></view>
-					<view class="distance">{{item2.distance}}</view>
-				</view>
-				<view class="rightBox">
-					<view class="titleBox" @tap="toAddress(item2)">
-						<view class="areaBox">
-							<view class="title">{{item2.title}}</view>
-
+			
+			
+				<view class="infoBox" v-for="(item2, index2) in item.scenicspotList" :key="index2">
+					<view @tap="toAddress(item2)">
+						<view class="iconfont icon-daohangdizhi"></view>
+						<view class="distance">{{item2.distance}}</view>
+					</view>
+					<view class="rightBox">
+						<view class="titleBox" @tap="toAddress(item2)">
+							<view class="areaBox">
+								<view class="title">{{item2.title}}</view>
+				
+							</view>
+							<view class="area">{{item2.city + item2.area}}</view>
+							<view class="subtitle">{{'---'+item2.subtitle}}</view>
 						</view>
-						<view class="area">{{item2.city + item2.area}}</view>
-						<view class="subtitle">{{'---'+item2.subtitle}}</view>
+						<view>
+				
+						</view>
+						<view class="rrightBox">
+							<view v-if="item2.phone.length>0" class="iconfont icon-dianhua" @tap="toPhone(item2)"></view>
+							<view v-else class="nophone">暂无电话</view>
+							<view class="grade">{{item2.grade}}</view>
+							<view class="switchBox">
+								<ayswitch :themeColor="themeColor" :index="index2" :item="item2" :switch="item2.notGoed" @change="switchFun" ></ayswitch>
+							</view>
+							
+						</view>
 					</view>
-					<view>
-
-					</view>
-					<view class="rrightBox">
-						<view v-if="item2.phone.length>0" class="iconfont icon-dianhua" @tap="toPhone(item2)"></view>
-						<view v-else class="nophone">暂无电话</view>
-						<view class="grade">{{item2.grade}}</view>
-					</view>
+					
+					
 				</view>
-			</view>
+				
+			
+			
 		</view>
 	</view>
 </template>
 
 <script>
+	import ayswitch from '../ay-switch/ay-switch.vue'
 	export default {
+		components: {
+			ayswitch
+		},
 		props: {
 			list: {
 				type: Array,
@@ -57,7 +71,37 @@
 		},
 
 		methods: {
-
+			async switchFun(e) {
+				let that = this;
+				let item = e.item;
+				let index = e.index;
+				let isSwitch = item.switch;//false 已挂起 true 开通的
+				
+				let tip = '' ;
+				if(isSwitch){
+					tip = '确认关闭吗？';
+				}else{
+					tip = '确认开启吗？';
+				}
+				uni.showModal({
+					title: '提醒',
+					content:  tip ,
+					success(res) {
+						if (res.confirm) {
+							if(isSwitch){
+								
+							}else{
+								
+							}
+							that.list2[index].switch = !isSwitch;
+							
+						} else if (res.cancel) {
+							
+						}
+					}
+				})
+				this.$emit('switchFun', e);
+			},
 			toAddress(e) {
 
 				this.$emit('toAddress', e);
@@ -98,7 +142,7 @@
 			font-size: $font-lg;
 		}
 	}
-
+	
 	.infoBox {
 		padding-top: 10upx;
 		border-bottom: $uni-color-base solid 2upx;
@@ -171,8 +215,9 @@
 
 
 			.rrightBox {
+				padding-top: 10upx;
 				padding-right: 20upx;
-
+				
 				.nophone {
 					font-size: $font-smm;
 					color: $uni-color-hui;
@@ -190,7 +235,10 @@
 					color: #FFD700;
 					text-align: center;
 				}
-
+				.switchBox{
+					text-align: center; 
+					padding-left: 10upx;
+				}
 				.icon-dianhua {
 					color: $uni-color-phone;
 					font-size: $font-lg;

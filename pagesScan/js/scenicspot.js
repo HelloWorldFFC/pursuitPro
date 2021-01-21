@@ -22,6 +22,7 @@ const getList = (list_data, lat_local, lng_local) => {
 			distance = distance > 1000 ? ((distance / 1000).toFixed(2) + 'kkm') : (distance > 1 ? (distance + 'km') : (
 				distance * 1000) + 'm');
 			scenicspotList.push({
+				notGoed : false ,//默认都没有去过
 				groupId : item2.id.substr(0, 2)||'',
 				id: item2.id,
 				title: item2.title,

@@ -11,7 +11,7 @@
 		<!-- #endif -->
 		<scroll-view scroll-y class="cf-scrollBox scrollBox" :scroll-top="scrollTop" :lower-threshold="800" @scrolltolower="scrolltolowerFun">
 			<!-- <ayitemone :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemone> -->
-			<ayitemtwo :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemtwo>
+			<ayitemtwo @switchFun="switch_goed_Fun" :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemtwo>
 			<uniloadmore v-if="list.length>0" :status="loadingType"></uniloadmore>
 			<view v-if="list.length>0" class="cf-bottomCenter cf-origin-m" >信息来源于：中华人民共和国文化和旅游部（截止2021年）</view>
 			
@@ -228,6 +228,44 @@
 		},
 		// #endif
 		methods: {
+			switch_goed_Fun(e){
+				let that = this;
+				let item = e.item;
+				let index = e.index;
+				let isSwitch = item.notGoed;
+				
+				let tip = '' ;
+				if(isSwitch){
+					tip = '确认计划不去吗？';
+				}else{
+					tip = '确认计划去吗？';
+				}
+				uni.showModal({
+					title: '提醒',
+					content:  tip ,
+					success(res) {
+						if (res.confirm) {
+							
+							let id = item.id ;
+							let index1 = -1;
+							let index2 = -1;
+							that.list.forEach(item1=>{
+								index1 = that.list.indexOf(item1);
+								item1.scenicspotList.forEach(item2=>{
+									if(id == item2.id){
+										index2 = that.list[index1].scenicspotList.indexOf(item2);
+										return true ;
+									}
+								})
+							})
+							that.list[index1].scenicspotList[index2].notGoed = !isSwitch;
+							
+						} else if (res.cancel) {
+							
+						}
+					}
+				})
+			},
 			loadData_init() {
 				let that = this;
 				that.initFenYe();
