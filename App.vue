@@ -15,6 +15,7 @@
 			emmeniaCancel : '',//记录提醒的取消操作
 			validTermList : [],
 			timingReminder :'',
+			s_pl_list : [],//计划去的景点
 			latlgitude: {
 				//不是当前位置，容易看出授权后的效果
 				latitude: 22.5427624046,
@@ -157,6 +158,18 @@
 						let data = res.data;
 						console.log('Show 读到timingReminder缓存')
 						that.globalData.timingReminder = data ;
+					},
+					fail:function(){
+						
+					}
+				});
+				
+				uni.getStorage({
+					key: storage.storageKeyType.s_pl_list,
+					success: function(res) {
+						let data = res.data;
+						console.log('Show 读到s_pl_list缓存')
+						that.globalData.s_pl_list = data ;
 					},
 					fail:function(){
 						

@@ -29,39 +29,39 @@
 
 
 			<view class="paddingHeng-Theme marginBottom-Theme listOne">
-				<subNavTitle :list="shuImgTxtSubNav"></subNavTitle>
+				<subNavTitle :list="shuImgTxtSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<shuImgTxt :list="shuImgTxtList" :themeColor="themeColor" @toDetailPage="toDetailPage"></shuImgTxt>
 			</view>
 
 			<view class="paddingHeng-Theme marginBottom-Theme">
-				<subNavTitle :list="hengTxtImgSubNav"></subNavTitle>
+				<subNavTitle :list="hengTxtImgSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<hengTxtImg :list="hengTxtImgList" :themeColor="themeColor" @toDetailPage="toDetailPage"></hengTxtImg>
 			</view>
 
 			<view class="paddingHeng-Theme marginBottom-Theme">
-				<subNavTitle :list="shuImgTxtSubNav"></subNavTitle>
+				<subNavTitle :list="shuImgTxtSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<shuImgTxt :list="shuImgTxtList" :themeColor="themeColor" @toDetailPage="toDetailPage"></shuImgTxt>
 			</view>
 			<view class="paddingHeng-Theme marginBottom-Theme">
-				<subNavTitle :list="hengImgTxtSubNav"></subNavTitle>
+				<subNavTitle :list="hengImgTxtSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<hengImgTxt :list="hengImgTxtList" :themeColor="themeColor" @toDetailPage="toDetailPage"></hengImgTxt>
 			</view>
 
 			<view class="paddingHeng-Theme marginBottom-Theme">
-				<subNavTitle :list="shuImgTxtSubNav_two"></subNavTitle>
+				<subNavTitle :list="shuImgTxtSubNav_two" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<shuImgTxt :list="shuImgTxtList_two" :themeColor="themeColor" @toDetailPage="toDetailPage"></shuImgTxt>
 			</view>
 			<view class="paddingHeng-Theme marginBottom-Theme">
-				<subNavTitle :list="hengTxtImgTSubNav"></subNavTitle>
+				<subNavTitle :list="hengTxtImgTSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<hengTxtImgT :list="hengTxtImgTList" :themeColor="themeColor" @toDetailPage="toDetailPage"></hengTxtImgT>
 			</view>
 
 			<view class="paddingHeng-Theme marginBottom-Theme">
-				<subNavTitle :list="shuImgTxtSubNav_three"></subNavTitle>
+				<subNavTitle :list="shuImgTxtSubNav_three" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<shuImgTxt :list="shuImgTxtList_three" :themeColor="themeColor" @toDetailPage="toDetailPage"></shuImgTxt>
 			</view>
 			<view class="paddingHeng-Theme marginBottom-Theme">
-				<subNavTitle :list="hengImgTxtTSubNav"></subNavTitle>
+				<subNavTitle :list="hengImgTxtTSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<hengImgTxtT :list="hengImgTxtTList" :themeColor="themeColor" @toDetailPage="toDetailPage"></hengImgTxtT>
 			</view>
 			<underscore></underscore>
@@ -233,6 +233,22 @@
 						console.log('开启后台定位失败', res)
 					}
 				})
+			},
+			toDetailPage_subT(index_p){
+				let that = this;
+				let page = '';
+				switch (index_p) {
+					case 1:
+						page = `/pagesScan/scenicspot/scenicspot_5A`;
+						break;
+					default:
+						break;
+				}
+				if (page !== '') {
+					uni.navigateTo({
+						url: page
+					})
+				}
 			},
 			toDetailPage(e) {
 				//console.log('22222222222'+ JSON.stringify(e))

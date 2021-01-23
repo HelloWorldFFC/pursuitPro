@@ -24,6 +24,7 @@
 </template>
 
 <script>
+	import storage from '../store/storage.js'
 	import uniloadmore from '../components/uni-load-more/uni-load-more.vue'
 	import dropdownFilter from '../components/ay-dropdown-filter/ay-dropdown-filter.vue'
 	import scenicspot from '../js/scenicspot.js'
@@ -232,13 +233,19 @@
 				let that = this;
 				let item = e.item;
 				let index = e.index;
-				let isSwitch = item.notGoed;
+				let isSwitch = item.notPlaned;
 				
 				let tip = '' ;
 				if(isSwitch){
 					tip = '确认计划不去吗？';
 				}else{
 					tip = '确认计划去吗？';
+					let s_pl_list = storage.get_s_pl_list() ;
+					let s_pl_maxnum = storage.def_Data.s_pl_maxnum ;
+					if(s_pl_list.length >= s_pl_maxnum){
+						that.$api.msg_modal('最多只有' + s_pl_maxnum + '个计划，请确认其他！！');
+						return ;
+					}
 				}
 				uni.showModal({
 					title: '提醒',
@@ -248,17 +255,24 @@
 							
 							let id = item.id ;
 							let index1 = -1;
-							let index2 = -1;
+							
 							that.list.forEach(item1=>{
-								index1 = that.list.indexOf(item1);
 								item1.scenicspotList.forEach(item2=>{
 									if(id == item2.id){
-										index2 = that.list[index1].scenicspotList.indexOf(item2);
+										index1 = that.list.indexOf(item1);
 										return true ;
 									}
 								})
 							})
-							that.list[index1].scenicspotList[index2].notGoed = !isSwitch;
+							let nowPlan = !isSwitch ;
+							that.list[index1].scenicspotList[index].notPlaned = nowPlan;
+							
+							let type = 1 ;
+							if(isSwitch){
+								type = 2 ;
+							}
+							
+							storage.set_s_pl_list(id,type);
 							
 						} else if (res.cancel) {
 							

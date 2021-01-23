@@ -29,7 +29,7 @@
 							<view v-else class="nophone">暂无电话</view>
 							<view class="grade">{{item2.grade}}</view>
 							<view class="switchBox">
-								<ayswitch :themeColor="themeColor" :index="index2" :item="item2" :switch="item2.notGoed" @change="switchFun" ></ayswitch>
+								<ayswitch :themeColor="themeColor" :index="index2" :item="item2" :isSwitch="item2.notPlaned" @change="switchFun" ></ayswitch>
 							</view>
 							
 						</view>
@@ -72,34 +72,7 @@
 
 		methods: {
 			async switchFun(e) {
-				let that = this;
-				let item = e.item;
-				let index = e.index;
-				let isSwitch = item.switch;//false 已挂起 true 开通的
 				
-				let tip = '' ;
-				if(isSwitch){
-					tip = '确认关闭吗？';
-				}else{
-					tip = '确认开启吗？';
-				}
-				uni.showModal({
-					title: '提醒',
-					content:  tip ,
-					success(res) {
-						if (res.confirm) {
-							if(isSwitch){
-								
-							}else{
-								
-							}
-							that.list2[index].switch = !isSwitch;
-							
-						} else if (res.cancel) {
-							
-						}
-					}
-				})
 				this.$emit('switchFun', e);
 			},
 			toAddress(e) {

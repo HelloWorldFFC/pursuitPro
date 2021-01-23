@@ -5,6 +5,7 @@ const storageKeyType = {
 	emmeniaUnitCyc : 'emmeniaUnitCyc',
 	validTermList : 'validTermList',
 	timingReminder : 'timingReminder',
+	s_pl_list : 's_pl_list',
 }
 const def_Data = {
     emmeniaCyc : 30,

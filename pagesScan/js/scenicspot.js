@@ -4,6 +4,8 @@ const getList = (list_data, lat_local, lng_local) => {
 
 	//console.log(res)
 	let list = [];
+	
+	let s_pl_list = getApp().globalData.s_pl_list;
 
 	list_data.forEach(item => {
 		let scenicspotList = [];
@@ -21,10 +23,19 @@ const getList = (list_data, lat_local, lng_local) => {
 			//distance = distance > 1 ? (distance + 'km') : (distance * 1000) + 'm';
 			distance = distance > 1000 ? ((distance / 1000).toFixed(2) + 'kkm') : (distance > 1 ? (distance + 'km') : (
 				distance * 1000) + 'm');
+
+			let id = item2.id;
+			let notPlaned = false ;
+			
+			let idIndex = s_pl_list.indexOf(id);
+			if(idIndex !== -1){
+				notPlaned = true ;
+			}
+			
 			scenicspotList.push({
-				notGoed : false ,//默认都没有去过
-				groupId : item2.id.substr(0, 2)||'',
-				id: item2.id,
+				notPlaned: notPlaned, //默认都没有计划去
+				groupId: id.substr(0, 2) || '',
+				id: id,
 				title: item2.title,
 				subtitle: item2.subtitle,
 				city: item2.city,
@@ -52,7 +63,7 @@ const getList = (list_data, lat_local, lng_local) => {
 		})
 
 		let obj = {
-			
+
 			distanceNum: scenicspotList[0].distanceNum,
 			province: item.province,
 			scenicspotList: scenicspotList,
@@ -75,14 +86,14 @@ const getList_st_dis = (list_data) => {
 	let list = [];
 	let scenicspotList = [];
 	list_data.forEach(item => {
-		
+
 		item.scenicspotList.sort(function(a, b) {
 			return a.distanceNum - b.distanceNum;
 		})
-	
+
 		list.push(item);
 	});
-	
+
 	return list || [];
 
 }
@@ -93,7 +104,7 @@ const getList_st_year = (list_data) => {
 	let list = [];
 	let scenicspotList = [];
 	list_data.forEach(item => {
-		
+
 		item.scenicspotList.sort(function(a, b) {
 			return a.yearNum - b.yearNum;
 		})
@@ -108,13 +119,13 @@ const getList_st_year = (list_data) => {
 const getList_fr_year = (list, year) => {
 	//console.log(res)
 	let yearArr = year.split('-');
-	let start = yearArr[0] ;
+	let start = yearArr[0];
 	let end = yearArr[1] || '';
 	console.log(year)
 	console.log(' start ' + start + ' end ' + end);
 	list.forEach(item => {
 		item.scenicspotList = item.scenicspotList.filter(item2 => item2.yearNum >= start)
-		if(end.length>0){
+		if (end.length > 0) {
 			item.scenicspotList = item.scenicspotList.filter(item2 => item2.yearNum <= end)
 		}
 	});
@@ -126,11 +137,11 @@ const getList_fr_year = (list, year) => {
 }
 
 //过滤省份
-const getList_fr_pvie = (list,pvie) => {
+const getList_fr_pvie = (list, pvie) => {
 	//console.log(res)
-	
+
 	list = list.filter(item => item.province == pvie)
-	
+
 	return list || [];
 }
 
@@ -159,5 +170,5 @@ module.exports = {
 	getList_st_year,
 	getList_fr_year,
 	getList_fr_pvie,
-	
+
 }

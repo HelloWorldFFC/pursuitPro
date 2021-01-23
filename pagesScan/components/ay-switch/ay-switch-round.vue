@@ -12,7 +12,7 @@
 	export default {
 		components: {},
 		props: {
-			switch: {
+			isSwitch: {
 				type: Boolean,
 				default: false,
 			},
@@ -52,19 +52,15 @@
 			},
 		},
 		created:function(){
-			let that = this;
-			that.isSwitch = that.switch ;
+			
 		},
 		data() {
 			return {
-				isSwitch:false ,
+				
 			}
 		},
 		watch:{
-			switch(e){
-				let that = this;
-				that.isSwitch = e ;
-			},
+			
 		},
 		methods: {
 			changeFun(e) {
