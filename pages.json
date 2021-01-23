@@ -483,24 +483,44 @@
 					}
 				},
 				{
-						"path": "scenicspot/scenicspot_5A",
-						"style": {
-							// #ifdef H5 || MP-WEIXIN
-							"enablePullDownRefresh": true,
-							// #endif
-							"navigationBarTitleText": "5A级景区导航",
-							// #ifdef H5
-							"navigationStyle": "custom",
-							// #endif 
-							"app-plus": {
-								// #ifdef MP-WEIXIN
-								"titleNView": {
-									"type": "transparent"
-								}
-								// #endif 
+					"path": "scenicspot/scenicspot_5A",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "5A级景区导航",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
 							}
+							// #endif 
 						}
 					}
+				},
+				{
+					"path": "scenicspot/seach",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "搜索",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				}
+
 
 
 			]
