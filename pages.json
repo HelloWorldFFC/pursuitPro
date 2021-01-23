@@ -437,6 +437,25 @@
 							// #endif 
 						}
 					}
+				},
+				{
+					"path": "login/changePwd",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "更换密码",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
 				}
 
 

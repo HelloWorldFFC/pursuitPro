@@ -238,3 +238,14 @@ page,
 	color: #0081FF;
 	font-size: 20upx;
 }
+.cf-btn-m-box{
+	text-align: center;
+}
+.cf-btn-m {
+	color: #FFFFFF;
+	width: 80%;
+	border-radius: 68upx;
+	margin: 20upx auto;
+	padding: 20upx;
+	font-size: 40upx;
+}

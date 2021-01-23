@@ -68,6 +68,13 @@
 						name: '客服',
 						isKefu: true,
 					},
+					{
+						img: 'https://cdn.pixabay.com/photo/2019/09/23/17/47/iceberg-4499262__340.jpg',
+						name: '更换密码',
+						toPageUrl: '/pagesShow/login/changePwd',
+						
+					},
+					
 					// {
 					// 	img: 'https://cdn.pixabay.com/photo/2015/05/15/14/38/telephone-booth-768610__340.jpg',
 					// 	name: '关于我们',
