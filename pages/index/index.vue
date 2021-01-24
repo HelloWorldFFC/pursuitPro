@@ -325,7 +325,9 @@
 				var week = new Date().getDay(); //0-6  0星期日 6星期六
 
 				let duan = week > (bei - 1) ? bei : week;
-
+				if(week==0){
+					duan = 1 ;
+				}
 				if (bei == 0) {
 					that.goUpNoticeList = goUpNoticeList;
 				} else {
