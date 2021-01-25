@@ -1,6 +1,7 @@
 <template>
 	<view class="content">
-		<view style="position: fixed;top: 0;left: 0;z-index: 99999;">
+		<search preholder="请输入关键字"  :themeColor="themeColor" @toSearch="toSearchFun" @toAll="toAllFun"></search>
+		<view style="position: fixed;top: 96upx;left: 0;z-index: 99999;">
 			<view style="position: relative;">
 				<dropdownFilter :filterData='filterData' :defaultIndex='defaultIndex' :composeList="composeList" @onSelected='onSelected'
 				 :themeColor="themeColor"></dropdownFilter>
@@ -9,7 +10,7 @@
 		<!-- #ifdef MP-WEIXIN -->
 		<kefu></kefu>
 		<!-- #endif -->
-		<scroll-view scroll-y class="cf-scrollBox scrollBox" :scroll-top="scrollTop" :lower-threshold="800" @scrolltolower="scrolltolowerFun">
+		<scroll-view scroll-y class="cf-scrollBox scrollBox" :style="{ height: vHeight + 'px'}" :scroll-top="scrollTop" :lower-threshold="800" @scrolltolower="scrolltolowerFun">
 			<!-- <ayitemone :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemone> -->
 			<ayitemtwo @switchFun="switch_goed_Fun" :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemtwo>
 			<uniloadmore v-if="list.length>0" :status="loadingType"></uniloadmore>
@@ -24,6 +25,8 @@
 </template>
 
 <script>
+	import preDupliClick from '@/api/preDupliClick.js'
+	import search from '../components/ay-search/search.vue';
 	import storage from '../store/storage.js'
 	import uniloadmore from '../components/uni-load-more/uni-load-more.vue'
 	import dropdownFilter from '../components/ay-dropdown-filter/ay-dropdown-filter.vue'
@@ -40,9 +43,11 @@
 			ayitemtwo,
 			dropdownFilter,
 			uniloadmore,
+			search,
 		},
 		data() {
 			return {
+				vHeight : this.vScreenHeight - 128,
 				//切换选项
 				scrollTop : 0 ,
 				//分页相关
@@ -229,6 +234,14 @@
 		},
 		// #endif
 		methods: {
+			toSearchFun(){
+				let isonce = preDupliClick.setpreDupliClickVal(preDupliClick.preDupli.one);
+				if (!isonce) return;
+				
+				uni.navigateTo({
+					url: '/pagesScan/scenicspot/seach'
+				})
+			},
 			switch_goed_Fun(e){
 				let that = this;
 				let item = e.item;

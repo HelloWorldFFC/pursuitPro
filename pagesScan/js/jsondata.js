@@ -5,6 +5,31 @@ const ministry_url = {
 	cult_tour_scenicspot_5A: 'https://zwfw.mct.gov.cn/scenicspot',
 
 }
+
+const hotKwList = {
+	"success": true,
+	"data": [
+		{
+			kw: '海岸城购物中心',
+			lng: 113.935631, //经度
+			lat: 22.516988, //纬度
+			adrs: '文心五路33号'
+		},
+		{
+			kw: '海上世界',
+			lng: 113.917051, //经度
+			lat: 22.482804, //纬度
+			adrs: '望海路1128号'
+		},
+		{
+			kw: '花园城',
+			lng: 113.923004, //经度
+			lat: 22.502386, //纬度
+			adrs: '南海大道1145号'
+		},
+		
+	],
+}
 const scenicspotList_5A = {
 	"success": true,
 	"data": [
@@ -5211,4 +5236,5 @@ export default {
 	ministry_url,
 	scenicspotList,
 	scenicspotList_5A,
+	hotKwList,
 }
