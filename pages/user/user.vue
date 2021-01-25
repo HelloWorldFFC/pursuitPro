@@ -75,13 +75,7 @@
 						
 					},
 					{
-						img: 'https://cdn.pixabay.com/photo/2019/09/23/17/47/iceberg-4499262__340.jpg',
-						name: '搜索',
-						toPageUrl: '/pagesScan/scenicspot/seach',
-						
-					},
-					{
-						img: 'https://cdn.pixabay.com/photo/2019/09/23/17/47/iceberg-4499262__340.jpg',
+						img: 'https://cdn.pixabay.com/photo/2018/04/20/09/49/sky-3335585__340.jpg',
 						name: '今日天气',
 						toPageUrl: '/pagesScan/weather/weather',
 						
