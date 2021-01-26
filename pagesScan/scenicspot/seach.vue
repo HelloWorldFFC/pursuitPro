@@ -1,5 +1,5 @@
 <template>
-	<view class="content">
+	<view >
 		
 		<aSearchList 
 		:placeholder="defaultKw"
@@ -24,6 +24,7 @@
 	
 	//#ifdef MP-WEIXIN
 	var amapFile = require('../js/gaodemap/amap.js');
+	// key 是在高德地图开发者平台申请的小程序密钥 详见 https://lbs.amap.com/api/wx/guide/create-project/config-project */
 	let amapPlugin = new amapFile.AMapWX({
 		key: 'a7e7b86f7dc34107f495f8ea797aeb3b',
 	})
@@ -123,17 +124,7 @@
 					}
 				})
 
-				amapPlugin.getWeather({
-					success: function(data) {
-						console.log(JSON.stringify(data));
-						//成功回调
-						// {"city":{"text":"城市","data":"南山区"},"weather":{"text":"天气","data":"晴"},"temperature":{"text":"温度","data":"23"},"winddirection":{"text":"风向","data":"东南风"},"windpower":{"text":"风力","data":"≤3级"},"humidity":{"text":"湿度","data":"56%"},"liveData":{"province":"广东","city":"南山区","adcode":"440305","weather":"晴","temperature":"23","winddirection":"东南","windpower":"≤3","humidity":"56","reporttime":"2021-01-25 13:22:29"}}
-					},
-					fail: function(info) {
-						//失败回调
-						console.log(info)
-					}
-				})
+				
 			},
 
 			setListByMap_app(kw) {
@@ -203,24 +194,29 @@
 				var sHr = ret.tips;
 				for (let i = 0; i < sHr.length; i++) {
 					let item = sHr[i];
+					//console.log(item)
 					let location = item.location ;//"location":"120.303578,31.486577" 
-					let latlngArr = location.split(',')
-					let obj = {
-						kw: item.name,
-						lat: latlngArr[1]||'',
-						lng: latlngArr[0],
-						address: item.address,
-					}
-					//看是否有相同项，有相同项则不保存
-					let oldHave = false;
-					sList.forEach(item => {
-						if (item.kw == obj.kw) {
-							oldHave = true;
+					//console.log(location.length)
+					if(location.length>0){
+						let latlngArr = location.split(',')
+						let obj = {
+							kw: item.name,
+							lat: latlngArr[1]||'',
+							lng: latlngArr[0],
+							address: item.address,
 						}
-					})
-					if (!oldHave) {
-						sList.push(obj);
+						//看是否有相同项，有相同项则不保存
+						let oldHave = false;
+						sList.forEach(item => {
+							if (item.kw == obj.kw) {
+								oldHave = true;
+							}
+						})
+						if (!oldHave) {
+							sList.push(obj);
+						}
 					}
+					
 
 				}
 				//console.log(sList)
@@ -320,12 +316,8 @@
 				let kw = item.kw;
 				this.kw = item.kw;
 				
-				//选中后跳转
-				let data = {
-					searchType: this.searchType, //1 停车场 2洗车站 3 加油站
-					item: item, //kw 、lat、lng 高德地图：gcj02坐标，也称为火星坐标
-				};
-				console.log(item)
+				//高德地图：gcj02坐标，也称为火星坐标
+				//console.log(item)
 				uni.openLocation({
 					latitude: parseFloat(item.lat), //要去的纬度-地址       
 					longitude: parseFloat(item.lng), //要去的经度-地址

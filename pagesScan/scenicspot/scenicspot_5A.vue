@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<search preholder="请输入关键字"  :themeColor="themeColor" @toSearch="toSearchFun" @toAll="toAllFun"></search>
+		<search preholder="请输入关键字"  :themeColor="themeColor" @toSearch="toSearchFun" ></search>
 		<view style="position: fixed;top: 96upx;left: 0;z-index: 99999;">
 			<view style="position: relative;">
 				<dropdownFilter :filterData='filterData' :defaultIndex='defaultIndex' :composeList="composeList" @onSelected='onSelected'
