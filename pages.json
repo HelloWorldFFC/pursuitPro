@@ -544,6 +544,49 @@
 
 
 			]
+		},
+		{
+			"root": "pagesFore", //文件夹名称，  pages文件夹同级新建一个就行
+			"pages": [
+				{
+					"path": "plan/countdown",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "今日天气",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				},
+				{
+					"path": "plan/set_plan",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "今日天气",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				}
+			]
 		}
 
 
@@ -556,7 +599,12 @@
 		"pages/index/index": {
 			"network": "all",
 			"packages": ["pagesScan"]
+		},
+		"pages/index/index": {
+			"network": "all",
+			"packages": ["pagesFore"]
 		}
+		
 	},
 
 	"globalStyle": {

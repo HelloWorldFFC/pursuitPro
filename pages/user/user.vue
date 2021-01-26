@@ -84,10 +84,11 @@
 					// 	img: 'https://cdn.pixabay.com/photo/2015/05/15/14/38/telephone-booth-768610__340.jpg',
 					// 	name: '关于我们',
 					// },
-					// {
-					// 	img: 'https://cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737__340.jpg',
-					// 	name: '设置',
-					// },
+					{
+						img: 'https://cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737__340.jpg',
+						name: '设置',
+						toPageUrl: '/pagesFore/plan/set_plan',
+					},
 
 				],
 			}

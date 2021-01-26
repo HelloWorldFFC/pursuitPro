@@ -5,7 +5,8 @@ const storageKeyType = {
 	emmeniaUnitCyc : 'emmeniaUnitCyc',
 	validTermList : 'validTermList',
 	timingReminder : 'timingReminder',
-	s_pl_list : 's_pl_list',
+	s_pl_list : 's_pl_list',//计划去的景点
+	p_t_ctdn:'p_t_ctdn',//设置日期提醒
 }
 const def_Data = {
     emmeniaCyc : 30,

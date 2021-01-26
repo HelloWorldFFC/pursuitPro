@@ -23,6 +23,11 @@
 				// latitude: 39.806466,
 				// longitude: 98.226473,
 			},
+			//提醒时间距离
+			p_t_range: {
+				name : '',
+				time : '',
+			},//
 		},
 		onLaunch: function() {
 			console.log('App Launch')

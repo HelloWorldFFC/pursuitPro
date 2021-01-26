@@ -1,3 +1,15 @@
+const getRangeByTwoTimeStr = (startTimeStr, endTimeStr) => {
+	let startTime = new Date(startTimeStr); // 开始时间
+	let endTime = new Date(endTimeStr); // 结束时间
+	let usedTime = endTime - startTime; // 相差的毫秒数
+	let days = Math.floor(usedTime / (24 * 3600 * 1000)); // 计算出天数
+	let leavel = usedTime % (24 * 3600 * 1000); // 计算天数后剩余的时间
+	let hours = Math.floor(leavel / (3600 * 1000)); // 计算剩余的小时数
+	let leavel2 = leavel % (3600 * 1000); // 计算剩余小时后剩余的毫秒数
+	let minutes = Math.floor(leavel2 / (60 * 1000)); // 计算剩余的分钟数
+	return days + '天' + hours + '时' + minutes + '分';
+}
+
 const dateToString = date => {
 	var year = date.getFullYear();
 	var month = (date.getMonth() + 1).toString();
@@ -47,7 +59,7 @@ const secondsToHMs = (value) => {
 	if (hourTime > 0) {
 		result = "" + parseInt(hourTime) + "小时" + result;
 	}
-	return result ;
+	return result;
 }
 const dateAdd = (interval, number, date) => {
 	switch (interval) {
@@ -134,8 +146,8 @@ const getDatedifferenceS = (sDate1, sDate2) => {
 	var dateSpan,
 		tempDate,
 		iDays;
-	sDate1 = Date.parse(sDate1.replace(/-/g,"/"));
-	sDate2 = Date.parse(sDate2.replace(/-/g,"/"));
+	sDate1 = Date.parse(sDate1.replace(/-/g, "/"));
+	sDate2 = Date.parse(sDate2.replace(/-/g, "/"));
 	dateSpan = sDate2 - sDate1;
 	dateSpan = Math.abs(dateSpan);
 	iDays = Math.floor(dateSpan / (1000));
@@ -204,6 +216,8 @@ const isSubTen = num => {
 	}
 	return num;
 }
+
+
 module.exports = {
 	getDatedifference: getDatedifference,
 	dateToString: dateToString,
@@ -212,7 +226,8 @@ module.exports = {
 	getTimeM: getTimeM,
 	dateAddToString: dateAddToString,
 	dateAdd: dateAdd,
-	secondsToHMs ,
-	dateAddToTime ,
+	secondsToHMs,
+	dateAddToTime,
 	getDatedifferenceS,
+	getRangeByTwoTimeStr,
 }
