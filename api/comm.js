@@ -10,7 +10,13 @@ const base_url_html = '';
 
 const versionNumber = '1.1.4';
 
- 
+const checkStrLen = (str) => {
+ 	let isok = false;
+ 	if (str.length <= 15) {
+ 		isok = true;
+ 	}
+ 	return isok;
+}
  //判断云端是否返回成功
  const isResSuccess = (res) => {
  	let isSuccess = false;
@@ -111,5 +117,5 @@ const versionNumber = '1.1.4';
 	checkCode : checkCode ,
 	changeAdress_bd_To_gcj : changeAdress_bd_To_gcj,
 	changeAdress_bd_To_wgs : changeAdress_bd_To_wgs ,
-	
+	checkStrLen,
  }

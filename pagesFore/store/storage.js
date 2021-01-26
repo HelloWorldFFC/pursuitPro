@@ -2,7 +2,7 @@
 import storage from '@/store/storage.js'
 
 const def_Data = {
-	maxnum : 10,
+	maxnum : 36,
 }
 
 const set_p_t_range =(info)=>{

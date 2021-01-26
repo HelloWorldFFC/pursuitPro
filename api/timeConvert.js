@@ -217,6 +217,44 @@ const isSubTen = num => {
 	return num;
 }
 
+//timestamp时间戳
+const getTimestamp = (date='') => {
+	var timestamp = new Date().getTime(); //精确到毫秒
+	if(date.length>0){
+		timestamp = new Date(date).getTime();
+	}
+	
+	return timestamp
+}
+
+//时间戳转化成时间
+const getTimesByTamp = (timestamp) => {
+	var ttamp = timestamp;
+	if (ttamp.length == 10) {
+		ttamp = ttamp * 1000;
+	}
+	var date = new Date(ttamp); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+	var Y = date.getFullYear() + '-';
+	var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+	var D = date.getDate() ;
+	var h = date.getHours() ;
+	var m = date.getMinutes();
+	var s = date.getSeconds();
+	if (D<10) {
+		D='0'+D;
+	}
+	if (h<10) {
+		h='0'+h;
+	}
+	if (m<10) {
+		m='0'+m;
+	}
+	if (s<10) {
+		s='0'+s;
+	}
+	
+	return Y + M + D + ' '+ h + ':' + m + ':'+ s; ////2014-06-18 10:33:24
+}
 
 module.exports = {
 	getDatedifference: getDatedifference,
@@ -230,4 +268,6 @@ module.exports = {
 	dateAddToTime,
 	getDatedifferenceS,
 	getRangeByTwoTimeStr,
+	getTimestamp,
+	getTimesByTamp,
 }
