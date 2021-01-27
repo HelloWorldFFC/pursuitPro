@@ -51,8 +51,9 @@
 				let name = '' ;
 				let enddate = '2021-12-23' ;
 				try {
-				    const p_t_range = uni.getStorageSync(storage.storageKeyType.p_t_range);
+				    const p_t_range = uni.getStorageSync(storage_z.storageKeyType.p_t_range);
 				    if (p_t_range) {
+						//console.log(p_t_range)
 				        if(p_t_range.name){
 				        	name = p_t_range.name ;
 				        	enddate = p_t_range.time;
