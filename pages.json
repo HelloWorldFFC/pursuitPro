@@ -457,6 +457,7 @@
 						}
 					}
 				}
+				
 
 
 			]
@@ -538,6 +539,25 @@
 							// #endif 
 						}
 					}
+				},
+				{
+					"path": "site/site",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "设置",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
 				}
 				
 
@@ -573,7 +593,7 @@
 						// #ifdef H5 || MP-WEIXIN
 						"enablePullDownRefresh": true,
 						// #endif
-						"navigationBarTitleText": "今日天气",
+						"navigationBarTitleText": "设置提醒",
 						// #ifdef H5
 						"navigationStyle": "custom",
 						// #endif 

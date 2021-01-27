@@ -1,37 +1,43 @@
 <template>
 	<view>
 		<view style="background-color: #FFFFFF;color:#bcbcbc;">
-			<view style="padding-top: 40upx;" v-if="!isLogin" @tap="toLoginFun">
-				<view class="cf-shuCenter">
-					<view>
-						<image lazy-load="true" :src="imageUrl" style="width: 126upx;height: 126upx;border-radius: 50%;"></image>
+			<view class="cf-hengSpace-B one-box">
+				<view style="padding-top: 20upx;" v-if="!isLogin" @tap="toLoginFun">
+					<view class="cf-hengSpace-B">
+						<view>
+							<image lazy-load="true" :src="imageUrl" style="width: 126upx;height: 126upx;border-radius: 50%;"></image>
+						</view>
+						<view class="logindTips">登录</view>
 					</view>
-					<view class="logindTips">登录</view>
+				</view>
+				<view v-else style="padding-top: 40upx;" @tap="toExitFun">
+					<!-- #ifndef MP-WEIXIN -->
+					<view class="cf-hengSpace-B">
+						<view>
+							<image lazy-load="true" :src="imageUrl" style="width: 126upx;height: 126upx;border-radius: 50%;"></image>
+						</view>
+						<view class="logindTips">退出</view>
+					</view>
+					<!-- #endif -->
+					<!-- #ifdef MP-WEIXIN -->
+					<view class="cf-hengSpace-B">
+						<view class="userinfo-avatar">
+							<open-data type="userAvatarUrl"></open-data>
+						</view>
+				
+						<view class="logindTips">
+							<open-data type="userNickName"></open-data>
+				
+						</view>
+					</view>
+				
+					<!-- #endif -->
+				</view>
+				<view class="settingBox" @tap="toSite">
+					<view class="iconfont icon-shezhi setting"></view>
 				</view>
 			</view>
-			<view v-else style="padding-top: 40upx;" @tap="toExitFun">
-				<!-- #ifndef MP-WEIXIN -->
-				<view class="cf-shuCenter">
-					<view>
-						<image lazy-load="true" :src="imageUrl" style="width: 126upx;height: 126upx;border-radius: 50%;"></image>
-					</view>
-					<view class="logindTips">退出</view>
-				</view>
-				<!-- #endif -->
-				<!-- #ifdef MP-WEIXIN -->
-				<view class="cf-shuCenter">
-					<view class="userinfo-avatar">
-						<open-data type="userAvatarUrl"></open-data>
-					</view>
-
-					<view class="logindTips">
-						<open-data type="userNickName"></open-data>
-
-					</view>
-				</view>
-
-				<!-- #endif -->
-			</view>
+			
 		</view>
 
 		<view style="margin-top: 26upx;">
@@ -68,12 +74,7 @@
 						name: '客服',
 						isKefu: true,
 					},
-					{
-						img: 'https://cdn.pixabay.com/photo/2019/09/23/17/47/iceberg-4499262__340.jpg',
-						name: '更换密码',
-						toPageUrl: '/pagesShow/login/changePwd',
-						
-					},
+					
 					{
 						img: 'https://cdn.pixabay.com/photo/2017/12/10/17/07/dachstein-3010323__340.jpg',
 						name: '今日天气',
@@ -85,16 +86,7 @@
 						name: '说明',
 						toPageUrl: '/pages/user/aboutUs'
 					},
-					{
-						img: 'https://cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737__340.jpg',
-						name: '设置',
-						toPageUrl: '/pagesFore/plan/set_plan',
-					},
-					// {
-					// 	img: 'https://cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737__340.jpg',
-					// 	name: '设置',
-					// 	toPageUrl: '/pagesFore/plan/countdown',
-					// },
+					
 
 				],
 			}
@@ -116,6 +108,14 @@
 
 		},
 		methods: {
+			toSite(){
+				let isonce = preDupliClick.setpreDupliClickVal(preDupliClick.preDupli.th);
+				if (!isonce) return;
+				
+				uni.navigateTo({
+					url: `/pagesScan/site/site`
+				})
+			},
 			testclear() {
 				try {
 					uni.clearStorageSync();
@@ -207,7 +207,10 @@
 	page {
 		background-color: $uni-color-base;
 	}
-
+	.one-box{
+		margin-left: 40upx;
+		padding-bottom: 10upx;
+	}
 	.userinfo-avatar {
 		overflow: hidden;
 		display: block;
@@ -220,9 +223,20 @@
 	}
 
 	.logindTips {
-		font-size: 28upx;
+		font-size: $font-lg;
 		color: #323232;
 		font-weight: 400;
 		padding: 10upx 0upx;
+		padding-left: 20upx;
+	}
+	
+	.settingBox {
+		width: 20%;
+	
+		.setting {
+			color: #999999;
+			font-size: 60upx;
+		}
+	
 	}
 </style>

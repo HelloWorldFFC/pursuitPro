@@ -6,7 +6,7 @@ const preDupliClickVal = {
 const preDupli = {
 	one : 1,
 	two : 2 ,
-	
+	th : 3,
 }
 //防止在规定时间内再次点击执行函数
 const setpreDupliClickVal = (val) => {
