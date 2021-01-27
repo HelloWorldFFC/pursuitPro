@@ -71,6 +71,8 @@
 </template>
 
 <script>
+	import timeConvert from '@/api/timeConvert.js'
+	import storage from '@/store/storage.js'
 	import banner from '@/components/ay-banner/banner.vue';
 	import hengImgTxt from '@/components/ay-compose/hengImgTxt.vue';
 	import hengImgTxtT from '@/components/ay-compose/hengImgTxtT.vue';
@@ -151,7 +153,7 @@
 			let that = this;
 
 			//that.getLocation();
-
+			that.get_p_t_range();
 		},
 		// #ifdef MP-WEIXIN
 		//微信小程序的分享
@@ -255,6 +257,13 @@
 				let list = e.list;
 				let idx = e.curIndex;
 				let list_img = [];
+				let item = e.item;
+				if(item.txt_url){
+					uni.navigateTo({
+						url: item.txt_url,
+					})
+					return ;
+				}
 				list.forEach(item => {
 					list_img.push(item.img)
 				})
@@ -313,6 +322,26 @@
 				uni.hideLoading();
 
 				that.isLoaded = true;
+				that.get_p_t_range();
+			},
+			//设置提醒
+			get_p_t_range(){
+				let that = this ;
+				try {
+				    const p_t_range = uni.getStorageSync(storage.storageKeyType.p_t_range);
+				    if (p_t_range) {
+				        if(p_t_range.name){
+				        	let nowStr = timeConvert.getTime();
+				        	let time = timeConvert.getDays_ByTwoTimeStr(nowStr,p_t_range.time); 
+				        	that.bannerList_two[0].txt_tips = '距离' + p_t_range.name+'仅剩'  ;
+				        	that.bannerList_two[0].txt_txt = time  ;
+							that.bannerList_two[0].txt_url = '/pagesFore/plan/countdown';
+				        }
+				    }
+				} catch (e) {
+				    // error
+				}
+				
 			},
 			getgoUpNoticeList(goUpNoticeList) {
 				let that = this;

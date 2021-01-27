@@ -17,14 +17,9 @@ const set_p_t_range =(info)=>{
 	});
 }
 
-const get_p_t_range =()=>{
-	//有缓存就把缓存赋给全局变量
-	return getApp().globalData.p_t_range || '';
-}
 
 module.exports = {
 	def_Data,
 	
 	set_p_t_range,
-	get_p_t_range,
 }

@@ -498,7 +498,9 @@ const res_home = {
 					id: 0,
 					img: 'https://cdn.pixabay.com/photo/2016/11/29/11/57/animal-1869337__340.jpg',
 					url: 'www.baidu.com/',
-
+					txt_tips:'',
+					txt_txt:'',
+					txt_url:''
 				},
 				{
 					id: 1,

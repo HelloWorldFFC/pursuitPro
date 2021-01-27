@@ -19,6 +19,7 @@
 </template>
 
 <script>
+	import storage_z from '@/store/storage.js'
 	import comm from '@/api/comm.js'
 	import preDupliClick from '@/api/preDupliClick.js'
 	import storage from '../store/storage.js'
@@ -47,9 +48,22 @@
 		methods: {
 			setData_init(){
 				let that = this;
+				let name = '' ;
+				let enddate = '2021-12-23' ;
+				try {
+				    const p_t_range = uni.getStorageSync(storage.storageKeyType.p_t_range);
+				    if (p_t_range) {
+				        if(p_t_range.name){
+				        	name = p_t_range.name ;
+				        	enddate = p_t_range.time;
+				        }
+				    }
+				} catch (e) {
+				    // error
+				}
+				that.name = name ;
+				that.enddate = enddate ;
 				
-				let data = storage.get_p_t_range();
-				that.enddate = '2022-12-23' ;
 			},
 			DateChange_enddate(e) {
 				let that = this;
@@ -84,7 +98,7 @@
 				
 				
 				let data = {
-					name : that.name,
+					name : name,
 					time : enddate,
 				}
 				that.$api.msg('保存成功！')

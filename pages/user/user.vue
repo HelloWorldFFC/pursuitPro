@@ -75,20 +75,26 @@
 						
 					},
 					{
-						img: 'https://cdn.pixabay.com/photo/2018/04/20/09/49/sky-3335585__340.jpg',
+						img: 'https://cdn.pixabay.com/photo/2017/12/10/17/07/dachstein-3010323__340.jpg',
 						name: '今日天气',
 						toPageUrl: '/pagesScan/weather/weather',
 						
 					},
-					// {
-					// 	img: 'https://cdn.pixabay.com/photo/2015/05/15/14/38/telephone-booth-768610__340.jpg',
-					// 	name: '关于我们',
-					// },
+					{
+						img: 'https://cdn.pixabay.com/photo/2015/05/15/14/38/telephone-booth-768610__340.jpg',
+						name: '说明',
+						toPageUrl: '/pages/user/aboutUs'
+					},
 					{
 						img: 'https://cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737__340.jpg',
 						name: '设置',
 						toPageUrl: '/pagesFore/plan/set_plan',
 					},
+					// {
+					// 	img: 'https://cdn.pixabay.com/photo/2016/12/19/08/39/mobile-phone-1917737__340.jpg',
+					// 	name: '设置',
+					// 	toPageUrl: '/pagesFore/plan/countdown',
+					// },
 
 				],
 			}

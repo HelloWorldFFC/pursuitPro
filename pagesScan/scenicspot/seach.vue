@@ -323,7 +323,7 @@
 					longitude: parseFloat(item.lng), //要去的经度-地址
 					name: item.kw, //地址名称
 					address: item.address || '', //详细地址名称
-					scale: 10,
+					// scale: 10,
 					success: function() {
 						console.log('导航成功');
 					},
