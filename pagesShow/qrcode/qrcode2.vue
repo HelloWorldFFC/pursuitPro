@@ -13,7 +13,7 @@
 
 <script>
 	
-	import qrcode from "../components/ay-qrcode/ay-qrcode.vue"
+	import qrcode from "../components/ay-qrcode_more/ay-qrcode.vue"
 	export default {
 		components: {
 			qrcode,
