@@ -33,7 +33,7 @@
 				// uni.showLoading()
 				setTimeout(function() {
 					// uni.hideLoading()
-					_this.$refs.qrcode.couponQrCode()
+					_this.$refs.qrcode.crtQrCode()
 				}, 50)
 			},
 

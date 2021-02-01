@@ -67,7 +67,7 @@
 					{
 							img: 'https://cdn.pixabay.com/photo/2020/12/20/10/53/apple-5846664__340.jpg',
 							name: '生成二维码',
-							toPageUrl: '/pagesShow/qrcode/qrcode2'
+							toPageUrl: '/pagesShow/qrcode/qrcode'
 						},
 					{
 						img: 'https://cdn.pixabay.com/photo/2021/01/01/14/07/chapel-5878656__340.jpg',
@@ -113,7 +113,7 @@
 				if (!isonce) return;
 				
 				uni.navigateTo({
-					url: `/pagesScan/site/site`
+					url: `/pagesScan/setup/setup`
 				})
 			},
 			testclear() {
