@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view style="overflow: hidden;">
 		<view v-if="!isHaveCode">
 			<loginCode :themeColor="themeColor" :logoUrl="logoImg" loginTip="下一步" @getAuthCode="getAuthCode" @loginFun="loginFun"
 			 :isSendCode_init="isSendCode" :phone_init="phone" @canGetCodeEnvet="canGetCodeEnvet"></loginCode>

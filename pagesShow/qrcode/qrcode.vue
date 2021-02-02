@@ -3,6 +3,13 @@
 		<view style="margin-top: 26upx;margin: 40upx;">
 			<ayQrcode ref="qrcode" :modal="modal_qr" :url="url" @hideQrcode="hideQrcode" />
 		</view>
+		<view class="cf-hengCenter input-box">
+		    <view style="padding-right: 20upx;">网址:</view>
+		    <input name='url' v-model="url" type="text" :maxlength="url_maxlength" :placeholder="url" />
+		</view>
+		<view style="margin-top: 100upx;" @tap="toCrtQrCode">
+			<button style="width: 400upx;" class="cf-bgcolorTheme">生成二维码</button>
+		</view>
 	</view>
 </template>
 
@@ -15,9 +22,10 @@
 		},
 		data() {
 			return {
+				url_maxlength :1000,
 				//二维码相关参数
 				modal_qr: false,
-				url: 'https://pixabay.com/images/search/?order=ec', // 要生成的二维码值
+				url: 'https://ext.dcloud.net.cn/plugin?id=3870', // 要生成的二维码值
 			}
 		},
 
@@ -41,10 +49,41 @@
 			hideQrcode() {
 				this.modal_qr = false;
 			},
+			toCrtQrCode(){
+				let _this = this;
+				let url = _this.url.trim() ;
+				let url_maxlength = _this.url_maxlength ;
+				
+				if (url === "") {
+					_this.$api.msg('请输入网址')
+				  return;
+				}
+				
+				if(url.length > url_maxlength){
+					_this.$api.msg('网址过长，超过'+url_maxlength)
+					return;
+				}
+				
+				uni.showToast({
+				  title: '生成中...',
+				  icon: 'loading',
+				  duration: 2000
+				});
+				var st = setTimeout(function () {
+				  uni.hideToast()
+				  //绘制二维码
+				  _this.$refs.qrcode.crtQrCode()
+				  clearTimeout(st);
+				}, 2000)
+				
+			},
 		}
 
 	}
 </script>
 
 <style lang="scss">
+	.input-box{
+		
+	}
 </style>
