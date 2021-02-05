@@ -8,7 +8,7 @@ const imgHanderDetail = '';
 
 const base_url_html = '';
 
-const amapPlugin_key_wx = 'a7e7b86f7dc34107f495f8ea797aeb3b';
+const amapPlugin_key_wx = '';
 
 const versionNumber = '1.1.4';
 
