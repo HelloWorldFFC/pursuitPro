@@ -8,6 +8,8 @@ const imgHanderDetail = '';
 
 const base_url_html = '';
 
+const amapPlugin_key_wx = 'a7e7b86f7dc34107f495f8ea797aeb3b';
+
 const versionNumber = '1.1.4';
 
 const checkStrLen = (str) => {
@@ -118,4 +120,5 @@ const checkStrLen = (str) => {
 	changeAdress_bd_To_gcj : changeAdress_bd_To_gcj,
 	changeAdress_bd_To_wgs : changeAdress_bd_To_wgs ,
 	checkStrLen,
+	amapPlugin_key_wx,
  }

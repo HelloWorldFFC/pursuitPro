@@ -25,6 +25,9 @@
 </template>
 
 <script>
+	//#ifdef APP-PLUS
+	import permit_app from "@/util/permit_app.js";
+	// #endif
 	import preDupliClick from '@/api/preDupliClick.js'
 	import search from '../components/ay-search/search.vue';
 	import storage from '../store/storage.js'
@@ -213,9 +216,8 @@
 			// #ifndef MP-WEIXIN
 			that.loadData_init()
 			// #endif
-			// #ifdef MP-WEIXIN
-			this.getLocation_wx();
-			// #endif
+			
+			that.getLocation_z();
 		},
 		onReady: function() {
 			let that = this;
@@ -234,6 +236,58 @@
 		},
 		// #endif
 		methods: {
+			getLocation_z(){
+				// #ifdef MP-WEIXIN
+				this.getLocation_wx();
+				// #endif
+				
+				// #ifdef APP-PLUS
+				this.getLocation_app();
+				// #endif
+			},
+			//定位未授权处理
+			getlatlg_uni() {
+				let that = this;
+			
+				uni.getLocation({
+					type: 'gcj02',
+					success: function(res) {
+						let longitude = res.longitude;
+						let latitude = res.latitude;
+						console.log('当前位置的经度：' + res.longitude);
+						console.log('当前位置的纬度：' + res.latitude);
+						
+						getApp().globalData.latlgitude = {
+							latitude: latitude,
+							longitude: longitude,
+						};
+						that.loadData_init();
+					}
+				});
+			
+			
+			},
+			async getLocation_app() {
+				let that = this;
+				try {
+					let isAndroid = false ;
+				    const res = uni.getSystemInfoSync();
+				    if(res.platform == 'android'){
+						isAndroid = true ;
+					}else{
+						isAndroid = false ;
+					}
+					console.log('rrr')
+					var iscan = await permit_app.req_Permit_locatin(isAndroid)
+					if(iscan){
+						that.getlatlg_uni();
+					}
+					
+				} catch (e) {
+				    // error
+				}
+				
+			},
 			toSearchFun(){
 				let isonce = preDupliClick.setpreDupliClickVal(preDupliClick.preDupli.one);
 				if (!isonce) return;

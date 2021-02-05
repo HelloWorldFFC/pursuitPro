@@ -263,16 +263,16 @@ function checkSystemEnableLocation() {
 		return result
 	}
 }
-const go_locatin = () =>{
+const go_locatin = () => {
 	uni.showModal({
 		title: '提示',
 		content: '请打开定位服务',
-		confirmText : '去设置',
+		confirmText: '去设置',
 		success: ({
 			confirm,
 			cancel
 		}) => {
-	
+
 			if (confirm) {
 				// android平台
 				if (uni.getSystemInfoSync().platform == 'android') {
@@ -282,7 +282,7 @@ const go_locatin = () =>{
 					var main = plus.android.runtimeMainActivity();
 					main.startActivity(intent); // 打开系统设置GPS服务页面
 				}
-	
+
 				// ios平台
 				if (uni.getSystemInfoSync().platform == 'ios') {
 					var UIApplication = plus.ios.import("UIApplication");
@@ -295,7 +295,7 @@ const go_locatin = () =>{
 					plus.ios.deleteObject(application2);
 				}
 			}
-	
+
 			// 用户取消前往开启定位服务
 			if (cancel) {
 				// do sth...
@@ -304,16 +304,16 @@ const go_locatin = () =>{
 	});
 }
 
-const go_any = (settingTips) =>{
+const go_any = (settingTips) => {
 	uni.showModal({
 		title: '提示',
-		content: '请允许'+ settingTips+'服务',
-		confirmText : '去设置',
+		content: '请允许' + settingTips + '服务',
+		confirmText: '去设置',
 		success: ({
 			confirm,
 			cancel
 		}) => {
-	
+
 			if (confirm) {
 				// android平台
 				if (uni.getSystemInfoSync().platform == 'android') {
@@ -323,7 +323,7 @@ const go_any = (settingTips) =>{
 					var main = plus.android.runtimeMainActivity();
 					main.startActivity(intent); // 打开服务页面
 				}
-	
+
 				// ios平台
 				if (uni.getSystemInfoSync().platform == 'ios') {
 					var UIApplication = plus.ios.import("UIApplication");
@@ -337,7 +337,7 @@ const go_any = (settingTips) =>{
 					plus.ios.deleteObject(application2);
 				}
 			}
-	
+
 			// 用户取消前往开启定位服务
 			if (cancel) {
 				// do sth...
@@ -346,20 +346,20 @@ const go_any = (settingTips) =>{
 	});
 }
 
-const go_AppSetting = (settingTips) =>{
+const go_AppSetting = (settingTips) => {
 	uni.showModal({
 		title: '提示',
-		content: '请允许'+ settingTips+'服务',
-		confirmText : '去设置',
+		content: '请允许' + settingTips + '服务',
+		confirmText: '去设置',
 		success: ({
 			confirm,
 			cancel
 		}) => {
-	
+
 			if (confirm) {
 				gotoAppPermissionSetting();
 			}
-	
+
 			// 用户取消前往开启定位服务
 			if (cancel) {
 				// do sth...
@@ -369,29 +369,32 @@ const go_AppSetting = (settingTips) =>{
 }
 
 const p_ID_ios = {
-	location: 'location',//位置权限
-	camera: 'camera',//摄像头权限
+	location: 'location', //位置权限
+	camera: 'camera', //摄像头权限
+	call_phone: '', //拨打电话权限,ios勿需授权
+	read_img: 'photoLibrary', //相册权限photoLibrary
 }
 
 const p_ID_anrd = {
-	location: 'android.permission.ACCESS_FINE_LOCATION',//位置权限
-	camera: 'android.permission.CAMERA',//摄像头权限
-	phone: 'android.permission.CALL_PHONE',//拨打电话权限
+	location: 'android.permission.ACCESS_FINE_LOCATION', //位置权限
+	camera: 'android.permission.CAMERA', //摄像头权限
+	phone: 'android.permission.CALL_PHONE', //拨打电话权限
+	read_img: 'android.permission.READ_EXTERNAL_STORAGE',
 }
 
-function req_Permit_any(isAndroid,p_ID_anrd,p_ID_ios,settingTips) {
+function req_Permit_any(isAndroid, p_ID_anrd, p_ID_ios, settingTips) {
 	return new Promise((resolve, reject) => {
-		if(isAndroid){
+		if (isAndroid) {
 			plus.android.requestPermissions(
 				[p_ID_anrd], // 理论上支持多个权限同时查询，但实际上本函数封装只处理了一个权限的情况。有需要的可自行扩展封装
 				function(resultObj) {
-					let iscan = false ;
+					let iscan = false;
 					//var result = 0;
 					for (var i = 0; i < resultObj.granted.length; i++) {
 						var grantedPermission = resultObj.granted[i];
 						console.log('已获取的权限：' + grantedPermission);
 						//result = 1
-						iscan = true ;
+						iscan = true;
 					}
 					for (var i = 0; i < resultObj.deniedPresent.length; i++) {
 						var deniedPresentPermission = resultObj.deniedPresent[i];
@@ -409,7 +412,7 @@ function req_Permit_any(isAndroid,p_ID_anrd,p_ID_ios,settingTips) {
 						go_AppSetting(settingTips)
 					}
 					resolve(iscan);
-					
+
 				},
 				function(error) {
 					console.log('申请权限错误：' + error.code + " = " + error.message);
@@ -419,13 +422,47 @@ function req_Permit_any(isAndroid,p_ID_anrd,p_ID_ios,settingTips) {
 					});
 				}
 			);
-				
-		}else{
-			let iscan = false ;
-			iscan = judgeIosPermission(p_ID_ios);
-			if (!iscan) {
-				go_AppSetting(settingTips)
+
+		} else {
+			let iscan = false;
+			if (p_ID_ios.length > 0) {
+				let isOnce = true;
+				//苹果手机第一次判断了就不自动谈弹出系统框，设置里面不会有
+				try {
+					let auth_name = p_ID_ios + '_auth_ios';
+					const auth = uni.getStorageSync(auth_name);
+					if (auth) {
+						isOnce = false;
+					} else {
+						isOnce = true;
+					}
+					if (!isOnce) {
+						iscan = judgeIosPermission(p_ID_ios);
+						if (!iscan) {
+							go_AppSetting(settingTips)
+						} else {
+							iscan = true;
+						}
+					} else {
+						iscan = true;
+						uni.setStorage({
+							key: auth_name,
+							data: 'authed',
+							success: function() {
+								//console.log('success');
+							}
+						});
+					}
+				} catch (e) {
+					// error
+
+				}
+
+
+			} else {
+				iscan = true;
 			}
+
 			resolve(iscan);
 		}
 	});
@@ -433,53 +470,74 @@ function req_Permit_any(isAndroid,p_ID_anrd,p_ID_ios,settingTips) {
 
 function req_Permit_locatin(isAndroid) {
 	return new Promise((resolve, reject) => {
-		let p_ID_anrd = p_ID_anrd.location;
-		let p_ID_ios = p_ID_ios.location;
-		if(isAndroid){
-			plus.android.requestPermissions(
-				[p_ID_anrd], // 理论上支持多个权限同时查询，但实际上本函数封装只处理了一个权限的情况。有需要的可自行扩展封装
-				function(resultObj) {
-					let iscan = false ;
-					//var result = 0;
-					for (var i = 0; i < resultObj.granted.length; i++) {
-						var grantedPermission = resultObj.granted[i];
-						console.log('已获取的权限：' + grantedPermission);
-						//result = 1
-						iscan = true ;
+		//检查系统定位服务是否开启
+		if (checkSystemEnableLocation()) {
+			let p_ID_anrd = permisionID_anrd.location;
+			let p_ID_ios = permisionID_ios.location;
+			let settingTips = '定位';
+			if (isAndroid) {
+				plus.android.requestPermissions(
+					[p_ID_anrd], // 理论上支持多个权限同时查询，但实际上本函数封装只处理了一个权限的情况。有需要的可自行扩展封装
+					function(resultObj) {
+						let iscan = false;
+						//var result = 0;
+						for (var i = 0; i < resultObj.granted.length; i++) {
+							var grantedPermission = resultObj.granted[i];
+							//console.log('已获取的权限：' + grantedPermission);
+							//result = 1
+							iscan = true;
+						}
+						for (var i = 0; i < resultObj.deniedPresent.length; i++) {
+							var deniedPresentPermission = resultObj.deniedPresent[i];
+							//console.log('拒绝本次申请的权限：' + deniedPresentPermission);
+							//result = 0
+						}
+						for (var i = 0; i < resultObj.deniedAlways.length; i++) {
+							var deniedAlwaysPermission = resultObj.deniedAlways[i];
+							//console.log('永久拒绝申请的权限：' + deniedAlwaysPermission);
+							//result = -1
+						}
+						//resolve(result);
+						// 若所需权限被拒绝,则打开APP设置界面,可以在APP设置界面打开相应权限
+						if (!iscan) {
+							//go_locatin()
+							go_AppSetting(settingTips)
+						}
+						resolve(iscan);
+
+					},
+					function(error) {
+						//console.log('申请权限错误：' + error.code + " = " + error.message);
+						resolve({
+							code: error.code,
+							message: error.message
+						});
 					}
-					for (var i = 0; i < resultObj.deniedPresent.length; i++) {
-						var deniedPresentPermission = resultObj.deniedPresent[i];
-						console.log('拒绝本次申请的权限：' + deniedPresentPermission);
-						//result = 0
-					}
-					for (var i = 0; i < resultObj.deniedAlways.length; i++) {
-						var deniedAlwaysPermission = resultObj.deniedAlways[i];
-						console.log('永久拒绝申请的权限：' + deniedAlwaysPermission);
-						//result = -1
-					}
-					//resolve(result);
-					// 若所需权限被拒绝,则打开APP设置界面,可以在APP设置界面打开相应权限
-					if (!iscan) {
-						go_locatin()
-					}
-					resolve(iscan);
-					
-				},
-				function(error) {
-					console.log('申请权限错误：' + error.code + " = " + error.message);
-					resolve({
-						code: error.code,
-						message: error.message
-					});
+				);
+
+			} else {
+				let iscan = false;
+				iscan = judgeIosPermission(p_ID_ios);
+				if (!iscan) {
+					//go_locatin()
+					go_AppSetting(settingTips)
 				}
-			);
-				
-		}else{
-			let iscan = false ;
-			iscan = judgeIosPermission(p_ID_ios);
-			if (!iscan) {
-				go_locatin()
+				resolve(iscan);
 			}
+
+		} else {
+			uni.showModal({
+				title: '提示',
+				content: '请打开"系统"定位服务',
+				showCancel: false,
+				success: function(res) {
+					if (res.confirm) {
+						////console.log('用户点击确定');
+					}
+				}
+			});
+
+			let iscan = false;
 			resolve(iscan);
 		}
 	});

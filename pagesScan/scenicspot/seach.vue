@@ -21,12 +21,12 @@
 <script>
 	import aSearchList from '../components/ay-search/ay-search-list.vue';
 	import jsondata from '../js/jsondata.js'
-	
+	import comm from '@/api/comm.js'
 	//#ifdef MP-WEIXIN
 	var amapFile = require('../js/gaodemap/amap.js');
 	// key 是在高德地图开发者平台申请的小程序密钥 详见 https://lbs.amap.com/api/wx/guide/create-project/config-project */
 	let amapPlugin = new amapFile.AMapWX({
-		key: 'a7e7b86f7dc34107f495f8ea797aeb3b',
+		key: comm.amapPlugin_key_wx , 
 	})
 	// #endif
 
