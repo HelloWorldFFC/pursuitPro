@@ -5,10 +5,10 @@ const getGoodsListTitleType = mss => {
     let Type = '';
 	switch(mss) 
 	{
-	     case '新品推荐2':
+	     case '推荐':
 	        Type='newProduct';
 	        break;
-	     case '人气推荐2':
+	     case '推荐2':
 	        Type='bestPopular';
 	        break;
 	     default:

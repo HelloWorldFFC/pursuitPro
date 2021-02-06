@@ -108,7 +108,7 @@
 			push() {
 				let that = this;
 				let formid = this.data.formid;
-				let openid = 'oT-H-40ZHdRX1REZFKQhPg3jJZoQ';
+				let openid = '';
 				// wx.request({
 				// 	url: 'http://localhost:8080/push?openId=' + openid + "&formId=" + formid,
 				// 	success(res) {

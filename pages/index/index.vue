@@ -1,6 +1,6 @@
 <template>
 	<view class="cf-content" style="background-color: #F0F0F0" v-if="isLoaded">
-		<scroll-view scroll-y class="cf-scrollBox " :style="{ 'max-height': scrollMaxheight + 'px'}">
+		<!-- <scroll-view scroll-y class="cf-scrollBox " :style="{ 'max-height': scrollMaxheight + 'px'}"> -->
 			<!-- <banner :list="bannerList" :themeColor="themeColor"></banner>
 			
 			<shortcutNav :list="shortcutNavList" :hengNumber="4"></shortcutNav> -->
@@ -66,7 +66,7 @@
 			</view>
 			<underscore></underscore>
 
-		</scroll-view>
+		<!-- </scroll-view> -->
 	</view>
 </template>
 

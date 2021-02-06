@@ -88,10 +88,10 @@
 				} else {
 					// #ifdef MP-WEIXIN
 					uni.navigateToMiniProgram({
-						appId: 'wx27c5fc84cf9a788e',
-						path : 'pages/parkingPay/parkingPay',
+						appId: '',
+						path : 'pages/index/index',
 						extraData: {
-							userCarNum: '粤B66666'
+							par: 'test'
 						},
 						envVersion: 'release',// develop（开发版），trial（体验版），release（正式版）
 						success(res) {
