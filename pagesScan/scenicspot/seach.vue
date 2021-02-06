@@ -274,9 +274,9 @@
 				var localSearch = new this.BMap.LocalSearch(this.map);
 				let sList = [];
 				localSearch.setSearchCompleteCallback(function(searchResult) {
-					console.log('searchResult')
-					console.log(searchResult)
-					console.log(searchResult.Hr.length)
+					// console.log('searchResult')
+					// console.log(searchResult)
+					// console.log(searchResult.Hr.length)
 					var sHr = searchResult.Hr;
 					for (let i = 0; i < sHr.length; i++) {
 						let item = sHr[i];
@@ -299,7 +299,7 @@
 
 					}
 					//var poi = searchResult.getPoi(0);
-					console.log(sList)
+					//console.log(sList)
 					that.kwList = sList;
 				});
 

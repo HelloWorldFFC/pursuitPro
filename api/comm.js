@@ -7,7 +7,7 @@ const imgPre = '';
 const imgHanderDetail = '';
 
 const base_url_html = '';
-
+//配套的高德小程序的key
 const amapPlugin_key_wx = '';
 
 const versionNumber = '1.1.4';

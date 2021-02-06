@@ -612,7 +612,7 @@
 						// #ifdef H5 || MP-WEIXIN
 						"enablePullDownRefresh": true,
 						// #endif
-						"navigationBarTitleText": "设置提醒",
+						"navigationBarTitleText": "我的愿望",
 						// #ifdef H5
 						"navigationStyle": "custom",
 						// #endif 

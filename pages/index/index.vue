@@ -29,7 +29,7 @@
 
 
 			<view class="paddingHeng-Theme marginBottom-Theme listOne">
-				<subNavTitle :list="shuImgTxtSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
+				<subNavTitle :list="shuImgTxtSubNav" @toDetailPage="toDetailPage_subT(2)"></subNavTitle>
 				<shuImgTxt :list="shuImgTxtList" :themeColor="themeColor" @toDetailPage="toDetailPage"></shuImgTxt>
 			</view>
 
@@ -242,6 +242,9 @@
 				switch (index_p) {
 					case 1:
 						page = `/pagesScan/scenicspot/scenicspot_5A`;
+						break;
+					case 2:
+						page = `/pagesFore/plan/set_plan`;
 						break;
 					default:
 						break;

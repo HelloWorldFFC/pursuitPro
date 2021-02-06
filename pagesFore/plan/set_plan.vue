@@ -1,7 +1,7 @@
   <template>
 	<view>
 		<view class="cu-form-group">
-			<view class="title">提醒说明：</view>
+			<view class="title">愿望：</view>
 			<input placeholder="输入如2022年考研(不多于15个字)" v-model="name"></input>
 		</view>
 		<view class="cu-form-group">

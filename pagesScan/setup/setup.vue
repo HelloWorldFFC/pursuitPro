@@ -49,7 +49,7 @@
 					},
 					{
 						img: '',
-						name: '重要提醒',
+						name: '我的愿望',
 						toPageUrl: '/pagesFore/plan/set_plan',
 					},
 
