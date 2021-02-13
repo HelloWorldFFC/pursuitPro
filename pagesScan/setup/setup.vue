@@ -52,6 +52,7 @@
 						name: '我的愿望',
 						toPageUrl: '/pagesFore/plan/set_plan',
 					},
+					
 
 				],
 				isBackToHome: false,

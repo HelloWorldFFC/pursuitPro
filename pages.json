@@ -624,7 +624,27 @@
 							// #endif 
 						}
 					}
+				},
+				{
+					"path": "know_voice/know_voice",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "语音识别",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
 				}
+				
 			]
 		}
 

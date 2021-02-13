@@ -24,20 +24,20 @@
 						<view class="userinfo-avatar">
 							<open-data type="userAvatarUrl"></open-data>
 						</view>
-				
+
 						<view class="logindTips">
 							<open-data type="userNickName"></open-data>
-				
+
 						</view>
 					</view>
-				
+
 					<!-- #endif -->
 				</view>
 				<view class="settingBox" @tap="toSite">
 					<view class="iconfont icon-shezhi setting"></view>
 				</view>
 			</view>
-			
+
 		</view>
 
 		<view style="margin-top: 26upx;">
@@ -65,28 +65,33 @@
 						toPageUrl: '/pagesShow/upload/upload_img'
 					},
 					{
-							img: 'https://cdn.pixabay.com/photo/2020/12/20/10/53/apple-5846664__340.jpg',
-							name: '生成二维码',
-							toPageUrl: '/pagesShow/qrcode/qrcode'
-						},
+						img: 'https://cdn.pixabay.com/photo/2020/12/20/10/53/apple-5846664__340.jpg',
+						name: '生成二维码',
+						toPageUrl: '/pagesShow/qrcode/qrcode'
+					},
+					{
+						img: 'https://cdn.pixabay.com/photo/2015/05/15/14/38/telephone-booth-768610__340.jpg',
+						name: '语音识别',
+						toPageUrl: '/pagesFore/know_voice/know_voice',
+					},
 					{
 						img: 'https://cdn.pixabay.com/photo/2021/01/01/14/07/chapel-5878656__340.jpg',
 						name: '客服',
 						isKefu: true,
 					},
-					
+
 					{
 						img: 'https://cdn.pixabay.com/photo/2017/12/10/17/07/dachstein-3010323__340.jpg',
 						name: '今日天气',
 						toPageUrl: '/pagesScan/weather/weather',
-						
+
 					},
 					{
 						img: 'https://cdn.pixabay.com/photo/2015/05/15/14/38/telephone-booth-768610__340.jpg',
 						name: '说明',
 						toPageUrl: '/pages/user/aboutUs'
 					},
-					
+
 
 				],
 			}
@@ -108,10 +113,10 @@
 
 		},
 		methods: {
-			toSite(){
+			toSite() {
 				let isonce = preDupliClick.setpreDupliClickVal(preDupliClick.preDupli.th);
 				if (!isonce) return;
-				
+
 				uni.navigateTo({
 					url: `/pagesScan/setup/setup`
 				})
@@ -138,7 +143,7 @@
 			toDetailPage_tip(e) {
 				let that = this;
 				let list = e.list;
-				
+
 				let item = e.item;
 
 				if (item.toPageUrl) {
@@ -148,7 +153,7 @@
 					return;
 				}
 				// #ifdef MP-WEIXIN
-				if(item.isKefu){
+				if (item.isKefu) {
 					return;
 				}
 				// #endif
@@ -207,10 +212,12 @@
 	page {
 		background-color: $uni-color-base;
 	}
-	.one-box{
+
+	.one-box {
 		margin-left: 40upx;
 		padding-bottom: 10upx;
 	}
+
 	.userinfo-avatar {
 		overflow: hidden;
 		display: block;
@@ -229,14 +236,14 @@
 		padding: 10upx 0upx;
 		padding-left: 20upx;
 	}
-	
+
 	.settingBox {
 		width: 20%;
-	
+
 		.setting {
 			color: #999999;
 			font-size: 60upx;
 		}
-	
+
 	}
 </style>
