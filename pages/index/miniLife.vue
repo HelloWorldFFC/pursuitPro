@@ -49,11 +49,11 @@
 					},
 					{
 						title: '烟花效果',
-						toPageUrl: '/pages/specialEffect/firework',
+						toPageUrl: '/pagesSpEfet/specialEffect/firework',
 					},
 					{
 						title: '波浪效果',
-						toPageUrl: '/pages/specialEffect/wave',
+						toPageUrl: '/pagesSpEfet/specialEffect/wave',
 					},
 				]
 			}

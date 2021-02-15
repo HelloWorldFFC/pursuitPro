@@ -323,40 +323,7 @@
 					// #endif 
 				}
 			}
-		},
-		{
-			"path": "pages/specialEffect/firework",
-			"style": {
-				"navigationBarTitleText": "烟花",
-				// #ifdef H5
-				"navigationStyle": "custom",
-				// #endif 
-				"app-plus": {
-					// #ifdef MP-WEIXIN
-					"titleNView": {
-						"type": "transparent"
-					}
-					// #endif 
-				}
-			}
-		},
-		{
-			"path": "pages/specialEffect/wave",
-			"style": {
-				"navigationBarTitleText": "波浪",
-				// #ifdef H5
-				"navigationStyle": "custom",
-				// #endif 
-				"app-plus": {
-					// #ifdef MP-WEIXIN
-					"titleNView": {
-						"type": "transparent"
-					}
-					// #endif 
-				}
-			}
 		}
-
 
 	],
 
@@ -646,8 +613,56 @@
 				}
 				
 			]
+		},
+		
+		{
+			"root": "pagesSpEfet", //文件夹名称，  pages文件夹同级新建一个就行
+			"pages": [
+				{
+					"path": "specialEffect/wave",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "波浪",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				},
+				{
+					"path": "specialEffect/firework",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "烟花",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				}
+				
+				
+				
+			]
 		}
-
+		
+		
 
 	],
 	"preloadRule": {
@@ -662,8 +677,11 @@
 		"pages/index/index": {
 			"network": "all",
 			"packages": ["pagesFore"]
+		},
+		"pages/index/index": {
+			"network": "all",
+			"packages": ["pagesSpEfet"]
 		}
-		
 	},
 
 	"globalStyle": {

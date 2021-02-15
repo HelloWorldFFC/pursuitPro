@@ -12,7 +12,7 @@
 </template>
 
 <script>
-	import firework from '@/components/ay-firework/firework.vue';
+	import firework from '../components/ay-firework/firework.vue';
 	export default {
 		components: {
 			firework,

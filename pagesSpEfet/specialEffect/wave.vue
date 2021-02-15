@@ -10,10 +10,10 @@
 </template>
 
 <script>
-	import wave1 from '@/components/ay-wave/wave1.vue';
-	import wave2 from '@/components/ay-wave/wave2.vue';
-	import wave3 from '@/components/ay-wave/wave3.vue';
-	import wave4 from '@/components/ay-wave/wave4.vue';
+	import wave1 from '../components/ay-wave/wave1.vue';
+	import wave2 from '../components/ay-wave/wave2.vue';
+	import wave3 from '../components/ay-wave/wave3.vue';
+	import wave4 from '../components/ay-wave/wave4.vue';
 	export default {
 		components: {
 			wave1,
