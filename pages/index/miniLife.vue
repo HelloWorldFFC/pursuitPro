@@ -48,12 +48,12 @@
 						toPageUrl: '/pages/timingReminder/timingReminder',
 					},
 					{
-						title: '烟花效果',
-						toPageUrl: '/pagesSpEfet/specialEffect/firework',
+						title: '动画效果',
+						toPageUrl: '/pagesSEffect/index/index',
 					},
 					{
 						title: '波浪效果',
-						toPageUrl: '/pagesSpEfet/specialEffect/wave',
+						toPageUrl: '/pagesSEffect/specialEffect/wave',
 					},
 				]
 			}

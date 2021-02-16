@@ -616,7 +616,7 @@
 		},
 		
 		{
-			"root": "pagesSpEfet", //文件夹名称，  pages文件夹同级新建一个就行
+			"root": "pagesSEffect", //文件夹名称，  pages文件夹同级新建一个就行
 			"pages": [
 				{
 					"path": "specialEffect/wave",
@@ -655,15 +655,49 @@
 							// #endif 
 						}
 					}
+				},
+				{
+					"path": "index/index",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "动画效果",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				},
+				{
+					"path": "specialEffect/turn",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "翻转",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
 				}
-				
-				
-				
+					
 			]
 		}
 		
-		
-
 	],
 	"preloadRule": {
 		"pages/index/index": {

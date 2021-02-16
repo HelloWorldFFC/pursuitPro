@@ -1,0 +1,66 @@
+<template>
+	<view>
+		<tiled :list="list" :hengNumber="2" @toDetailPage="toPage" img_last="lgg"></tiled>
+		<tiled :list="list" :hengNumber="3" @toDetailPage="toPage" backgroundColor="#6495ED" nameColor="#fff" img_last="lg"></tiled>
+	</view>
+	
+</template>
+
+<script>
+	import tiled from '@/components/ay-shortcutNav/tiled.vue';
+	import menu from '../js/menu.js';
+	export default {
+		components:{
+			tiled,
+		},
+		data() {
+			return {
+				list : [],
+				isLoaded : false ,
+			}
+		},
+		onLoad(options) {
+			// uni.setNavigationBarTitle({
+			// 	title: sceneMenu[options.index].name
+			// })
+			// this.scene = sceneMenu[options.index].list
+			let that = this;
+			that.loadData();
+		},
+		
+		methods: {
+			async loadData() {
+				let that = this;
+			
+				uni.showLoading({
+					title: '加载中',
+					mask: true,
+				})
+			
+				let res_home = await menu.res_home;
+				//console.log(res_home)
+				let data = res_home.data;
+			
+				that.list = data.list.data;
+				
+				uni.hideLoading();
+			
+				that.isLoaded = true;
+				
+			},
+			toPage(e) {
+				console.log(e)
+				let item = e.item ;
+				let url = item.url ;
+				console.log("页面路径", url)
+				uni.navigateTo({
+					url: url
+				})
+			}
+		},
+	}
+</script>
+
+<style  lang="scss">
+	
+</style>

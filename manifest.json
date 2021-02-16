@@ -61,7 +61,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wxaa2f8f1d6b5cae41",
+        "appid" : "",
         "setting" : {
             "urlCheck" : false
         },
@@ -77,13 +77,12 @@
         },
         "runmode" : "liberate", // 开启分包优化后，必须配置资源释放模式
         "requiredBackgroundModes" : [ "location" ],
-		"plugins":{
-			"WechatSI":{
-				"version":"0.3.0",
-				"provider":"wx069ba97219f66d99"
-			}
-			
-		}
+        "plugins" : {
+            "WechatSI" : {
+                "version" : "0.3.0",
+                "provider" : "wx069ba97219f66d99"
+            }
+        }
     },
     "mp-alipay" : {
         "usingComponents" : true
