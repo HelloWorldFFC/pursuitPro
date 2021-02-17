@@ -4,14 +4,13 @@ const res_home = {
 		"list": {
 			"data": [{
 					name: '翻转',
-					img: 'https://cdn.pixabay.com/photo/2016/11/23/17/56/decor-1854075__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
 					url: '/pagesSEffect/specialEffect/turn'
 				},
 				{
-					
-					name: '烟花',
-					img: 'https://cdn.pixabay.com/photo/2016/11/23/17/56/decor-1854075__340.jpg',
-					url: '/pagesSEffect/specialEffect/firework'
+					name: '抽奖',
+					img: 'https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg',
+					url: '/pagesSEffect/specialEffect/lottery'
 				},
 				{
 					name: '波浪',
@@ -20,7 +19,7 @@ const res_home = {
 				},
 				{
 					name: '烟花',
-					img: 'https://cdn.pixabay.com/photo/2016/11/23/17/56/decor-1854075__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
 					url: '/pagesSEffect/specialEffect/firework'
 				},
 

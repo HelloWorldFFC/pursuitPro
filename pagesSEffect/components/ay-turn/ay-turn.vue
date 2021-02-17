@@ -1,161 +1,90 @@
 <template>
-	<view style="position: relative;">
-		<view class='box' :style="style">
-			<!--正面-->
-			<view class="box-ct pros" :style="style" :animation="animationMain" @click='rotateFn(1)'>
-				<image :style="style" :src="pros_img"></image>
-			</view>
-			<!--反面-->
-			<view class="box-ct cons" :style="style" :animation="animationBack" @click='rotateFn(2)'>
-				<image :style="style" :src="cons_img"></image>
-			</view>
-		</view>
+	<view>
+		<threeDim v-if="type==1" :height="height" :width="width" :list="list" :marginTop="marginTop"></threeDim>
+		<turnPage v-if="type==2" :height="height" :width="width" :list="list"></turnPage>
+		<turnPageAuto v-if="type==3" :height="height" :width="width" :list="list" :cover="cover"></turnPageAuto>
+		<twoDim v-if="type==4" :height="height" :width="width" :pros_img="pros_img" :cons_img="cons_img"></twoDim>
 	</view>
 </template>
 
 <script>
+	import threeDim from './threeDim.vue';
+	import turnPage from './turn_page.vue';
+	import turnPageAuto from './turn_page_auto.vue';
+	import twoDim from './twoDim.vue';
 	export default {
-			props: {
-				pros_img: {
-					type: String,
-					default: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
-				},
-				cons_img: {
-					type: String,
-					default: 'https://cdn.pixabay.com/photo/2019/08/28/08/41/cute-4436103__340.jpg',
-				},
-				height: {
-					type: Number,
-					default: 150
-				},
-				width: {
-					type: Number,
-					default: 150
-				},
-				
-				themeColor: {
-					type: String,
-					default: '#FFFFFF',
-				},
+		components: {
+			threeDim,
+			turnPage,
+			turnPageAuto, //内容反着赋值
+			twoDim,
+		},
+		props: {
+			type: {
+				type: Number,
+				default: 1, //1:3d  2:翻页 3：自动翻页 4： 2d平面
 			},
-			computed: {
-				style() {
-					let that = this;
-					var height = parseInt(that.height);
-					var width = parseInt(that.width);
-					var style = '';
-					if (height > 0) {
-						style = `height:${height}rpx;`;
+			list: {
+				type: Array,
+				default () {
+					return []
+				}
+			},
+			cover: {
+				type: Object,
+				default () {
+					return {
+						img: 'https://cdn.pixabay.com/photo/2021/01/25/11/54/woman-5948133__340.jpg',
+						txt: '名人名言',
 					}
-					if (width > 0) {
-						style += `width:${width}rpx;`;
-					}
-				
-					return style;
-				},
-				
+				}
 			},
-	
-			watch: {
-	
+
+			pros_img: {
+				type: String,
+				default: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
 			},
-			data() {
-				return {
-					animationMain: null, //正
-					animationBack: null, //反
-				};
+			cons_img: {
+				type: String,
+				default: 'https://cdn.pixabay.com/photo/2019/08/28/08/41/cute-4436103__340.jpg',
 			},
-	
-			methods: {
-				//详情页
-				toDetailPage(item) {
-					let that = this;
-					let list = that.list;
-					let index = item.index;
-					let data = {
-						curIndex: index,
-						item: list[index],
-						list: list
-					};
-					this.$emit('toDetailPage', data);
-				},
-	
-				onImageError(item, index) {
-					//虽触发，但不会显示默认的图片				
-					this.error = null; //这个暂没有发现作用
-	
-					let obj = {
-						index: index,
-						list: this.list
-					};
-					this.$emit('Error', obj);
-				},
-				rotateFn(e) {
-						this.animation_main = uni.createAnimation({
-							duration: 400,
-							timingFunction: 'linear'
-						})
-						this.animation_back = uni.createAnimation({
-							duration: 400,
-							timingFunction: 'linear'
-						})
-						// 点击正面
-						if (e == 1) {
-							this.animation_main.rotateY(180).step()
-							this.animation_back.rotateY(0).step()
-							this.animationMain = this.animation_main.export()
-							this.animationBack = this.animation_back.export()
-						} else {
-							this.animation_main.rotateY(0).step()
-							this.animation_back.rotateY(-180).step()
-							this.animationMain = this.animation_main.export()
-							this.animationBack = this.animation_back.export()
-						}
-					},
-				
-			}
-		}
-	
+			height: {
+				type: Number,
+				default: 150
+			},
+			width: {
+				type: Number,
+				default: 150
+			},
+			marginTop: {
+				type: Number,
+				default: 140
+			},
+			themeColor: {
+				type: String,
+				default: '#FFFFFF',
+			},
+		},
+		computed: {
+
+
+		},
+
+		watch: {
+
+		},
+		data() {
+			return {
+
+			};
+		},
+
+		methods: {
+
+		},
+	}
 </script>
 
 <style lang="scss">
-	.box {
-		position: absolute;
-		top: 18%;
-		left: 50%;
-		
-		transform: translate(-50%, -50%);
-		-webkit-perspective: 1000;
-		-moz-perspective: 1000;
-	}
-	
-	.box-ct {
-		position: absolute;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		top: 0;
-		left: 0;
-		
-		transition: all 1s;
-		backface-visibility: hidden;
-		cursor: pointer;
-		border-radius: 10rpx;
-	
-		
-		text {
-			text-align: center;
-			font-size: 30rpx;
-		}
-	}
-	
-	.pros {
-		
-	}
-	
-	.cons {
-		
-		transform: rotateY(-180deg);
-	}
-	
+
 </style>

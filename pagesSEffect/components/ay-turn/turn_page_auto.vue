@@ -2,18 +2,18 @@
 	<view>
 		<view class="box" :style="{'margin-left': (width/3)*2+ 'rpx' }">
 			<view class="box-ct" :style="style">
-				<view :style="{border: '1px solid '+ themeColor }" class="page bk-ct">底部</view>
-				<view class="page bk-c" :style="get_style_bk_c({item:item,index:index})"  v-for="(item,index) in list" :key="index">
+				<view :style="{border: '1px solid '+ themeColor }" class="page bk-ct">结束</view>
+				<view class="page bk-c" :style="get_style_bk_c({item:item,index:index})" v-for="(item,index) in list" :key="index">
 					<view class="txt-box">
 						<view>{{item.txt}}</view>
 					</view>
-					
+
 					<view class="btm-box">
 						<view class="btm-box2">
-					
+
 							<view class="btn-bk-l">{{item.size}}</view>
 						</view>
-					
+
 					</view>
 				</view>
 				<view class="page bk-cover" :style="style_cover">
@@ -21,7 +21,7 @@
 						<view class="tit">{{cover.txt}}</view>
 						<image v-if="cover.img" :style="style_img" lazy-load="true" @error="onImageError(cover)" :src="cover.img" />
 					</view>
-					
+
 				</view>
 			</view>
 		</view>
@@ -37,7 +37,7 @@
 					return []
 				}
 			},
-			cover:{
+			cover: {
 				type: Object,
 				default () {
 					return {
@@ -78,14 +78,14 @@
 			style_cover() {
 				let that = this;
 				var style = '';
-				
+
 				style += `background-color:${that.themeColor};`;
 				style += `border : 1px solid ${that.themeColor};`;
-				let leg = that.list.length ;
-				let time = leg *2;
-				
+				let leg = that.list.length;
+				let time = leg * 2;
+
 				style += `animation-duration : ${time}s;animation-delay : 0s;`;
-				
+
 				return style;
 			},
 			style_img() {
@@ -96,7 +96,7 @@
 					let width_img = width / 3;
 					style += `height:${width_img}rpx;width:${width_img}rpx;`;
 				}
-			
+
 				return style;
 			},
 		},
@@ -113,15 +113,15 @@
 			let that = this;
 		},
 		methods: {
-			get_style_bk_c(e){
+			get_style_bk_c(e) {
 				//console.log(e)
 				let that = this;
-				
-				let index = e.index ;
-				let item = e.item ;
-				
+
+				let index = e.index;
+				let item = e.item;
+
 				var style = '';
-				let leg = that.list.length ;
+				let leg = that.list.length;
 				let time = leg + index;
 				let time2 = leg - index;
 				style += `border : 1px solid ${that.themeColor};`;
@@ -152,27 +152,31 @@
 		flex-direction: column;
 		width: 100%;
 		padding: 20upx;
-		.tit{
+
+		.tit {
 			font-size: 40upx;
 			font-weight: bold;
 			padding-bottom: 20upx;
 		}
 	}
+
 	image {
 		width: 90rpx;
 		height: 90rpx;
 		border-radius: 50%;
 	}
+
 	.btm-box {
 		position: fixed;
 		left: 0;
 		bottom: 10upx;
 		width: 100%;
+
 		.btm-box2 {
 			padding: 30upx 40upx;
 			text-align: center;
 		}
-		
+
 		.btm-bk-l {
 			width: 100%;
 			margin: 20upx auto;
@@ -180,8 +184,8 @@
 			font-size: 40upx;
 		}
 	}
-	
-	
+
+
 	.box {
 
 		transform-style: preserve-3d;
@@ -201,7 +205,7 @@
 		position: absolute;
 		left: 0;
 		top: 0;
-		
+
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -212,7 +216,7 @@
 	.bk-cover {
 		font-size: 30px;
 		color: #ffffff;
-		
+
 		animation-timing-function: ease;
 		animation-iteration-count: 2;
 		animation-direction: alternate;
@@ -227,28 +231,28 @@
 		color: #33363C;
 
 	}
-	
+
 	.bk-c {
 		background-color: #fff;
 		color: #33363C;
-		
+
 		// animation-direction: normal|reverse|alternate|alternate-reverse|initial|inherit;
 		// alternate:动画在奇数次（1、3、5...）正向播放，在偶数次（2、4、6...）反向播放
-		
+
 		//animation: name duration timing-function delay iteration-count direction fill-mode play-state;
 		//animation: roll 3s ease 3s 2 alternate;
 		// animation-duration: 3s;
 		// animation-delay: 3s;
-		
+
 		animation-timing-function: ease;
 		animation-iteration-count: 2;
 		animation-direction: alternate;
 		animation-fill-mode: none;
 		animation-play-state: running;
 		animation-name: roll;
-	
+
 	}
-	
+
 	@keyframes roll {
 		from {
 			transform: rotateY(0)

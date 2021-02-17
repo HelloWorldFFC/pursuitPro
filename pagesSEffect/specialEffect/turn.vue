@@ -1,20 +1,20 @@
 <template>
 	<view>
-		<threeDim :height="100" :width="200"  :list="list"></threeDim>
-		<threeDim :height="100" :width="200" :marginTop="10" :list="list"></threeDim>
-		<threeDim :height="100" :width="200" :marginTop="10" :list="list"></threeDim>
-		<threeDim :height="100" :width="200" :marginTop="10" :list="list"></threeDim>
-		<threeDim :height="100" :width="200" :marginTop="10" :list="list"></threeDim>
-		<threeDim :height="100" :width="200" :marginTop="10" :list="list"></threeDim>
-		<threeDim :height="100" :width="200" :marginTop="10" :list="list"></threeDim>
+		<ayturn :type="1" :height="100" :width="200"  :list="list"></ayturn>
+		<ayturn :type="1":height="100" :width="200" :marginTop="10" :list="list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
 		
-		<ayturn></ayturn>
+		<ayturn :type="4"  :height="150" :width="150" :pros_img="pros_img" :cons_img="cons_img"></ayturn>
 		<view style="margin-top: 130upx;">
 			<!-- 3d的会影响闪动一下，但不影响单独使用 -->
-			<turnPageAuto :height="400" :width="300" :cover="cover_auto"  :list="list_page_auto"></turnPageAuto>
+			<ayturn :type="3" :height="400" :width="300" :cover="cover_auto"  :list="list_page_auto"></ayturn>
 		</view>
 		
-		<turnPage :height="640" :width="400" :list="list_page"></turnPage>
+		<ayturn :type="2" :height="640" :width="400" :list="list_page"></ayturn>
 		
 		
 	</view>
@@ -24,15 +24,9 @@
 
 <script>
 	import menu from '../js/menu.js';
-	import threeDim from '../components/ay-turn/threeDim.vue';
-	import turnPage from '../components/ay-turn/turn_page.vue';
-	import turnPageAuto from '../components/ay-turn/turn_page_auto.vue';
-	import ayturn from '../components/ay-turn/ay-turn';
+	import ayturn from '../components/ay-turn/ay-turn.vue';
 	export default {
 		components: {
-			threeDim,
-			turnPage,
-			turnPageAuto,//内容反着赋值
 			ayturn,
 		},
 
@@ -42,6 +36,9 @@
 				list_page:[],
 				list_page_auto:[],
 				cover_auto:{},
+		
+				pros_img:'https://cdn.pixabay.com/photo/2020/03/13/08/34/south-station-4927286__340.jpg',
+				cons_img:'https://cdn.pixabay.com/photo/2021/01/11/18/41/snowfall-5909261__340.jpg',
 			}
 		},
 		onLoad() {

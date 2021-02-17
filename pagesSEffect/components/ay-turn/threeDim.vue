@@ -3,7 +3,8 @@
 		<view class="box-content" :style="style">
 			<view class="box" :style="style_wh">
 				<!-- mode="aspectFit" -->
-				<image mode="aspectFit" :style="style_wh" lazy-load="true" v-for="(item, index) in list" :key="index" @error="onImageError(item)" :src="item.img" />
+				<image mode="aspectFit" :style="style_wh" lazy-load="true" v-for="(item, index) in list" :key="index" @error="onImageError(item)"
+				 :src="item.img" />
 			</view>
 		</view>
 	</view>
@@ -11,115 +12,113 @@
 
 <script>
 	export default {
-			props: {
-				list: {
-					type: Array,
-					default () {
-						return []
-					}
-				},
-				
-				height: {
-					type: Number,
-					default: 150
-				},
-				width: {
-					type: Number,
-					default: 200
-				},
-				marginTop: {
-					type: Number,
-					default: 140
-				},
-				themeColor: {
-					type: String,
-					default: '#FFFFFF',
-				},
+		props: {
+			list: {
+				type: Array,
+				default () {
+					return []
+				}
 			},
-			computed: {
-				style() {
-					let that = this;
-					var height = parseInt(that.height);
-					var width = parseInt(that.width);
-					
-					var marginTop = parseInt(that.marginTop);
-					
-					var style = '';
-					if (height > 0) {
-						style = `height:${height}rpx;`;
-					}
-					if (width > 0) {
-						style += `width:${width}rpx;`;
-					}
-					if (marginTop > 0) {
-						style += `margin-top:${marginTop}rpx;`;
-					}
-					return style;
-				},
-				style_wh() {
-					let that = this;
-					var height = parseInt(that.height);
-					var width = parseInt(that.width);
-					var style = '';
-					if (height > 0) {
-						style = `height:${height}rpx;`;
-					}
-					if (width > 0) {
-						style += `width:${width}rpx;`;
-					}
-				
-					return style;
-				},
+
+			height: {
+				type: Number,
+				default: 150
 			},
-	
-			watch: {
-	
+			width: {
+				type: Number,
+				default: 200
 			},
-			data() {
-				return {
-	
+			marginTop: {
+				type: Number,
+				default: 140
+			},
+			themeColor: {
+				type: String,
+				default: '#FFFFFF',
+			},
+		},
+		computed: {
+			style() {
+				let that = this;
+				var height = parseInt(that.height);
+				var width = parseInt(that.width);
+
+				var marginTop = parseInt(that.marginTop);
+
+				var style = '';
+				if (height > 0) {
+					style = `height:${height}rpx;`;
+				}
+				if (width > 0) {
+					style += `width:${width}rpx;`;
+				}
+				if (marginTop > 0) {
+					style += `margin-top:${marginTop}rpx;`;
+				}
+				return style;
+			},
+			style_wh() {
+				let that = this;
+				var height = parseInt(that.height);
+				var width = parseInt(that.width);
+				var style = '';
+				if (height > 0) {
+					style = `height:${height}rpx;`;
+				}
+				if (width > 0) {
+					style += `width:${width}rpx;`;
+				}
+
+				return style;
+			},
+		},
+
+		watch: {
+
+		},
+		data() {
+			return {
+
+			};
+		},
+
+		methods: {
+			//详情页
+			toDetailPage(item) {
+				let that = this;
+				let list = that.list;
+				let index = item.index;
+				let data = {
+					curIndex: index,
+					item: list[index],
+					list: list
 				};
+				this.$emit('toDetailPage', data);
 			},
-	
-			methods: {
-				//详情页
-				toDetailPage(item) {
-					let that = this;
-					let list = that.list;
-					let index = item.index;
-					let data = {
-						curIndex: index,
-						item: list[index],
-						list: list
-					};
-					this.$emit('toDetailPage', data);
-				},
-	
-				onImageError(item, index) {
-					//虽触发，但不会显示默认的图片				
-					this.error = null; //这个暂没有发现作用
-	
-					let obj = {
-						index: index,
-						list: this.list
-					};
-					this.$emit('Error', obj);
-				},
-			}
+
+			onImageError(item, index) {
+				//虽触发，但不会显示默认的图片				
+				this.error = null; //这个暂没有发现作用
+
+				let obj = {
+					index: index,
+					list: this.list
+				};
+				this.$emit('Error', obj);
+			},
 		}
-	
+	}
 </script>
 
 <style lang="scss">
-	
 	.box-content {
-		
+
 		position: relative;
 		margin: 140rpx auto 0;
 	}
 
 	.box {
-		
+
 		transform-style: preserve-3d;
 		transform: rotateX(-30deg);
 		animation: photo 15s linear infinite;
@@ -130,7 +129,7 @@
 	}
 
 	.box image {
-		
+
 		position: absolute;
 		left: 0;
 		top: 0;

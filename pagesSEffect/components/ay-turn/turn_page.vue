@@ -75,7 +75,7 @@
 		},
 
 		watch: {
-			list(e){
+			list(e) {
 				let that = this;
 				that.list_dyc = e;
 			},
@@ -90,7 +90,7 @@
 			};
 		},
 		created: function() {
-			
+
 		},
 		methods: {
 			onImageError(item, index) {
@@ -194,23 +194,25 @@
 		align-items: center;
 		flex-direction: column;
 		width: 100%;
-		
-		.tit{
+
+		.tit {
 			font-size: 40upx;
 			font-weight: bold;
 			padding-bottom: 20upx;
 		}
 	}
+
 	.btm-box {
 		position: fixed;
 		left: 0;
 		bottom: 10upx;
 		width: 100%;
+
 		.btm-box2 {
 			padding: 30upx 40upx;
 			text-align: center;
 		}
-		
+
 		.btm-bk-l {
 			width: 100%;
 			margin: 20upx auto;
@@ -218,6 +220,7 @@
 			font-size: 40upx;
 		}
 	}
+
 	image {
 		width: 90rpx;
 		height: 90rpx;
@@ -237,7 +240,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
-		padding: 20rpx; 
+		padding: 20rpx;
 		background: #fff;
 		border: 1rpx solid #eee;
 		border-radius: 20rpx;
@@ -273,6 +276,4 @@
 	// 	z-index: 2;
 	// 	transform: translateX(-53%) translateY(-50%);
 	// }
-
-	
 </style>
