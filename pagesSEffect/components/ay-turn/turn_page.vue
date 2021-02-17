@@ -1,6 +1,5 @@
 <template>
 	<view>
-		<!-- :style="{padding: (item.haveNext?0:0) +'rpx'}" -->
 		<view class='box' :style="style">
 			<view class='box_item' v-for="(item,index) in list_dyc" :key="index" @touchstart='touchstart' @touchend="touchend"
 			 :animation="index === 0 ? animationData : ''">
@@ -76,7 +75,10 @@
 		},
 
 		watch: {
-
+			list(e){
+				let that = this;
+				that.list_dyc = e;
+			},
 		},
 		data() {
 			return {
@@ -88,8 +90,7 @@
 			};
 		},
 		created: function() {
-			let that = this;
-			that.list_dyc = that.list;
+			
 		},
 		methods: {
 			onImageError(item, index) {
@@ -200,7 +201,23 @@
 			padding-bottom: 20upx;
 		}
 	}
-
+	.btm-box {
+		position: fixed;
+		left: 0;
+		bottom: 10upx;
+		width: 100%;
+		.btm-box2 {
+			padding: 30upx 40upx;
+			text-align: center;
+		}
+		
+		.btm-bk-l {
+			width: 100%;
+			margin: 20upx auto;
+			padding: 20upx;
+			font-size: 40upx;
+		}
+	}
 	image {
 		width: 90rpx;
 		height: 90rpx;
@@ -220,7 +237,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
-		padding: 30rpx; //有多页效果
+		padding: 20rpx; 
 		background: #fff;
 		border: 1rpx solid #eee;
 		border-radius: 20rpx;
@@ -257,22 +274,5 @@
 	// 	transform: translateX(-53%) translateY(-50%);
 	// }
 
-	.btm-box {
-		position: fixed;
-		left: 0;
-		bottom: 10upx;
-		width: 100%;
-	}
-
-	.btm-box2 {
-		padding: 30upx 40upx;
-		text-align: center;
-	}
-
-	.btm-bk-l {
-		width: 100%;
-		margin: 20upx auto;
-		padding: 20upx;
-		font-size: 40upx;
-	}
+	
 </style>

@@ -1,8 +1,9 @@
 <template>
 	<view>
-		<view class="box-content">
-			<view class="box">
-				<image mode="aspectFit" lazy-load="true" v-for="(item, index) in list" :key="index" @error="onImageError(item)" :src="item.img" />
+		<view class="box-content" :style="style">
+			<view class="box" :style="style_wh">
+				<!-- mode="aspectFit" -->
+				<image mode="aspectFit" :style="style_wh" lazy-load="true" v-for="(item, index) in list" :key="index" @error="onImageError(item)" :src="item.img" />
 			</view>
 		</view>
 	</view>
@@ -11,24 +12,24 @@
 <script>
 	export default {
 			props: {
-	
 				list: {
 					type: Array,
 					default () {
 						return []
 					}
 				},
-				padding: {
-					type: Number,
-					default: 0
-				},
+				
 				height: {
 					type: Number,
-					default: 0
+					default: 150
 				},
-				borderRadius: {
+				width: {
 					type: Number,
-					default: 0
+					default: 200
+				},
+				marginTop: {
+					type: Number,
+					default: 140
 				},
 				themeColor: {
 					type: String,
@@ -39,25 +40,34 @@
 				style() {
 					let that = this;
 					var height = parseInt(that.height);
-					var padding = parseInt(that.padding);
+					var width = parseInt(that.width);
+					
+					var marginTop = parseInt(that.marginTop);
+					
 					var style = '';
 					if (height > 0) {
 						style = `height:${height}rpx;`;
 					}
-					if (padding > 0) {
-						style += `padding:0rpx ${padding}rpx;`;
+					if (width > 0) {
+						style += `width:${width}rpx;`;
 					}
-	
+					if (marginTop > 0) {
+						style += `margin-top:${marginTop}rpx;`;
+					}
 					return style;
 				},
-				style_img() {
+				style_wh() {
 					let that = this;
-					var borderRadius = that.borderRadius;
+					var height = parseInt(that.height);
+					var width = parseInt(that.width);
 					var style = '';
-	
-					if (borderRadius > 0) {
-						style += `border-radius:${borderRadius}rpx;`;
+					if (height > 0) {
+						style = `height:${height}rpx;`;
 					}
+					if (width > 0) {
+						style += `width:${width}rpx;`;
+					}
+				
 					return style;
 				},
 			},
@@ -103,15 +113,13 @@
 <style lang="scss">
 	
 	.box-content {
-		width: 200rpx;
-		height: 150rpx;
+		
 		position: relative;
-		margin: 200rpx auto 0;
+		margin: 140rpx auto 0;
 	}
 
 	.box {
-		width: 200rpx;
-		height: 150rpx;
+		
 		transform-style: preserve-3d;
 		transform: rotateX(-30deg);
 		animation: photo 15s linear infinite;
@@ -122,8 +130,7 @@
 	}
 
 	.box image {
-		width: 200rpx;
-		height: 150rpx;
+		
 		position: absolute;
 		left: 0;
 		top: 0;
