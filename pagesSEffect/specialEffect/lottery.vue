@@ -10,7 +10,7 @@
 		<aylottery :type="3" :list="list_r" :height="600" :width="600" :chance_num_init="chance_num_init" @result="resultFun_chance"></aylottery>
 		
 		<!-- #ifndef MP-WEIXIN -->
-		<aylottery :type="4" style="margin-top: 40upx;" ref="blowRef" result_txt="谢谢参与" :height="150" :width="350" themeColor="#33CCCC" txtColor="#ffffff"
+		<aylottery :type="4" style="margin-top: 40upx;" ref="blowRef" :result_txt="result_blow" :height="150" :width="350" themeColor="#33CCCC" txtColor="#ffffff"
 		 :txtFontSize="50" canvasId="canvasId2"></aylottery>
 		<!-- #endif -->
 	</view>
@@ -37,6 +37,7 @@
 				tips_init_turn:'点击',
 				no_z_init_turn:'点击',
 				result_turn:'',
+				result_blow:'谢谢参与',
 				chance_num_init:6,
 				list: [],
 				list_r: [],
@@ -69,16 +70,20 @@
 			show_turn(e){
 				let that = this;
 				if(e.result==1){
-					//随机获取list的值
-					let num = Math.floor(Math.random()*10);//可均衡获取0到9的随机整数
-					let legth = that.list.length || 0 ;
-					let index = num<legth ? num : (legth-1) ;
 					
-					that.result_turn = that.list[index].name||'哈哈';
+					that.result_turn = that.getShowTxt();
 				}else{
 					that.no_z_init_turn = '谢谢参与';
 				}
 				
+			},
+			getShowTxt(){
+				let that = this;
+				//随机获取list的值
+				let num = Math.floor(Math.random()*10);//可均衡获取0到9的随机整数
+				let legth = that.list.length || 0 ;
+				let index = num<legth ? num : (legth-1) ;
+				return that.list[index].name ||'哈哈'
 			},
 			resultFun(e) {
 				let that = this;
@@ -115,7 +120,8 @@
 
 				that.list = data.lottery_list.data;
 				that.list_r = data.lottery_r_list.data;
-
+				
+				that.result_blow = that.getShowTxt();
 				uni.hideLoading();
 
 				that.isLoaded = true;

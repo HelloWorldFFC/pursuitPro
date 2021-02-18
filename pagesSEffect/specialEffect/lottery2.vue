@@ -16,6 +16,7 @@
 </template>
 
 <script>
+	import menu from '../js/menu.js';
 	import scratch from '../components/ay-lottery/scratch.js'
 	export default {
 		data() {
@@ -49,6 +50,7 @@
 		},
 		onReady() {
 			this.initCanvas();
+			this.loadData();
 		},
 		methods: {
 			initCanvas() {
@@ -60,7 +62,36 @@
 					size: this.scratchSize,
 					scale: this.scratchScale
 				})
-			}
+			},
+			getShowTxt(list){
+				let that = this;
+				//随机获取list的值
+				let num = Math.floor(Math.random()*10);//可均衡获取0到9的随机整数
+				let legth = list.length || 0 ;
+				let index = num<legth ? num : (legth-1) ;
+				return list[index].name ||'哈哈'
+			},
+			async loadData() {
+				let that = this;
+			
+				uni.showLoading({
+					title: '加载中',
+					mask: true,
+				})
+			
+				let res_home = await menu.res_home;
+				//console.log(res_home)
+				let data = res_home.data;
+			
+				let list = data.lottery_list.data;
+				
+				that.result = that.getShowTxt(list);
+				
+				uni.hideLoading();
+			
+				that.isLoaded = true;
+			
+			},
 		}
 	}
 </script>
