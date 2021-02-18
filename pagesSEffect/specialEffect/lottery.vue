@@ -1,18 +1,18 @@
 <template>
 	<view class="content">
-		<turnLottery themeColor="#33CCCC" btn_Color="#ffffff" seled_Color="#DB7093" seled_t_Color="#98FB98" un_seled_Color="#00BFFF"
-		 un_seled_t_Color="#33CCCC" result="中奖结果"></turnLottery>
-
+		
+		<aylottery :type="1" themeColor="#33CCCC" btn_Color="#ffffff" seled_Color="#DB7093" seled_t_Color="#98FB98" un_seled_Color="#00BFFF"
+		 un_seled_t_Color="#33CCCC" :result_txt="result_turn" @show="show_turn" @again="again_turn" :show_again="true" again_txt="重新开始" :tips_init="tips_init_turn" :no_z_init="no_z_init_turn"></aylottery>
+		
+		
+		<aylottery :type="2" :list="list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"></aylottery>
+		
+		<aylottery :type="3" :list="list_r" :height="600" :width="600" :chance_num_init="chance_num_init" @result="resultFun_chance"></aylottery>
+		
 		<!-- #ifndef MP-WEIXIN -->
-		<blow style="margin-top: 40upx;" ref="blowRef" result="中奖结果" :height="150" :width="350" themeColor="#33CCCC" txtColor="#ffffff"
-		 :txtFontSize="50" canvasId="canvasId2"></blow>
+		<aylottery :type="4" style="margin-top: 40upx;" ref="blowRef" result_txt="谢谢参与" :height="150" :width="350" themeColor="#33CCCC" txtColor="#ffffff"
+		 :txtFontSize="50" canvasId="canvasId2"></aylottery>
 		<!-- #endif -->
-
-		<marquee :list="list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"></marquee>
-
-		<turnplate :list="list_r" :chance_num_init="chance_num_init" @result="resultFun_chance"></turnplate>
-
-
 	</view>
 </template>
 
@@ -22,16 +22,21 @@
 	import turnplate from '../components/ay-lottery/turnplate.vue';
 	import turnLottery from '../components/ay-lottery/turnLottery.vue';
 	import blow from '../components/ay-lottery/blow.vue';
+	import aylottery from '../components/ay-lottery/ay-lottery.vue';
 	export default {
 		components: {
 			marquee,
 			turnplate,
 			turnLottery,
 			blow,
+			aylottery,
 		},
 
 		data() {
 			return {
+				tips_init_turn:'点击',
+				no_z_init_turn:'点击',
+				result_turn:'',
 				chance_num_init:6,
 				list: [],
 				list_r: [],
@@ -50,12 +55,31 @@
 
 			//#ifndef MP-WEIXIN
 			setTimeout(function() {
-				that.$refs.blowRef.initCanvas()
+				that.$refs.blowRef.initBlow()
 			}, 50)
 			// #endif
 
 		},
 		methods: {
+			again_turn(e){
+				let that = this;
+				that.result_turn = '';
+				that.no_z_init_turn = that.tips_init_turn;
+			},
+			show_turn(e){
+				let that = this;
+				if(e.result==1){
+					//随机获取list的值
+					let num = Math.floor(Math.random()*10);//可均衡获取0到9的随机整数
+					let legth = that.list.length || 0 ;
+					let index = num<legth ? num : (legth-1) ;
+					
+					that.result_turn = that.list[index].name||'哈哈';
+				}else{
+					that.no_z_init_turn = '谢谢参与';
+				}
+				
+			},
 			resultFun(e) {
 				let that = this;
 				let item = e.item;

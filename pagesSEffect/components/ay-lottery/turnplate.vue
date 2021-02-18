@@ -63,7 +63,7 @@
 				this.init()
 			},
 			chance_num_init(e){
-				this.chance_num = this.chance_num_init ;
+				this.chance_num = e ;
 			},
 		},
 		created() {

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="re-turn" :style="[{'background-color': themeColor},{color: btn_Color }]" @click="again">重新抽奖</view>
+		<view v-if="show_again" class="re-turn" :style="[{'background-color': themeColor},{color: btn_Color }]" @click="again">{{again_txt}}</view>
 		<view class="box">
 			<view @click="tamin(index)" v-for="(item,index) in 9" :key="index" class="box-item" :class="[really == index+1?'animt':'', really != index+1 && surplus?'animt':'', really == ''?'item'+(index+1):'']" :style="really == index+1 && implement > 1?style_seled:style_un_seled">
 				{{really == index+1?can_z:''}}{{really != index+1 && really != ''?no_z:''}}{{really == ''?tips:''}}
@@ -13,15 +13,6 @@
 <script>
 	export default {
 		props: {
-			height: {
-				type: Number,
-				default: 150
-			},
-			width: {
-				type: Number,
-				default: 350
-			},
-		
 			themeColor: {
 				type: String,
 				default: '#33CCCC',
@@ -47,10 +38,51 @@
 				type: String,
 				default: '#33CCCC',
 			},
-			result: {
+			result_txt: {
 				type: String,
 				default: '中奖结果',
 			},
+			show_again: {
+				type: Boolean,
+				default: false
+			},
+			again_txt: {
+				type: String,
+				default: '重新开始',
+			},
+			tips_init: {
+				type: String,
+				default: '点击',
+			},
+			no_z_init: {
+				type: String,
+				default: '谢谢参与',
+			},
+			height: {
+				type: Number,
+				default: 150
+			},
+			width: {
+				type: Number,
+				default: 350
+			},
+		},
+		watch:{
+			result_txt(e){
+				this.can_z = e ;
+			},
+			tips_init(e){
+				this.tips = e ;
+			},
+			no_z_init(e){
+				this.no_z = e ;
+			},
+		},
+		created:function(){
+			let tips_init = this.tips_init
+			this.tips = tips_init ;
+			this.can_z = tips_init ;
+			this.no_z = this.no_z_init ;
 		},
 		computed: {
 			style_seled() {
@@ -72,12 +104,12 @@
 		data() {
 			return {
 				whether: false,
-				can_z: '点击抽奖',
+				can_z: '',
 				really: '',
 				implement: 0,
 				surplus: false,
-				no_z: '点击抽奖',
-				tips:'点击抽奖',
+				no_z: '',
+				tips:'',
 			}
 		},
 		methods: {
@@ -89,6 +121,10 @@
 					this.implement = 0
 					this.surplus = false
 					this.no_z = this.tips ;
+					let data = {
+						
+					};
+					this.$emit('again', data);
 				} else {
 					uni.showToast({
 						title: '正在执行抽奖中...',
@@ -109,7 +145,13 @@
 					}, 500)
 
 					setTimeout(res => {
-						this.can_z = this.result;
+						//this.can_z = this.result_txt;
+						
+						let data = {
+							result : 1 ,//1成功 0失败
+						};
+						this.$emit('show', data);
+						
 						this.surplus = true
 						this.implement = 2
 					}, 1200)
@@ -119,7 +161,11 @@
 					}, 1700)
 
 					setTimeout(res => {
-						this.no_z = '谢谢惠顾'
+						let data = {
+							result : 0 ,//1成功 0失败
+						};
+						this.$emit('show', data);
+						//this.no_z = '谢谢惠顾'
 						this.implement = 3
 					}, 2500)
 				}

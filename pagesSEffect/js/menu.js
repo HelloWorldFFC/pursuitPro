@@ -158,7 +158,7 @@ const res_home = {
 				name: "大胆一点"
 			}, {
 				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
-				name: "会特别顺利"
+				name: "好运将会降临"
 			}],
 		},
 		"lottery_r_list": {
@@ -179,7 +179,7 @@ const res_home = {
 				},
 				{
 					index: 2,
-					name: '好运将会降临',
+					name: '会特别顺利',
 					val : 2 ,
 					isAward : true ,
 					type: 2,

@@ -4,7 +4,7 @@
 			<view class="box" :style="{background: themeColor }">
 				<!-- 刮奖结果-->
 				<view class="result" :style="[{'font-size':txtFontSize+'rpx'},{color: txtColor }]">
-					<text>{{result}}</text>
+					<text>{{result_txt}}</text>
 				</view>
 				<!-- 刮奖canvas容器 -->
 				<canvas class="canvas-box" :canvas-id="canvasId" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd"></canvas>
@@ -19,7 +19,7 @@
 	import scratch from './scratch.js'
 	export default {
 		props: {
-			result: {
+			result_txt: {
 				type: String,
 				default: '刮奖结果',
 			},
@@ -51,24 +51,14 @@
 				default: 'blow',
 			},
 		},
-
+		
 		data() {
 			return {
-				// canvasId: 'blow',
-				// result: '刮奖结果',
-				// txtColor: '#FFFFFF',
-				// txtFontSize: 50,
-				// themeColor: '#33CCCC',
-				// width: 350, // 绘制刮奖范围宽
-				// height: 150, // 绘制刮奖范围高
+				
 				scratchSize: 10, // 触手大小
 				scratchScale: 0.30, // 需刮开百分比
 			}
 		},
-		// onReady:function(){
-		// 	let that = this;
-		// 	that.initCanvas();
-		// },
 		computed: {
 			style_wh() {
 				let that = this;
@@ -87,7 +77,7 @@
 		},
 		
 		methods: {
-			initCanvas() {
+			initBlow() {
 				// 刮奖初始化信息必须在onReady后，不然h5不支持（小程序可在onLoad执行）
 				new scratch(this, {
 					canvasId: this.canvasId,

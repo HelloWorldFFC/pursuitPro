@@ -24,14 +24,6 @@
 				}
 			},
 		
-			height: {
-				type: Number,
-				default: 600
-			},
-			width: {
-				type: Number,
-				default: 650
-			},
 			themeColor: {
 				type: String,
 				default: '#33CCCC',
@@ -43,6 +35,14 @@
 			bg_sd_Color: {
 				type: String,
 				default: '#4169E1',
+			},
+			height: {
+				type: Number,
+				default: 600
+			},
+			width: {
+				type: Number,
+				default: 650
 			},
 		},
 		data() {
