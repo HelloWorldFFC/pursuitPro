@@ -9,13 +9,13 @@
 						<view class="cs-item" :style="{color: themeColor }" v-for="(iteml,index2) in awardsList" :key="index2">
 							<view class="cs-item-text" :style="[{transform:'rotate('+iteml.turn+')'},{'-webkit-transform-origin': '50% ' +(height/2) +'rpx'},{'transform-origin': '50% ' +(height/2) +'rpx'}]">
 								<text class="txt">{{iteml.name}}</text>
-								<image class="cs-item-text-img" src=""></image>
+								<image class="cs-item-text-img" :src="iteml.img"></image>
 							</view>
 						</view>
 					</view>
 				</view>
 				<view @tap="playReward" class="cs-btn" :style="[{left:((width/2)-40) +'rpx'},{top:((height/2)-40) +'rpx'}]" v-bind:class="btnDisabled">开始 </view>
-				<view class="cs-btn-table" :style="[{left:((width/2)-50) +'rpx'},{top:((height/2)+50) +'rpx'},{color: themeColor }]">剩余{{chishu}}次</view>
+				<view class="cs-btn-table" :style="[{left:((width/2)-50) +'rpx'},{top:((height/2)+50) +'rpx'},{color: themeColor }]">剩余{{chance_num}}次</view>
 			</view>
 		
 	</view>
@@ -43,6 +43,10 @@
 				type: String,
 				default: '#33CCCC',
 			},
+			chance_num_init :{
+				type: Number,
+				default: 5
+			},
 		},
 		data() {
 			return {
@@ -51,11 +55,20 @@
 				awardsList: {},
 				animationData: {},
 				btnDisabled: '',
-				chishu: 5
+				chance_num: 5
 			};
 		},
+		watch:{
+			list(){
+				this.init()
+			},
+			chance_num_init(e){
+				this.chance_num = this.chance_num_init ;
+			},
+		},
 		created() {
-			this.drawAwardRoundel()
+			this.init();
+			this.chance_num = this.chance_num_init ;
 		},
 		computed: {
 			style_box() {
@@ -91,7 +104,7 @@
 		methods: {
 
 			//画抽奖圆盘  
-			drawAwardRoundel: function() {
+			init: function() {
 				var awards = this.list;
 				var awardsList = [];
 				var turnNum = 1 / awards.length * 360; // 文字旋转 turn 值  
@@ -113,7 +126,7 @@
 			//发起抽奖  
 			playReward: function() {
 				let that = this ;
-				if (this.chishu == 0) {
+				if (this.chance_num == 0) {
 					uni.showToast({
 						title: '抽奖次数已经用完',
 						icon: 'none'
@@ -139,16 +152,18 @@
 				that.btnDisabled = 'disabled';
 
 				// 中奖提示  
-				var awardType = that.list[awardIndex].type;
-				that.chishu = that.chishu - 1;
-				if (awardType == 0) {
+				var isAward = that.list[awardIndex].isAward || false;
+				that.chance_num = that.chance_num - 1;
+				if (isAward) {
 					setTimeout(function() {
-						uni.showModal({
-							title: '恭喜',
-							content: '获得' + (that.list[awardIndex].name),
-							showCancel: false
-						});
+						
 						that.btnDisabled = '';
+						let data = {
+							curIndex: awardIndex,
+							item: that.list[awardIndex],
+							list: that.list
+						};
+						this.$emit('result', data);
 					}.bind(that), duration);
 				} else {
 					setTimeout(function() {

@@ -24,13 +24,13 @@ const msg = (title, duration = 1500, mask = false, icon = 'none') => {
 		icon
 	});
 }
-const msg_modal = (content) => {
+const msg_modal = (content,title='温馨提示') => {
 	//统一提示方便全局修改
 	if (Boolean(content) === false) {
 		return;
 	}
 	uni.showModal({
-		title: '温馨提示',
+		title: title,
 		content: content,
 		confirmText: '确定',
 		showCancel: false,

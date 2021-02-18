@@ -719,7 +719,7 @@
 						// #ifdef H5 || MP-WEIXIN
 						"enablePullDownRefresh": true,
 						// #endif
-						"navigationBarTitleText": "抽奖",
+						"navigationBarTitleText": "刮奖",
 						// #ifdef H5
 						"navigationStyle": "custom",
 						// #endif 
@@ -779,12 +779,14 @@
 				"iconPath": "static/miniLifeH.png",
 				"selectedIconPath": "static/miniLife.png",
 				"text": "极简生活"
-			}, {
-				"pagePath": "pages/scrawl/scrawl",
-				"iconPath": "static/memorandumH.png",
-				"selectedIconPath": "static/memorandum.png",
-				"text": "涂鸦"
-			}, {
+			}, 
+			// {
+			// 	"pagePath": "pages/scrawl/scrawl",
+			// 	"iconPath": "static/memorandumH.png",
+			// 	"selectedIconPath": "static/memorandum.png",
+			// 	"text": "涂鸦"
+			// }, 
+			{
 				"pagePath": "pages/compounds/compounds",
 				"iconPath": "static/compoundsH.png",
 				"selectedIconPath": "static/compounds.png",

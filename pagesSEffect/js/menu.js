@@ -27,11 +27,11 @@ const res_home = {
 		},
 		"turn_thD_list": {
 			"data": [{
-				
+
 					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
 				},
 				{
-				
+
 					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
 				},
 				{
@@ -58,7 +58,7 @@ const res_home = {
 			],
 		},
 		"turn_page_list": {
-			
+
 			"data": [{
 					size: '',
 					img: 'https://cdn.pixabay.com/photo/2021/01/25/11/54/woman-5948133__340.jpg',
@@ -103,13 +103,13 @@ const res_home = {
 			],
 		},
 		"turn_page_txt": {
-			
+
 			cover: {
-				img:'https://cdn.pixabay.com/photo/2021/01/25/11/54/woman-5948133__340.jpg',
-				txt:'名人名言',
+				img: 'https://cdn.pixabay.com/photo/2021/01/25/11/54/woman-5948133__340.jpg',
+				txt: '名人名言',
 			},
-			ct:'(苏联)尼·奥斯特洛夫斯基在《钢铁是怎样炼成的》的主人公 保尔·柯察金之口说过：人最宝贵的东西是生命，生命属于人只有一次，一个人的人生是应该这样度过：当他回首往事的时候，他不会因虚度年华而悔恨，也不会因碌碌无为而羞耻，这样在临死的时候，他才能够说:我的生命和全部的经历都献给世界上最壮丽的事业----为人类的解放而斗争',
-			num_per:56,
+			ct: '(苏联)尼·奥斯特洛夫斯基在《钢铁是怎样炼成的》的主人公 保尔·柯察金之口说过：人最宝贵的东西是生命，生命属于人只有一次，一个人的人生是应该这样度过：当他回首往事的时候，他不会因虚度年华而悔恨，也不会因碌碌无为而羞耻，这样在临死的时候，他才能够说:我的生命和全部的经历都献给世界上最壮丽的事业----为人类的解放而斗争',
+			num_per: 56,
 		},
 		"turn_pageAuto_list": {
 			"data": [{
@@ -131,6 +131,111 @@ const res_home = {
 				{
 					size: 1,
 					txt: '修身治国平天下11111',
+				},
+			],
+		},
+		"lottery_list": {
+			"data": [{
+				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				name: "不要指望他"
+			}, {
+				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				name: "你在开玩笑么？"
+			}, {
+				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				name: "可怕"
+			}, {
+				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				name: "可能"
+			}, {
+				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				name: "不用担心"
+			}, {
+				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				name: "答案就在你身边"
+			}, {
+				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				name: "大胆一点"
+			}, {
+				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				name: "会特别顺利"
+			}],
+		},
+		"lottery_r_list": {
+			"data": [{
+					index: 0,
+					name: '1次机会',
+					isAward : true ,
+					val : 1 ,
+					type: 1,
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				},
+				{
+					index: 1,
+					name: '谢谢参与',
+					isAward : false ,
+					type: 0,
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				},
+				{
+					index: 2,
+					name: '好运将会降临',
+					val : 2 ,
+					isAward : true ,
+					type: 2,
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				},
+				{
+					index: 3,
+					name: '谢谢参与',
+					isAward : false ,
+					type: 0,
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				},
+				{
+					index: 4,
+					name: '2次机会',
+					val : 2 ,
+					isAward : true ,
+					type: 1,
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				},
+				{
+					index: 5,
+					name: '谢谢参与',
+					isAward : false ,
+					type: 0,
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				},
+				{
+					index: 6,
+					name: '4次机会',
+					val : 4 ,
+					isAward : true ,
+					type: 1,
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				},
+				{
+					index: 7,
+					name: '谢谢参与',
+					isAward : false ,
+					type: 0,
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				},
+				{
+					index: 8,
+					name: '会付出代价',
+					val : 5 ,
+					isAward : true ,
+					type: 2,
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				},
+				{
+					index: 9,
+					name: '谢谢参与',
+					isAward : false ,
+					type: 0,
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
 				},
 			],
 		},

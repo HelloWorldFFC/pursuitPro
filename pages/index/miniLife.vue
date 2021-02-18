@@ -52,8 +52,8 @@
 						toPageUrl: '/pagesSEffect/index/index',
 					},
 					{
-						title: '波浪效果',
-						toPageUrl: '/pagesSEffect/specialEffect/wave',
+						title: '涂鸦',
+						toPageUrl: '/pages/scrawl/scrawl',
 					},
 				]
 			}

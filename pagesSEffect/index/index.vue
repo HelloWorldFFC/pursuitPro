@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<tiled :list="list" :hengNumber="2" @toDetailPage="toPage" img_last="lgg"></tiled>
-		<tiled :list="list" :hengNumber="3" @toDetailPage="toPage" backgroundColor="#6495ED" nameColor="#fff" img_last="lg"></tiled>
+		<tiled :list="list" :hengNumber="3" @toDetailPage="toPage" backgroundColor="#BA55D3" nameColor="#fff" img_last="lg"></tiled>
 	</view>
 	
 </template>
