@@ -1,10 +1,16 @@
 <template>
-	<view>
+	<view class="content">
+		<turnLottery themeColor="#33CCCC" btn_Color="#ffffff" seled_Color="#DB7093" seled_t_Color="#98FB98" un_seled_Color="#00BFFF" un_seled_t_Color="#33CCCC" result="中奖结果"></turnLottery>
 		
+		<!-- #ifndef MP-WEIXIN -->
+		<blow style="margin-top: 40upx;" ref="blowRef" result="中奖结果" :height="150" :width="350" themeColor="#33CCCC" txtColor="#ffffff" :txtFontSize="50" canvasId="canvasId2"></blow>
+		<!-- #endif -->
 		
-		<marquee :list="list" @result="resultFun"></marquee>
-		<turnplate></turnplate>
-		<turnLottery></turnLottery>
+		<marquee :list="list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"></marquee>
+		
+		<turnplate :list="list_r"></turnplate>
+		
+
 	</view>
 </template>
 
@@ -13,47 +19,115 @@
 	import marquee from '../components/ay-lottery/marquee.vue';
 	import turnplate from '../components/ay-lottery/turnplate.vue';
 	import turnLottery from '../components/ay-lottery/turnLottery.vue';
+	import blow from '../components/ay-lottery/blow.vue';
 	export default {
 		components: {
 			marquee,
 			turnplate,
 			turnLottery,
+			blow,
 		},
 
 		data() {
 			return {
 				list: [{
 					img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
-					name: "酷表情"
+					name: "第1个"
 				}, {
 					img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
-					name: "流鼻血表情"
+					name: "第2个"
 				}, {
 					img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
-					name: "冷表情"
+					name: "第3个"
 				}, {
 					img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
-					name: "色表情"
+					name: "第4个"
 				}, {
 					img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
-					name: "吐表情"
+					name: "第5个"
 				}, {
 					img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
-					name: "睡觉表情"
+					name: "第6个"
 				}, {
 					img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
-					name: "哭表情"
+					name: "第7个"
 				}, {
 					img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
-					name: "奋斗表情"
+					name: "第8个"
 				}],
+				list_r:[{
+							index: 0,
+							name: '10元红包',
+							type: 0,
+							img:'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+						},
+						{
+							index: 1,
+							name: '谢谢参与',
+							type: 1,
+							img:'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+						},
+						{
+							index: 2,
+							name: '50元红包',
+							type: 0,
+							img:'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+						},
+						{
+							index: 3,
+							name: '谢谢参与',
+							type: 1,
+							img:'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+						},
+						{
+							index: 4,
+							name: '100元话费',
+							type: 0,
+							img:'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+						},
+						{
+							index: 5,
+							name: '谢谢参与',
+							type: 1,
+							img:'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+						},
+						{
+							index: 6,
+							name: '20元红包',
+							type: 0,
+							img:'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+						},
+						{
+							index: 7,
+							name: '谢谢参与',
+							type: 1,
+							img:'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+						},
+						{
+							index: 8,
+							name: '谢谢参与',
+							type: 1,
+							img:'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+						}
+					]
 			}
 		},
 		onLoad() {
 			let that = this;
 			//that.loadData();
+			
 		},
 		onShow() {
+
+		},
+		onReady: function() {
+			let that = this;
+
+			//#ifndef MP-WEIXIN
+			setTimeout(function() {
+				that.$refs.blowRef.initCanvas()
+			}, 50)
+			// #endif
 
 		},
 		methods: {
@@ -135,5 +209,6 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+	
 </style>

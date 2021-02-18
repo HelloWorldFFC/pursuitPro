@@ -1,9 +1,9 @@
 <template>
 	<view>
-		<view class="button" @click="again">重新翻牌</view>
-		<view class="curin-index">
-			<view @click="tamin(index)" v-for="(item,index) in 9" :key="index" class="currin" :class="[really == index+1?'animt':'', really != index+1 && surplus?'animt':'', really == ''?'cinton'+(index+1):'',really == index+1 && implement > 1?'selected':'un-selected']">
-				{{really == index+1?flop:''}}{{really != index+1 && really != ''?biutin:''}}{{really == ''?'点击翻牌':''}}
+		<view class="re-turn" :style="[{'background-color': themeColor},{color: btn_Color }]" @click="again">重新抽奖</view>
+		<view class="box">
+			<view @click="tamin(index)" v-for="(item,index) in 9" :key="index" class="box-item" :class="[really == index+1?'animt':'', really != index+1 && surplus?'animt':'', really == ''?'item'+(index+1):'']" :style="really == index+1 && implement > 1?style_seled:style_un_seled">
+				{{really == index+1?can_z:''}}{{really != index+1 && really != ''?no_z:''}}{{really == ''?tips:''}}
 			</view>
 		</view>
 		
@@ -12,25 +12,83 @@
 
 <script>
 	export default {
+		props: {
+			height: {
+				type: Number,
+				default: 150
+			},
+			width: {
+				type: Number,
+				default: 350
+			},
+		
+			themeColor: {
+				type: String,
+				default: '#33CCCC',
+			},
+			
+			btn_Color: {
+				type: String,
+				default: '#ffffff',
+			},
+			seled_Color: {
+				type: String,
+				default: '#f43f3b',
+			},
+			seled_t_Color: {
+				type: String,
+				default: '#98FB98',
+			},
+			un_seled_Color: {
+				type: String,
+				default: '#00BFFF',
+			},
+			un_seled_t_Color: {
+				type: String,
+				default: '#33CCCC',
+			},
+			result: {
+				type: String,
+				default: '中奖结果',
+			},
+		},
+		computed: {
+			style_seled() {
+				let that = this;
+				var style = '';
+				style = `background-image: linear-gradient(45deg, ${that.seled_Color}, ${that.seled_t_Color});`;
+				
+				return style;
+			},
+			style_un_seled() {
+				let that = this;
+				
+				var style = '';
+				style = `background-image: linear-gradient(45deg, ${that.un_seled_Color}, ${that.un_seled_t_Color});`;
+					
+				return style;
+			},
+		},
 		data() {
 			return {
 				whether: false,
-				flop: '点击翻牌',
+				can_z: '点击抽奖',
 				really: '',
 				implement: 0,
 				surplus: false,
-				biutin: '点击翻牌',
+				no_z: '点击抽奖',
+				tips:'点击抽奖',
 			}
 		},
 		methods: {
 			again(e) {
 				if (this.implement == 3 || this.implement == 0) {
 					this.whether = false
-					this.flop = '点击翻牌'
+					this.can_z = this.tips ;
 					this.really = ''
 					this.implement = 0
 					this.surplus = false
-					this.biutin = '点击翻牌'
+					this.no_z = this.tips ;
 				} else {
 					uni.showToast({
 						title: '正在执行抽奖中...',
@@ -47,21 +105,21 @@
 					this.implement = 1
 
 					setTimeout(res => {
-						this.flop = ''
+						this.can_z = ''
 					}, 500)
 
 					setTimeout(res => {
-						this.flop = 'iPhone12'
+						this.can_z = this.result;
 						this.surplus = true
 						this.implement = 2
 					}, 1200)
 
 					setTimeout(res => {
-						this.biutin = ''
+						this.no_z = ''
 					}, 1700)
 
 					setTimeout(res => {
-						this.biutin = '谢谢惠顾'
+						this.no_z = '谢谢惠顾'
 						this.implement = 3
 					}, 2500)
 				}
@@ -71,48 +129,43 @@
 </script>
 
 <style lang="scss">
-	.selected {
-		// background-image: linear-gradient(45deg, #f43f3b, #ec008c);
-		background-color: #f43f3b;
-	}
-
-	.un-selected {
-		// background-image: linear-gradient(45deg, #39b54a, #8dc63f);
-		background-color: #39b54a;
-	}
-
-	.button {
+	.re-turn {
 		width: 40%;
 		height: 80rpx;
 		line-height: 80rpx;
-		background-color: #fadbd9;
-		color: #e54d42;
 		text-align: center;
 		border-radius: 10rpx;
 		margin: 30rpx 30%;
-		float: left;
 		position: relative;
 	}
 
-	.curin-index {
+	.box {
 		width: 100%;
-		float: left;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+		padding: 10upx 10upx 20upx 10upx;
 	}
 
-	.currin {
-		margin-left: 4%;
-		margin-top: 50rpx;
+	.box-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		font-size: 25upx;
 		width: 28%;
-		float: left;
-		color: #fff;
-		text-align: center;
 		height: 200rpx;
 		line-height: 200rpx;
 		border-radius: 10rpx;
 		position: relative;
+		color: #fff;
+		margin-left: 4%;
+		margin-top: 50rpx;
+		text-align: center;
+		
 	}
 
-	.currin::before {
+	.box-item::before {
 		content: "";
 		display: block;
 		background: inherit;
@@ -129,11 +182,11 @@
 		transform: scale(1, 1);
 	}
 
-	.cinton1 {
-		animation: cinton1 alternate linear 2 1s;
+	.item1 {
+		animation: item1 alternate linear 2 1s;
 	}
 
-	@keyframes cinton1 {
+	@keyframes item1 {
 		from {
 			top: 0;
 			left: 0;
@@ -145,11 +198,11 @@
 		}
 	}
 
-	.cinton2 {
-		animation: cinton2 alternate linear 2 1s;
+	.item2 {
+		animation: item2 alternate linear 2 1s;
 	}
 
-	@keyframes cinton2 {
+	@keyframes item2 {
 		from {
 			top: 0;
 			left: 0;
@@ -161,11 +214,11 @@
 		}
 	}
 
-	.cinton3 {
-		animation: cinton3 alternate linear 2 1s;
+	.item3 {
+		animation: item3 alternate linear 2 1s;
 	}
 
-	@keyframes cinton3 {
+	@keyframes item3 {
 		from {
 			top: 0;
 			left: 0;
@@ -177,11 +230,11 @@
 		}
 	}
 
-	.cinton4 {
-		animation: cinton4 alternate linear 2 1s;
+	.item4 {
+		animation: item4 alternate linear 2 1s;
 	}
 
-	@keyframes cinton4 {
+	@keyframes item4 {
 		from {
 			top: 0;
 			left: 0;
@@ -193,11 +246,11 @@
 		}
 	}
 
-	.cinton6 {
-		animation: cinton6 alternate linear 2 1s;
+	.item6 {
+		animation: item6 alternate linear 2 1s;
 	}
 
-	@keyframes cinton6 {
+	@keyframes item6 {
 		from {
 			top: 0;
 			left: 0;
@@ -209,11 +262,11 @@
 		}
 	}
 
-	.cinton7 {
-		animation: cinton7 alternate linear 2 1s;
+	.item7 {
+		animation: item7 alternate linear 2 1s;
 	}
 
-	@keyframes cinton7 {
+	@keyframes item7 {
 		from {
 			top: 0;
 			left: 0;
@@ -225,11 +278,11 @@
 		}
 	}
 
-	.cinton8 {
-		animation: cinton8 alternate linear 2 1s;
+	.item8 {
+		animation: item8 alternate linear 2 1s;
 	}
 
-	@keyframes cinton8 {
+	@keyframes item8 {
 		from {
 			top: 0;
 			left: 0;
@@ -241,11 +294,11 @@
 		}
 	}
 
-	.cinton9 {
-		animation: cinton9 alternate linear 2 1s;
+	.item9 {
+		animation: item9 alternate linear 2 1s;
 	}
 
-	@keyframes cinton9 {
+	@keyframes item9 {
 		from {
 			top: 0;
 			left: 0;
@@ -258,10 +311,10 @@
 	}
 
 	.animt {
-		animation: fanzhuan 1.2s;
+		animation: turn 1.2s;
 	}
 
-	@keyframes fanzhuan {
+	@keyframes turn {
 		0% {
 			transform: perspective(150px) rotateY(0deg);
 		}

@@ -1,14 +1,17 @@
 <template>
-	<view class="box">
-		<view class="dot" :class="'dot-'+(index+1)" v-for="(item,index) in dotList" :key="index"></view>
-		<view class="box-in">
-			<view class="ct-out" :class="['award-'+(index+1),index==indexSelect?'awardSelect':'']" v-for="(item,index) in list"
-			 :key="index">
-				<image class="award-image" :src="item.img"></image>
+	<view>
+		<view class="box" :style="style_box">
+			<view class="dot" :class="'dot-'+(index+1)" v-for="(item,index) in dotList" :key="index"></view>
+			<view class="box-in" :style="style_box_in">
+				<view class="ct-out" :class="['award-'+(index+1),index==indexSelect?'awardSelect':'']" v-for="(item,index) in list"
+				 :key="index">
+					<image class="award-image" :src="item.img"></image>
+				</view>
+				<view class="btn-start" :class="isRunning?'ative':''" @click="start">开始</view>
 			</view>
-			<view class="btn-start" :class="isRunning?'ative':''" @click="start">开始</view>
 		</view>
 	</view>
+	
 </template>
 
 <script>
@@ -23,15 +26,23 @@
 		
 			height: {
 				type: Number,
-				default: 150
+				default: 600
 			},
 			width: {
 				type: Number,
-				default: 200
+				default: 650
 			},
 			themeColor: {
 				type: String,
-				default: '#FFFFFF',
+				default: '#33CCCC',
+			},
+			bgColor: {
+				type: String,
+				default: '#1E90FF',
+			},
+			bg_sd_Color: {
+				type: String,
+				default: '#4169E1',
 			},
 		},
 		data() {
@@ -41,6 +52,38 @@
 				indexSelect: 0, //抽中的奖品下标
 				isRunning: false //抽奖状态
 			}
+		},
+		computed: {
+			style_box() {
+				let that = this;
+				var height = parseInt(that.height);
+				var width = parseInt(that.width);
+				var style = '';
+				if (height > 0) {
+					style = `height:${height}rpx;`;
+				}
+				if (width > 0) {
+					style += `width:${width}rpx;`;
+				}
+				style += `background-color:${that.bgColor};`;
+				style += `box-shadow: 0 10px 0  ${that.bg_sd_Color};`;
+				return style;
+			},
+			style_box_in() {
+				let that = this;
+				var height = parseInt(that.height);
+				var width = parseInt(that.width);
+				var style = '';
+				if (height > 70) {
+					style = `height:${height-70}rpx;`;
+				}
+				if (width > 70) {
+					style += `width:${width-70}rpx;`;
+				}
+				style += `background-color:${that.themeColor};`;
+				
+				return style;
+			},
 		},
 		methods: {
 
@@ -89,20 +132,12 @@
 
 <style lang="scss">
 	.box {
-		height: 600rpx;
-		width: 650rpx;
-		
-		background-color: #fc4034;
 		margin: 40rpx auto;
 		border-radius: 40rpx;
-		box-shadow: 0 10px 0 #d80014;
 		position: relative;
 	}
 
 	.box-in {
-		width: 580rpx;
-		height: 530rpx;
-		background-color: #d80014;
 		border-radius: 40rpx;
 		position: absolute;
 		left: 0;

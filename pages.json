@@ -712,6 +712,25 @@
 							// #endif 
 						}
 					}
+				},
+				{
+					"path": "specialEffect/lottery2",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "抽奖",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
 				}
 				
 					
@@ -734,7 +753,7 @@
 		},
 		"pages/index/index": {
 			"network": "all",
-			"packages": ["pagesSpEfet"]
+			"packages": ["pagesSEffect"]
 		}
 	},
 

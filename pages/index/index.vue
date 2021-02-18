@@ -8,7 +8,7 @@
 			<view class="topBox">
 				<banner :list="bannerList" :themeColor="themeColor" @toDetailPage="toDetailPage"></banner>
 				<view class="topNavBox NavBox">
-					<shortcutNav :list="shortcutNavList" :hengNumber="4" :backgroundColor="navbackgroundColor" @toDetailPage="toDetailPage"></shortcutNav>
+					<shortcutNav :list="shortcutNavList" :hengNumber="4" :backgroundColor="navbackgroundColor" @toDetailPage="toDetailPage_shortcut"></shortcutNav>
 				</view>
 
 			</view>
@@ -167,6 +167,34 @@
 		// #endif
 
 		methods: {
+			toDetailPage_shortcut(e) {
+				let that = this;
+				let page = '';
+				
+				let item = e.item;
+				let index = parseInt(item.key);
+				switch (index) {
+					case 1:
+						page = `/pagesSEffect/index/index`;
+						break;
+					case 2:
+						page = `/pagesSEffect/specialEffect/turn`;
+						break;
+					case 3:
+						page = `/pagesSEffect/specialEffect/lottery`;
+						break;
+					case 4:
+						page = `/pagesSEffect/specialEffect/lottery2`;
+						break;
+					default:
+						break;
+				}
+				if (page !== '') {
+					uni.navigateTo({
+						url: page
+					})
+				}
+			},
 			getLocation() {
 				let that = this;
 				// #ifdef MP-WEIXIN
@@ -245,6 +273,9 @@
 						break;
 					case 2:
 						page = `/pagesFore/plan/set_plan`;
+						break;
+					case 3:
+						page = `/pagesSEffect/index/index`;
 						break;
 					default:
 						break;

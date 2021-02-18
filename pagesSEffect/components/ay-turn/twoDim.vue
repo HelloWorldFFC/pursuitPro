@@ -3,11 +3,11 @@
 		<view class='box' :style="style">
 			<!--正面-->
 			<view class="box-ct pros" :style="style" :animation="animationMain" @click='rotateFn(1)'>
-				<image :style="style" :src="pros_img"></image>
+				<image :style="style" lazy-load="true" :src="pros_img"></image>
 			</view>
 			<!--反面-->
 			<view class="box-ct cons" :style="style" :animation="animationBack" @click='rotateFn(2)'>
-				<image :style="style" :src="cons_img"></image>
+				<image :style="style" lazy-load="true" :src="cons_img"></image>
 			</view>
 		</view>
 	</view>

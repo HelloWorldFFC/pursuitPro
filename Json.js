@@ -519,22 +519,22 @@ const res_home = {
 			"data": [{
 					img: 'https://cdn.pixabay.com/photo/2016/11/23/17/56/decor-1854075__340.jpg',
 					name: '立人',
-					key: '立人',
+					key: '1',
 				},
 				{
 					img: 'https://cdn.pixabay.com/photo/2016/11/29/06/28/bay-1867798__340.jpg',
 					name: '立德',
-					key: '立德',
+					key: '2',
 				},
 				{
 					img: 'https://cdn.pixabay.com/photo/2016/11/22/19/15/bee-1850116__340.jpg',
 					name: '立言',
-					key: '立言',
+					key: '3',
 				},
 				{
 					img: 'https://cdn.pixabay.com/photo/2017/03/27/14/38/architecture-2179108__340.jpg',
 					name: '立行',
-					key: '立行',
+					key: '4',
 				},
 			]
 		},

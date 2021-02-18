@@ -3,7 +3,7 @@
 		<view class="box" :style="{'margin-left': (width/3)*2+ 'rpx' }">
 			<view class="box-ct" :style="style">
 				<view :style="{border: '1px solid '+ themeColor }" class="page bk-ct">结束</view>
-				<view class="page bk-c" :style="get_style_bk_c({item:item,index:index})" v-for="(item,index) in list" :key="index">
+				<view class="page bk-c" v-for="(item,index) in list" :key="index"  :style="[{border: '1px solid '+ themeColor  },{'animation-duration' :(list.length+index)+'s'},{'animation-delay' : (list.length-index)+'s'}]">
 					<view class="txt-box">
 						<view>{{item.txt}}</view>
 					</view>
@@ -113,22 +113,7 @@
 			let that = this;
 		},
 		methods: {
-			get_style_bk_c(e) {
-				//console.log(e)
-				let that = this;
-
-				let index = e.index;
-				let item = e.item;
-
-				var style = '';
-				let leg = that.list.length;
-				let time = leg + index;
-				let time2 = leg - index;
-				style += `border : 1px solid ${that.themeColor};`;
-				style += `animation-duration : ${time}s;animation-delay : ${time2}s;`;
-				//console.log(style)
-				return style;
-			},
+			
 			onImageError(item, index) {
 				//虽触发，但不会显示默认的图片				
 				this.error = null; //这个暂没有发现作用
