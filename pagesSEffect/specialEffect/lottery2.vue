@@ -52,7 +52,16 @@
 			this.initBlow();
 			this.loadData();
 		},
+		// #ifdef MP-WEIXIN
+		//微信小程序的分享
+		onShareAppMessage: function(options) {
+		
+		},
+		// #endif
 		methods: {
+			touchStart(){},
+			touchMove(){},
+			touchEnd(){},
 			initBlow() {
 				// 刮奖初始化信息必须在onReady后，不然h5不支持（小程序可在onLoad执行）
 				new scratch(this, {

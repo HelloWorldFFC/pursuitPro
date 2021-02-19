@@ -90,7 +90,7 @@
 			};
 		},
 		created: function() {
-
+			this.list_dyc = this.list;
 		},
 		methods: {
 			onImageError(item, index) {

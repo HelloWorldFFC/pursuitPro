@@ -50,6 +50,12 @@
 		onShow() {
 
 		},
+		// #ifdef MP-WEIXIN
+		//微信小程序的分享
+		onShareAppMessage: function(options) {
+		
+		},
+		// #endif
 		methods: {
 			async loadData() {
 				let that = this;

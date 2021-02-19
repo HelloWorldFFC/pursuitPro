@@ -69,11 +69,11 @@
 						name: '生成二维码',
 						toPageUrl: '/pagesShow/qrcode/qrcode'
 					},
-					{
-						img: 'https://cdn.pixabay.com/photo/2015/05/15/14/38/telephone-booth-768610__340.jpg',
-						name: '语音识别',
-						toPageUrl: '/pagesFore/know_voice/know_voice',
-					},
+					// {
+					// 	img: 'https://cdn.pixabay.com/photo/2015/05/15/14/38/telephone-booth-768610__340.jpg',
+					// 	name: '语音识别',
+					// 	toPageUrl: '/pagesFore/know_voice/know_voice',
+					// },
 					{
 						img: 'https://cdn.pixabay.com/photo/2021/01/01/14/07/chapel-5878656__340.jpg',
 						name: '客服',

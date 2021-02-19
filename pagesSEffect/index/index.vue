@@ -49,7 +49,7 @@
 				
 			},
 			toPage(e) {
-				console.log(e)
+				//console.log(e)
 				let item = e.item ;
 				let url = item.url ;
 				console.log("页面路径", url)

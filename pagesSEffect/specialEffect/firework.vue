@@ -23,6 +23,12 @@
 				
 			}
 		},
+		// #ifdef MP-WEIXIN
+		//微信小程序的分享
+		onShareAppMessage: function(options) {
+		
+		},
+		// #endif
 		onLoad() {
 
 		},

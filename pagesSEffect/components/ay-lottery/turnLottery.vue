@@ -205,7 +205,7 @@
 		border-radius: 10rpx;
 		position: relative;
 		color: #fff;
-		margin-left: 4%;
+		margin-left: 0%;
 		margin-top: 50rpx;
 		text-align: center;
 		
