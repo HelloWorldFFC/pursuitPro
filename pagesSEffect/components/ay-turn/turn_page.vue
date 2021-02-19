@@ -221,7 +221,7 @@
 		}
 	}
 
-	image {
+	.txt-box image {
 		width: 90rpx;
 		height: 90rpx;
 		border-radius: 50%;
