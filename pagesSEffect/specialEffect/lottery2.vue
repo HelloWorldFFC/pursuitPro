@@ -2,12 +2,12 @@
 	<view>
 		<view class="scratch" :style="style_wh">
 			<view class="box" :style="{background: themeColor }">
-				<!-- 刮奖结果-->
+				<!-- 刮结果-->
 				<view class="result" :style="[{'font-size':txtFontSize+'rpx'},{color: txtColor }]">
 					<text>{{result}}</text>
 				</view>
-				<!-- 刮奖canvas容器 -->
-				<canvas class="canvas-box" :canvas-id="canvasId" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd"></canvas>
+				<!-- 刮canvas容器 -->
+				<canvas class="cs-box" :canvas-id="canvasId" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd"></canvas>
 			</view>
 			
 		</view>
@@ -22,7 +22,7 @@
 		data() {
 			return {
 				canvasId :'blow',
-				result:'刮奖结果',
+				result:'结果',
 				txtColor: '#FFFFFF',
 				txtFontSize: 50,
 				themeColor:'#33CCCC',
@@ -49,11 +49,11 @@
 			},
 		},
 		onReady() {
-			this.initCanvas();
+			this.initBlow();
 			this.loadData();
 		},
 		methods: {
-			initCanvas() {
+			initBlow() {
 				// 刮奖初始化信息必须在onReady后，不然h5不支持（小程序可在onLoad执行）
 				new scratch(this, {
 					canvasId: this.canvasId,
@@ -98,7 +98,6 @@
 
 <style lang="scss">
 	.scratch {
-		
 		background-size: contain;
 		margin: 20rpx auto;
 		box-sizing: border-box;
@@ -122,7 +121,7 @@
 				// color: #FFFFFF;
 			}
 
-			.canvas-box {
+			.cs-box {
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -131,17 +130,6 @@
 				border-radius: 10rpx;
 				overflow: hidden;
 			}
-		}
-
-		.tip {
-			position: fixed;
-			text-align: center;
-			top: 300rpx;
-			left: 300rpx;
-			width: 150rpx;
-			font-size: 40rpx;
-			font-weight: bold;
-			z-index: 999;
 		}
 	}
 </style>

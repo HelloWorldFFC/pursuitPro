@@ -5,7 +5,7 @@
 			<view class="box-in" :style="style_box_in">
 				<view class="ct-out" :class="['award-'+(index+1),index==indexSelect?'awardSelect':'']" v-for="(item,index) in list"
 				 :key="index">
-					<image class="award-image" :src="item.img"></image>
+					<image lazy-load="true" @tap="toDetailPage({index: index})" class="award-image" :src="item.img"></image>
 				</view>
 				<view class="btn-start" :class="isRunning?'ative':''" @click="start">开始</view>
 			</view>
@@ -50,7 +50,7 @@
 				dotList: 24, //圆点个数
 				//奖品
 				indexSelect: 0, //抽中的奖品下标
-				isRunning: false //抽奖状态
+				isRunning: false //抽中状态
 			}
 		},
 		computed: {
@@ -86,7 +86,18 @@
 			},
 		},
 		methods: {
-
+			//详情页
+			toDetailPage(item) {
+				let that = this ;
+				let list = that.list ;
+				let index = item.index ;
+				let data = {
+					curIndex: index,
+					item : list[index] ,
+					list: list
+				};
+				this.$emit('toDetailPage', data);
+			},
 			//随机数
 			random(u) {
 				let rnd = Math.random() > 0.5 ? "2" : "1";

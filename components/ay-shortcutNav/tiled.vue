@@ -98,16 +98,11 @@
 			item_W_H() {
 				let that = this;
 				var itemWidth = 230;
-				let cha = 30 ;
+				let cha = 10 ;
 				var itemHeight = itemWidth + cha;
-				try {
-					const res = uni.getSystemInfoSync();
-				    itemWidth = (res.screenWidth *2 )/ that.hengNumber;
-					itemHeight = itemWidth + cha;
-				    //console.log(itemWidth + '-----------' +itemHeight)
-				} catch (e) {
-				    // error
-				}
+				
+				itemWidth = (340 *2 )/ that.hengNumber;
+				itemHeight = itemWidth + cha;
 				
 				return {
 					itemWidth : itemWidth,

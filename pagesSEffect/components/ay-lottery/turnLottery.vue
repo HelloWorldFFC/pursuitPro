@@ -40,7 +40,7 @@
 			},
 			result_txt: {
 				type: String,
-				default: '中奖结果',
+				default: '结果',
 			},
 			show_again: {
 				type: Boolean,
@@ -127,7 +127,7 @@
 					this.$emit('again', data);
 				} else {
 					uni.showToast({
-						title: '正在执行抽奖中...',
+						title: '正在执行中...',
 						icon: 'none',
 						duration: 2000
 					})

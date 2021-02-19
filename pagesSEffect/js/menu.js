@@ -8,7 +8,7 @@ const res_home = {
 					url: '/pagesSEffect/specialEffect/turn'
 				},
 				{
-					name: '抽奖',
+					name: '跳跃',
 					img: 'https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg',
 					url: '/pagesSEffect/specialEffect/lottery'
 				},
@@ -136,28 +136,29 @@ const res_home = {
 		},
 		"lottery_list": {
 			"data": [{
-				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				img: "https://cdn.pixabay.com/photo/2017/01/21/13/55/nature-1997282__340.jpg",
 				name: "不要指望他"
 			}, {
-				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				img: "https://cdn.pixabay.com/photo/2021/01/11/21/39/temple-5909803__340.jpg",
 				name: "你在开玩笑么？"
 			}, {
-				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				img: "https://cdn.pixabay.com/photo/2020/01/13/23/15/snowboarding-4763731__340.jpg",
 				name: "可怕"
 			}, {
-				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				
+				img: "https://cdn.pixabay.com/photo/2019/11/30/21/37/stars-4664313__340.jpg",
 				name: "可能"
 			}, {
-				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				img: "https://cdn.pixabay.com/photo/2020/12/23/14/41/forest-5855196_640.jpg",
 				name: "不用担心"
 			}, {
-				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				img: "https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg",
 				name: "答案就在你身边"
 			}, {
-				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				img: "https://cdn.pixabay.com/photo/2021/01/14/20/32/fish-5917864__340.jpg",
 				name: "大胆一点"
 			}, {
-				img: "https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg",
+				img: "https://cdn.pixabay.com/photo/2020/01/03/21/32/field-4739176__340.jpg",
 				name: "好运将会降临"
 			}],
 		},
@@ -168,6 +169,7 @@ const res_home = {
 					isAward : true ,
 					val : 1 ,
 					type: 1,
+					
 					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
 				},
 				{
@@ -175,22 +177,24 @@ const res_home = {
 					name: '谢谢参与',
 					isAward : false ,
 					type: 0,
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2021/01/07/15/02/york-minster-5897525__340.jpg',
 				},
 				{
+					
 					index: 2,
 					name: '会特别顺利',
 					val : 2 ,
 					isAward : true ,
 					type: 2,
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2021/01/20/21/03/purple-5935577__340.jpg',
 				},
 				{
+					
 					index: 3,
 					name: '谢谢参与',
 					isAward : false ,
 					type: 0,
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2021/01/13/18/07/tree-5914851__340.jpg',
 				},
 				{
 					index: 4,
@@ -198,29 +202,32 @@ const res_home = {
 					val : 2 ,
 					isAward : true ,
 					type: 1,
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					
+					img: 'https://cdn.pixabay.com/photo/2021/01/11/18/41/snowfall-5909261__340.jpg',
 				},
 				{
 					index: 5,
 					name: '谢谢参与',
 					isAward : false ,
 					type: 0,
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2021/01/05/19/55/winter-5892335__340.jpg',
 				},
 				{
+					
 					index: 6,
 					name: '4次机会',
 					val : 4 ,
 					isAward : true ,
 					type: 1,
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					
+					img: 'https://cdn.pixabay.com/photo/2018/11/11/19/46/christmas-3809544__340.jpg',
 				},
 				{
 					index: 7,
 					name: '谢谢参与',
 					isAward : false ,
 					type: 0,
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2020/12/15/20/50/christmas-5834904__340.jpg',
 				},
 				{
 					index: 8,
@@ -228,14 +235,14 @@ const res_home = {
 					val : 5 ,
 					isAward : true ,
 					type: 2,
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2016/11/14/16/20/snowflake-1823942__340.jpg',
 				},
 				{
 					index: 9,
 					name: '谢谢参与',
 					isAward : false ,
 					type: 0,
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2020/12/01/16/11/ornaments-5794746__340.jpg',
 				},
 			],
 		},

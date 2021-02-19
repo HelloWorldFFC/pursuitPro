@@ -700,7 +700,7 @@
 						// #ifdef H5 || MP-WEIXIN
 						"enablePullDownRefresh": true,
 						// #endif
-						"navigationBarTitleText": "抽奖",
+						"navigationBarTitleText": "跳跃",
 						// #ifdef H5
 						"navigationStyle": "custom",
 						// #endif 
@@ -719,7 +719,7 @@
 						// #ifdef H5 || MP-WEIXIN
 						"enablePullDownRefresh": true,
 						// #endif
-						"navigationBarTitleText": "刮奖",
+						"navigationBarTitleText": "刮一刮",
 						// #ifdef H5
 						"navigationStyle": "custom",
 						// #endif 

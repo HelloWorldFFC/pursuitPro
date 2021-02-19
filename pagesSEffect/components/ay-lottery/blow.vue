@@ -2,7 +2,7 @@
 	<view>
 		<view class="scratch" :style="style_wh">
 			<view class="box" :style="{background: themeColor }">
-				<!-- 刮奖结果-->
+				<!-- 结果-->
 				<view class="result" :style="[{'font-size':txtFontSize+'rpx'},{color: txtColor }]">
 					<text>{{result_txt}}</text>
 				</view>
@@ -21,14 +21,14 @@
 		props: {
 			result_txt: {
 				type: String,
-				default: '刮奖结果',
+				default: '结果',
 			},
-			// 绘制刮奖范围高
+			// 绘制刮范围高
 			height: {
 				type: Number,
 				default: 150
 			},
-			// 绘制刮奖范围宽
+			// 绘制刮范围宽
 			width: {
 				type: Number,
 				default: 350
@@ -78,7 +78,7 @@
 		
 		methods: {
 			initBlow() {
-				// 刮奖初始化信息必须在onReady后，不然h5不支持（小程序可在onLoad执行）
+				// 刮初始化信息必须在onReady后，不然h5不支持（小程序可在onLoad执行）
 				new scratch(this, {
 					canvasId: this.canvasId,
 					width: this.scratchWidth,

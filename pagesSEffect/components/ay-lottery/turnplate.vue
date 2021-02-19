@@ -9,7 +9,7 @@
 						<view class="cs-item" :style="{color: themeColor }" v-for="(iteml,index2) in awardsList" :key="index2">
 							<view class="cs-item-text" :style="[{transform:'rotate('+iteml.turn+')'},{'-webkit-transform-origin': '50% ' +(height/2) +'rpx'},{'transform-origin': '50% ' +(height/2) +'rpx'}]">
 								<text class="txt">{{iteml.name}}</text>
-								<image class="cs-item-text-img" :src="iteml.img"></image>
+								<image lazy-load="true" class="cs-item-text-img" :src="iteml.img" @tap="toDetailPage({index: index2})"></image>
 							</view>
 						</view>
 					</view>
@@ -102,7 +102,18 @@
 		},
 		
 		methods: {
-
+			//详情页
+			toDetailPage(item) {
+				let that = this ;
+				let list = that.awardsList ;
+				let index = item.index ;
+				let data = {
+					curIndex: index,
+					item : list[index] ,
+					list: list
+				};
+				this.$emit('toDetailPage', data);
+			},
 			//画抽奖圆盘  
 			init: function() {
 				var awards = this.list;
@@ -128,7 +139,7 @@
 				let that = this ;
 				if (this.chance_num == 0) {
 					uni.showToast({
-						title: '抽奖次数已经用完',
+						title: '次数已经用完',
 						icon: 'none'
 					})
 					return
@@ -169,7 +180,7 @@
 					setTimeout(function() {
 						uni.showModal({
 							title: '很遗憾',
-							content: '没中奖 ' + (that.list[awardIndex].name),
+							content: '没中 ' + (that.list[awardIndex].name),
 							showCancel: false
 						});
 						that.btnDisabled = '';

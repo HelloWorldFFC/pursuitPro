@@ -5,9 +5,9 @@
 		 un_seled_t_Color="#33CCCC" :result_txt="result_turn" @show="show_turn" @again="again_turn" :show_again="true" again_txt="重新开始" :tips_init="tips_init_turn" :no_z_init="no_z_init_turn"></aylottery>
 		
 		
-		<aylottery :type="2" :list="list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"></aylottery>
+		<aylottery :type="2" :list="list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun" @toDetailPage="toDetailPage"></aylottery>
 		
-		<aylottery :type="3" :list="list_r" :height="600" :width="600" :chance_num_init="chance_num_init" @result="resultFun_chance"></aylottery>
+		<aylottery :type="3" :list="list_r" :height="600" :width="600" :chance_num_init="chance_num_init" @result="resultFun_chance" @toDetailPage="toDetailPage"></aylottery>
 		
 		<!-- #ifndef MP-WEIXIN -->
 		<aylottery :type="4" style="margin-top: 40upx;" ref="blowRef" :result_txt="result_blow" :height="150" :width="350" themeColor="#33CCCC" txtColor="#ffffff"
@@ -62,6 +62,25 @@
 
 		},
 		methods: {
+			toDetailPage(e) {
+				let list = e.list;
+				let idx = e.curIndex;
+				let list_img = [];
+				let item = e.item;
+				
+				list.forEach(item => {
+					list_img.push(item.img)
+				})
+				if (list_img && list_img.length > 0) {
+					uni.previewImage({
+						current: list_img[idx], //  传 Number H5端出现不兼容
+						urls: list_img,
+						indicator: "number",
+						loop: true,
+					});
+				}
+			},
+			
 			again_turn(e){
 				let that = this;
 				that.result_turn = '';
