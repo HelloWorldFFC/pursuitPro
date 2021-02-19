@@ -42,7 +42,7 @@
 		props: {
 			type: {
 				type: Number,
-				default: 1, //1:3d  2:翻页 3：自动翻页 4： 2d平面
+				default: 1, //1:翻牌  2:跑马灯 3：转盘 4： 刮一刮（小程序组件不显示刮层）
 			},
 			list: {
 				type: Array,
