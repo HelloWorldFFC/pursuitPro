@@ -731,6 +731,25 @@
 							// #endif 
 						}
 					}
+				},
+				{
+					"path": "specialEffect/test",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "刮一刮",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
 				}
 				
 					

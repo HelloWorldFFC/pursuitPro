@@ -22,6 +22,12 @@ const res_home = {
 					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
 					url: '/pagesSEffect/specialEffect/firework'
 				},
+				{
+					name: '测试',
+					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
+					url: '/pagesSEffect/specialEffect/test'
+				},
+				
 
 			],
 		},
