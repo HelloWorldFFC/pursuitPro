@@ -1,16 +1,12 @@
 <template>
 	<view>
-		<thDTwo></thDTwo>
-		<thDShtLs></thDShtLs>
 		<view style="margin-top: 130upx;">
 			<!-- 3d的会影响闪动一下，但不影响单独使用 -->
 			<ayturn :type="3" :height="400" :width="300" :cover="cover_auto"  :list="list_page_auto"></ayturn>
 		</view>
 		
-		
-		
-		<ayturn :type="1" :height="100" :width="200"  :list="list"></ayturn>
-		<ayturn :type="1":height="100" :width="200" :marginTop="10" :list="list"></ayturn>
+		<ayturn :type="1" :height="200" :width="300"  :list="list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
 		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
 		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
 		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
@@ -26,16 +22,11 @@
 </template>
 
 <script>
-	
 	import menu from '../js/menu.js';
 	import ayturn from '../components/ay-turn/ay-turn.vue';
-	import thDShtLs from '../components/ay-turn/thD_sht_ls.vue';
-	import thDTwo from '../components/ay-turn/thD_two.vue';
 	export default {
 		components: {
 			ayturn,
-			thDShtLs,
-			thDTwo,
 		},
 
 		data() {

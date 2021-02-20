@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view style="position: relative;">
-			<view class="sharp">
+			<view class="box">
 				<view v-for="(item,index) in 6" :key="index">
 					<span v-for="(item,index) in 5" :key="index"></span>
 				</view>
@@ -17,7 +17,7 @@
 <style lang="scss">
 	
 
-	.sharp {
+	.box {
 		animation: ani 4s linear infinite;
 	}
 
@@ -80,23 +80,23 @@
 		transform: rotate3d(0, 1, 0, 360deg) rotate3d(1, 0, 0, 51.5deg);
 	}
 
-	.sharp view:nth-child(1) {
+	.box view:nth-child(1) {
 		transform: translateY(51upx) rotateY(108deg) rotateX(116deg) translateZ(31upx);
 	}
 
-	.sharp view:nth-child(2) {
+	.box view:nth-child(2) {
 		transform: translateY(51upx) rotateY(180deg) rotateX(116deg) translateZ(31upx);
 	}
 
-	.sharp view:nth-child(3) {
+	.box view:nth-child(3) {
 		transform: translateY(51upx) rotateY(252deg) rotateX(116deg) translateZ(31upx);
 	}
 
-	.sharp view:nth-child(4) {
+	.box view:nth-child(4) {
 		transform: translateY(51upx) rotateY(324deg) rotateX(116deg) translateZ(31upx);
 	}
 
-	.sharp view:nth-child(5) {
+	.box view:nth-child(5) {
 		transform: translateY(51upx) rotateY(396deg) rotateX(116deg) translateZ(31upx);
 	}
 

@@ -3,22 +3,47 @@
 		<!-- js创建原生的有困难 -->
 		<!-- <magicCube></magicCube> -->
 		<thDTwo v-if="type==1"></thDTwo>
-		<thDShtLs v-if="type==2"></thDShtLs>
+		<shutLoose v-if="type==2"></shutLoose>
 		<twtySets v-if="type==3"></twtySets>
+		<shutLooseTwo v-if="type==4"></shutLooseTwo>
+		<magicCubeAuto v-if="type==5"></magicCubeAuto>
+		
+		<!-- #ifdef H5 -->
+		<scTxt v-if="type==21"></scTxt>
+		<!-- #endif -->
+		
+		<scBg v-if="type==22" :type="index+1" v-for="(item,index) in 4" :key="index">
+			<view></view>
+		</scBg>
+		<!-- #ifdef H5 -->
+		<!-- 雷达和文字效果在组件里不行，直接在页面就可以 -->
+		<radar v-if="type==23"></radar>
+		<!-- #endif -->
 	</view>
 </template>
 
 <script>
-	import thDShtLs from '../components/ay-turn/thD_sht_ls.vue';
-	import thDTwo from '../components/ay-turn/thD_two.vue';
-	import twtySets from '../components/ay-turn/twty_sets.vue';
-	import magicCube from '../components/ay-turn/magic_cube.vue';
+	import shutLoose from '../components/ay-cubic/shut_loose.vue';
+	import thDTwo from '../components/ay-cubic/thD_two.vue';
+	import twtySets from '../components/ay-cubic/twty_sets.vue';
+	import magicCube from '../components/ay-cubic/magic_cube.vue';
+	import shutLooseTwo from '../components/ay-cubic/shut_loose_two.vue';
+	import magicCubeAuto from '../components/ay-cubic/magic_cube_auto.vue';
+	
+	import scTxt from '../components/ay-stpvary/txt.vue';
+	import scBg from '../components/ay-stpvary/bg.vue';
+	import radar from '../components/ay-stpvary/radar.vue';
 	export default {
 		components: {
-			thDShtLs,
+			shutLoose,
 			thDTwo,
 			twtySets,
 			magicCube,
+			shutLooseTwo,
+			magicCubeAuto,
+			scTxt,
+			scBg,
+			radar,
 		},
 		data() {
 			return {

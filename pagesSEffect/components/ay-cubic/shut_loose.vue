@@ -3,7 +3,7 @@
 		<view class="eyes">
 			<view class="box">
 				<view :class="'div'+(index+1)" v-for="(item,index) in 6" :key="index">
-					<image src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg" style="width: 200upx;height: 200upx;">
+					<image  lazy-load="true" src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg">
 				</view>
 			</view>
 		</view>
@@ -26,9 +26,9 @@
 		/*盒子的大小*/
 		width: 200upx;
 		height: 200upx;
-		background: red;
+		background: #87CEFA;
 		/*设置盒子的位置，便于观察*/
-		margin: 400upx auto;
+		margin: 200upx auto;
 		/*复合方式设置动画 三者分别为：动画名 执行一次时间 执行方式*/
 		animation: zhuan 3s ease;
 		/*令动画无限执行下去*/
@@ -43,8 +43,14 @@
 		/*设置过渡*/
 		transition: all 1s ease 0s;
 		position: absolute;
+		top:0%;
+		left:0%;
 	}
-
+	
+	.box image{
+		width: 200upx;
+		height: 200upx;
+	}
 	/*调整位置，制作成一个六边形*/
 	.box .div1 {
 		background: green;

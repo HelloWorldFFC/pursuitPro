@@ -33,37 +33,56 @@ const res_home = {
 		},
 		"list_two": {
 			"data": [{
-					name: '翻转',
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					name: '旋转相册',
+					img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
 					url: '',
 					type:1,
 				},
 				{
-					name: '跳跃',
-					img: 'https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg',
+					
+					name: '旋转立方体相册',
+					img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
 					url: '',
 					type:2,
 				},
 				{
-					name: '正20面体',
-					img: 'https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989__340.jpg',
+					
+					name: '二十面体',
+					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
 					url: '',
 					type:3,
 				},
 				{
-					name: '烟花',
-					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
+					
+					name: '双旋转立方体相册',
+					img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
 					url: '',
 					type:4,
 				},
 				{
-					name: '测试',
-					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
+					name: '旋转魔方',
+					img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
 					url: '',
 					type:5,
 				},
-				
-		
+				// {
+				// 	name: '文字渐变',
+				// 	img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
+				// 	url: '',
+				// 	type:21,
+				// },
+				{
+					name: '背景渐变',
+					img: 'https://cdn.pixabay.com/photo/2020/11/19/15/32/sculpture-5758884__340.jpg',
+					url: '',
+					type:22,
+				},
+				// {
+				// 	name: '扫描',
+				// 	img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
+				// 	url: '',
+				// 	type:23,
+				// },
 			],
 		},
 		"turn_thD_list": {
