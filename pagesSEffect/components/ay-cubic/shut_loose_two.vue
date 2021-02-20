@@ -1,42 +1,11 @@
 <template>
 	<view>
-		<view class="rt">
-			<view class="out_front">
-				<image src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg" class="out_pic">
+		<view class="box" :style="style_box">
+			<view :class="index==0?'out_front':(index==1?'out_back':(index==2?'out_left':(index==3?'out_right':(index==4?'out_top':(index==5?'out_bottom':(index==6?'in_front in-box':(index==7?'in_back in-box':(index==8?'in_left in-box':(index==9?'in_right in-box':(index==10?'in_top in-box':'in_bottom in-box'))))))))))"
+			 v-for="(item,index) in list" :key="index">
+				<image lazy-load="true" :src="item.img" class="out_pic" :class="((index==0)||(index==1)||(index==2)||(index==3)||(index==4)||(index==5))?'out_pic':'in_pic'" :style="((index==0)||(index==1)||(index==2)||(index==3)||(index==4)||(index==5))?style_w_h:style_w_h_in">
 			</view>
-			<view class="out_back">
-				<image src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg" class="out_pic">
-			</view>
-			<view class="out_left">
-				<image lazy-load="true" src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg" class="out_pic">
-			</view>
-			<view class="out_right">
-				<image lazy-load="true" src="https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989__340.jpg" class="out_pic">
-			</view>
-			<view class="out_top">
-				<image lazy-load="true" src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg" class="out_pic">
-			</view>
-			<view class="out_bottom">
-				<image lazy-load="true" src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg" class="out_pic">
-			</view>
-			<view class="in_front in-box">
-				<image lazy-load="true" src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg" class="in_pic">
-			</view>
-			<view class="in_back in-box">
-				<image lazy-load="true" src="https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989__340.jpg" class="in_pic">
-			</view>
-			<view class="in_left in-box">
-				<image lazy-load="true" src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg" class="in_pic">
-			</view>
-			<view class="in_right in-box">
-				<image lazy-load="true" src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg" class="in_pic">
-			</view>
-			<view class="in_top in-box">
-				<image lazy-load="true" src="https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989__340.jpg" class="in_pic">
-			</view>
-			<view class="in_bottom in-box">
-				<image lazy-load="true" src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg" class="in_pic">
-			</view>
+
 		</view>
 	</view>
 
@@ -44,10 +13,125 @@
 </template>
 
 <script>
+	export default {
+
+
+		components: {
+
+		},
+		props: {
+			list: {
+				type: Array,
+				default () {
+					return []
+				}
+			},
+			margin_t_b: {
+				type: Number,
+				default: 200
+			},
+			height: {
+				type: Number,
+				default: 200
+			},
+			width: {
+				type: Number,
+				default: 200
+			},
+			height_in: {
+				type: Number,
+				default: 100
+			},
+			width_in: {
+				type: Number,
+				default: 100
+			},
+			
+
+		},
+		computed: {
+			style_w_h() {
+				let that = this;
+				var height = parseInt(that.height);
+				var width = parseInt(that.width);
+				var style = '';
+				if (height > 0) {
+					style = `height:${height}rpx;`;
+				}
+				if (width > 0) {
+					style += `width:${width}rpx;`;
+				}
+
+				return style;
+			},
+			style_w_h_in() {
+				let that = this;
+				var height = parseInt(that.height_in);
+				var width = parseInt(that.width_in);
+				var style = '';
+				if (height > 0) {
+					style = `height:${height}rpx;`;
+				}
+				if (width > 0) {
+					style += `width:${width}rpx;`;
+				}
+			
+				return style;
+			},
+			style_box() {
+				let that = this;
+				var height = parseInt(that.height);
+				var width = parseInt(that.width);
+				var style = '';
+				if (height > 0) {
+					style = `height:${height}rpx;`;
+				}
+				if (width > 0) {
+					style += `width:${width}rpx;`;
+				}
+				style += `margin:${that.margin_t_b}rpx auto;`;
+
+				return style;
+			},
+			style_box_item() {
+				let that = this;
+				var w_h = parseInt(that.w_h_item);
+				var style = '';
+				if (w_h > 0) {
+					style = `height:${w_h}rpx;`;
+					style += `width:${w_h}rpx;line-height:${w_h}rpx;`;
+				}
+				style += `margin:${that.margin_item}rpx;`;
+
+				style += `border-radius:${that.borderRadius}rpx;;`;
+
+				return style;
+			},
+
+		},
+
+		watch: {
+
+		},
+		data() {
+			return {
+				
+			};
+		},
+		created: function() {
+
+		},
+		methods: {
+
+
+		},
+	}
+</script>
+
 </script>
 
 <style lang="scss">
-	.rt {
+	.box {
 		width: 200upx;
 		height: 200upx;
 		margin: 200upx auto;
@@ -56,7 +140,7 @@
 		animation-timing-function: linear;
 	}
 
-	.rt view {
+	.box view {
 		position: absolute;
 		transition: all .4s;
 	}
@@ -72,7 +156,7 @@
 		height: 100upx;
 	}
 
-	.rt .in-box {
+	.box .in-box {
 		display: block;
 		position: absolute;
 		width: 100upx;
@@ -141,53 +225,53 @@
 	}
 
 	/*外面的图片散开*/
-	.rt:hover .out_front {
+	.box:hover .out_front {
 		transform: translateZ(200upx);
 	}
 
-	.rt:hover .out_back {
+	.box:hover .out_back {
 		transform: translateZ(-200upx);
 	}
 
-	.rt:hover .out_left {
+	.box:hover .out_left {
 		transform: rotateY(90deg) translateZ(200upx);
 	}
 
-	.rt:hover .out_right {
+	.box:hover .out_right {
 		transform: rotateY(-90deg) translateZ(200upx);
 	}
 
-	.rt:hover .out_top {
+	.box:hover .out_top {
 		transform: rotateX(90deg) translateZ(200upx);
 	}
 
-	.rt:hover .out_bottom {
+	.box:hover .out_bottom {
 		transform: rotateX(-90deg) translateZ(200upx);
 	}
 
 
 	/*里面的图片散开*/
-	.rt:hover .in_front {
+	.box:hover .in_front {
 		transform: translateZ(100upx);
 	}
 
-	.rt:hover .in_back {
+	.box:hover .in_back {
 		transform: translateZ(-100upx);
 	}
 
-	.rt:hover .in_left {
+	.box:hover .in_left {
 		transform: rotateY(90deg) translateZ(100upx);
 	}
 
-	.rt:hover .in_right {
+	.box:hover .in_right {
 		transform: rotateY(-90deg) translateZ(100upx);
 	}
 
-	.rt:hover .in_top {
+	.box:hover .in_top {
 		transform: rotateX(90deg) translateZ(100upx);
 	}
 
-	.rt:hover .in_bottom {
+	.box:hover .in_bottom {
 		transform: rotateX(-90deg) translateZ(100upx);
 	}
 </style>

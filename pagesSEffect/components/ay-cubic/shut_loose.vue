@@ -1,18 +1,113 @@
 <template>
 	<view>
 		<view class="eyes">
-			<view class="box">
-				<view :class="'div'+(index+1)" v-for="(item,index) in 6" :key="index">
-					<image  lazy-load="true" src="https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg">
+			<view class="box" :style="style_box">
+				<view class="box-item" :style="style_w_h" :class="'div'+(index+1)" v-for="(item,index) in list" :key="index">
+					<image :style="style_w_h" lazy-load="true" :src="item.img">
 				</view>
 			</view>
 		</view>
 	</view>
-	
+
 
 </template>
 
 <script>
+	export default {
+
+
+		components: {
+
+		},
+		props: {
+			list: {
+				type: Array,
+				default () {
+					return []
+				}
+			},
+			margin_t_b: {
+				type: Number,
+				default: 200
+			},
+			height: {
+				type: Number,
+				default: 200
+			},
+			width: {
+				type: Number,
+				default: 200
+			},
+			bg_img: {
+				type: String,
+				default: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg'
+			},
+
+		},
+		computed: {
+			style_w_h() {
+				let that = this;
+				var height = parseInt(that.height);
+				var width = parseInt(that.width);
+				var style = '';
+				if (height > 0) {
+					style = `height:${height}rpx;`;
+				}
+				if (width > 0) {
+					style += `width:${width}rpx;`;
+				}
+
+				return style;
+			},
+			style_box() {
+				let that = this;
+				var height = parseInt(that.height);
+				var width = parseInt(that.width);
+				var style = '';
+				if (height > 0) {
+					style = `height:${height}rpx;`;
+				}
+				if (width > 0) {
+					style += `width:${width}rpx;`;
+				}
+				style += `margin:${that.margin_t_b}rpx auto;`;
+				style += `background-image:url(${that.bg_img});`;
+
+				return style;
+			},
+			style_box_item() {
+				let that = this;
+				var w_h = parseInt(that.w_h_item);
+				var style = '';
+				if (w_h > 0) {
+					style = `height:${w_h}rpx;`;
+					style += `width:${w_h}rpx;line-height:${w_h}rpx;`;
+				}
+				style += `margin:${that.margin_item}rpx;`;
+
+				style += `border-radius:${that.borderRadius}rpx;;`;
+
+				return style;
+			},
+
+		},
+
+		watch: {
+
+		},
+		data() {
+			return {
+
+			};
+		},
+		created: function() {
+
+		},
+		methods: {
+
+
+		},
+	}
 </script>
 
 <style lang="scss">
@@ -26,7 +121,7 @@
 		/*盒子的大小*/
 		width: 200upx;
 		height: 200upx;
-		background: #87CEFA;
+		// background: #87CEFA;
 		/*设置盒子的位置，便于观察*/
 		margin: 200upx auto;
 		/*复合方式设置动画 三者分别为：动画名 执行一次时间 执行方式*/
@@ -36,21 +131,21 @@
 		animation-timing-function: linear;
 	}
 
-	.box view {
+	.box .box-item {
 		width: 200upx;
 		height: 200upx;
 		opacity: 1;
 		/*设置过渡*/
 		transition: all 1s ease 0s;
 		position: absolute;
-		top:0%;
-		left:0%;
+		top: 0%;
+		left: 0%;
 	}
-	
-	.box image{
-		width: 200upx;
-		height: 200upx;
-	}
+
+	// .box image{
+	// 	width: 200upx;
+	// 	height: 200upx;
+	// }
 	/*调整位置，制作成一个六边形*/
 	.box .div1 {
 		background: green;

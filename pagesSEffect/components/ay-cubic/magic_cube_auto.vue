@@ -1,9 +1,9 @@
 <template>
 	<view>
 
-		<view class="box">
-			<view :class="'dv'+(index+1)" v-for="(item,index) in 6" :key="index">
-				<label v-for="(item2,index2) in 9" :key="index2">
+		<view class="box" :style="style_box">
+			<view class="box-item" :style="style_w_h" :class="'dv'+(index+1)" v-for="(item,index) in 6" :key="index">
+				<label :style="style_box_item" v-for="(item2,index2) in 9" :key="index2">
 					{{index2+1}}
 				</label>
 			</view>
@@ -21,10 +21,71 @@
 
 		},
 		props: {
-
+			list: {
+				type: Array,
+				default () {
+					return []
+				}
+			},
+		
+			w_h: {
+				type: Number,
+				default: 300
+			},
+			margin_t_b: {
+				type: Number,
+				default: 150
+			},
+			w_h_item: {
+				type: Number,
+				default: 90
+			},
+			margin_item: {
+				type: Number,
+				default: 5
+			},
+			borderRadius: {
+				type: Number,
+				default: 20
+			},
 		},
 		computed: {
-
+			style_w_h() {
+				let that = this;
+				var w_h = parseInt(that.w_h);
+				var style = '';
+				if (w_h > 0) {
+					style = `height:${w_h}rpx;`;
+					style += `width:${w_h}rpx;`;
+				}
+				
+				return style;
+			},
+			style_box() {
+				let that = this;
+				var w_h = parseInt(that.w_h);
+				var style = '';
+				if (w_h > 0) {
+					style = `height:${w_h}rpx;`;
+					style += `width:${w_h}rpx;`;
+				}
+				style += `margin:${that.margin_t_b}rpx auto;`;
+				return style;
+			},
+			style_box_item() {
+				let that = this;
+				var w_h = parseInt(that.w_h_item);
+				var style = '';
+				if (w_h > 0) {
+					style = `height:${w_h}rpx;`;
+					style += `width:${w_h}rpx;line-height:${w_h}rpx;`;
+				}
+				style += `margin:${that.margin_item}rpx;`;
+				
+				style += `border-radius:${that.borderRadius}rpx;;`;
+				
+				return style;
+			},
 
 		},
 
@@ -57,12 +118,12 @@
 		/*动画效果*/
 		animation: rotate 10s linear infinite;
 	}
-
-	.box>view {
+	.box-item{
 		width: 300upx;
 		height: 300upx;
 		position: absolute;
 	}
+	
 
 	label {
 		float: left;

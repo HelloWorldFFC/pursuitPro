@@ -62,7 +62,7 @@
 				
 			},
 			toPage_two(e) {
-				console.log(e)
+				//console.log(e)
 				let item = e.item ;
 				
 				uni.navigateTo({

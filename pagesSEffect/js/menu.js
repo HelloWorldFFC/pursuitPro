@@ -27,7 +27,7 @@ const res_home = {
 				// 	img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
 				// 	url: '/pagesSEffect/specialEffect/test'
 				// },
-				
+
 
 			],
 		},
@@ -36,34 +36,34 @@ const res_home = {
 					name: '旋转相册',
 					img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
 					url: '',
-					type:1,
+					type: 1,
 				},
 				{
-					
+
 					name: '旋转立方体相册',
 					img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
 					url: '',
-					type:2,
+					type: 2,
 				},
 				{
-					
+
 					name: '二十面体',
 					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
 					url: '',
-					type:3,
+					type: 3,
 				},
 				{
-					
+
 					name: '双旋转立方体相册',
 					img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
 					url: '',
-					type:4,
+					type: 4,
 				},
 				{
 					name: '旋转魔方',
 					img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
 					url: '',
-					type:5,
+					type: 5,
 				},
 				// {
 				// 	name: '文字渐变',
@@ -75,7 +75,7 @@ const res_home = {
 					name: '背景渐变',
 					img: 'https://cdn.pixabay.com/photo/2020/11/19/15/32/sculpture-5758884__340.jpg',
 					url: '',
-					type:22,
+					type: 22,
 				},
 				// {
 				// 	name: '扫描',
@@ -83,6 +83,89 @@ const res_home = {
 				// 	url: '',
 				// 	type:23,
 				// },
+			],
+		},
+		"list_th": {
+			"data": [{
+					name: '旋转相册',
+					img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
+					url: '',
+					type: 1,
+				},
+				{
+
+					name: '旋转立方体相册',
+					img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
+					url: '',
+					type: 2,
+				},
+				{
+
+					name: '二十面体',
+					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+					url: '',
+					type: 3,
+				},
+				{
+
+					name: '双旋转立方体相册',
+					img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
+					url: '',
+					type: 4,
+				},
+				{
+					name: '旋转魔方',
+					img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
+					url: '',
+					type: 5,
+				},
+
+				{
+					name: '背景渐变',
+					img: 'https://cdn.pixabay.com/photo/2020/11/19/15/32/sculpture-5758884__340.jpg',
+					url: '',
+					type: 22,
+				},
+				{
+					name: '旋转相册',
+					img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
+					url: '',
+					type: 1,
+				},
+				{
+
+					name: '旋转立方体相册',
+					img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
+					url: '',
+					type: 2,
+				},
+				{
+
+					name: '二十面体',
+					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+					url: '',
+					type: 3,
+				},
+				{
+
+					name: '双旋转立方体相册',
+					img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
+					url: '',
+					type: 4,
+				},
+				{
+					name: '旋转魔方',
+					img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
+					url: '',
+					type: 5,
+				},
+
+				{
+					name: '背景渐变',
+					img: 'https://cdn.pixabay.com/photo/2020/11/19/15/32/sculpture-5758884__340.jpg',
+					url: '',
+					type: 22,
+				},
 			],
 		},
 		"turn_thD_list": {
@@ -205,7 +288,7 @@ const res_home = {
 				img: "https://cdn.pixabay.com/photo/2020/01/13/23/15/snowboarding-4763731__340.jpg",
 				name: "可怕"
 			}, {
-				
+
 				img: "https://cdn.pixabay.com/photo/2019/11/30/21/37/stars-4664313__340.jpg",
 				name: "可能"
 			}, {
@@ -226,81 +309,81 @@ const res_home = {
 			"data": [{
 					index: 0,
 					name: '1次机会',
-					isAward : true ,
-					val : 1 ,
+					isAward: true,
+					val: 1,
 					type: 1,
-					
+
 					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
 				},
 				{
 					index: 1,
 					name: '谢谢参与',
-					isAward : false ,
+					isAward: false,
 					type: 0,
 					img: 'https://cdn.pixabay.com/photo/2021/01/07/15/02/york-minster-5897525__340.jpg',
 				},
 				{
-					
+
 					index: 2,
 					name: '会特别顺利',
-					val : 2 ,
-					isAward : true ,
+					val: 2,
+					isAward: true,
 					type: 2,
 					img: 'https://cdn.pixabay.com/photo/2021/01/20/21/03/purple-5935577__340.jpg',
 				},
 				{
-					
+
 					index: 3,
 					name: '谢谢参与',
-					isAward : false ,
+					isAward: false,
 					type: 0,
 					img: 'https://cdn.pixabay.com/photo/2021/01/13/18/07/tree-5914851__340.jpg',
 				},
 				{
 					index: 4,
 					name: '2次机会',
-					val : 2 ,
-					isAward : true ,
+					val: 2,
+					isAward: true,
 					type: 1,
-					
+
 					img: 'https://cdn.pixabay.com/photo/2021/01/11/18/41/snowfall-5909261__340.jpg',
 				},
 				{
 					index: 5,
 					name: '谢谢参与',
-					isAward : false ,
+					isAward: false,
 					type: 0,
 					img: 'https://cdn.pixabay.com/photo/2021/01/05/19/55/winter-5892335__340.jpg',
 				},
 				{
-					
+
 					index: 6,
 					name: '4次机会',
-					val : 4 ,
-					isAward : true ,
+					val: 4,
+					isAward: true,
 					type: 1,
-					
+
 					img: 'https://cdn.pixabay.com/photo/2018/11/11/19/46/christmas-3809544__340.jpg',
 				},
 				{
 					index: 7,
 					name: '谢谢参与',
-					isAward : false ,
+					isAward: false,
 					type: 0,
 					img: 'https://cdn.pixabay.com/photo/2020/12/15/20/50/christmas-5834904__340.jpg',
 				},
 				{
 					index: 8,
 					name: '会付出代价',
-					val : 5 ,
-					isAward : true ,
+					val: 5,
+					isAward: true,
 					type: 2,
 					img: 'https://cdn.pixabay.com/photo/2016/11/14/16/20/snowflake-1823942__340.jpg',
 				},
 				{
 					index: 9,
 					name: '谢谢参与',
-					isAward : false ,
+					isAward: false,
 					type: 0,
 					img: 'https://cdn.pixabay.com/photo/2020/12/01/16/11/ornaments-5794746__340.jpg',
 				},

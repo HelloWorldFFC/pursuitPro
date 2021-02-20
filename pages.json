@@ -738,7 +738,26 @@
 						// #ifdef H5 || MP-WEIXIN
 						"enablePullDownRefresh": true,
 						// #endif
-						"navigationBarTitleText": "刮一刮",
+						"navigationBarTitleText": "测试",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
+				},
+				{
+					"path": "specialEffect/show",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "",
 						// #ifdef H5
 						"navigationStyle": "custom",
 						// #endif 
