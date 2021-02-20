@@ -22,13 +22,48 @@ const res_home = {
 					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
 					url: '/pagesSEffect/specialEffect/firework'
 				},
+				// {
+				// 	name: '测试',
+				// 	img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
+				// 	url: '/pagesSEffect/specialEffect/test'
+				// },
+				
+
+			],
+		},
+		"list_two": {
+			"data": [{
+					name: '翻转',
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+					url: '',
+					type:1,
+				},
+				{
+					name: '跳跃',
+					img: 'https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg',
+					url: '',
+					type:2,
+				},
+				{
+					name: '正20面体',
+					img: 'https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989__340.jpg',
+					url: '',
+					type:3,
+				},
+				{
+					name: '烟花',
+					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
+					url: '',
+					type:4,
+				},
 				{
 					name: '测试',
 					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
-					url: '/pagesSEffect/specialEffect/test'
+					url: '',
+					type:5,
 				},
 				
-
+		
 			],
 		},
 		"turn_thD_list": {

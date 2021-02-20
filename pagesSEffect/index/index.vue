@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<tiled :list="list" :hengNumber="2" @toDetailPage="toPage" img_last="lgg"></tiled>
-		<tiled :list="list" :hengNumber="3" @toDetailPage="toPage" backgroundColor="#BA55D3" nameColor="#fff" img_last="lg"></tiled>
+		<tiled :list="list_two" :hengNumber="3" @toDetailPage="toPage_two" backgroundColor="#BA55D3" nameColor="#fff" img_last="lg"></tiled>
 	</view>
 	
 </template>
@@ -15,6 +15,7 @@
 		},
 		data() {
 			return {
+				list_two :[],
 				list : [],
 				isLoaded : false ,
 			}
@@ -43,6 +44,8 @@
 			
 				that.list = data.list.data;
 				
+				that.list_two = data.list_two.data;
+				
 				uni.hideLoading();
 			
 				that.isLoaded = true;
@@ -56,7 +59,16 @@
 				uni.navigateTo({
 					url: url
 				})
-			}
+				
+			},
+			toPage_two(e) {
+				console.log(e)
+				let item = e.item ;
+				
+				uni.navigateTo({
+					url: `/pagesSEffect/specialEffect/show` + `?data=${encodeURIComponent(JSON.stringify(item))}`,
+				})
+			},
 		},
 	}
 </script>
