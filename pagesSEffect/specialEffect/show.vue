@@ -22,6 +22,8 @@
 		<!-- 雷达和文字效果在组件里不行，直接在页面就可以 -->
 		<radar v-if="type==23"></radar>
 		<!-- #endif -->
+		
+		<fireworkSati v-if="is_fkSati&&type==31" />
 	</view>
 </template>
 
@@ -38,6 +40,9 @@
 	import scTxt from '../components/ay-stpvary/txt.vue';
 	import scBg from '../components/ay-stpvary/bg.vue';
 	import radar from '../components/ay-stpvary/radar.vue';
+	
+	import fireworkSati from '../components/ay-firework/firework_sati.vue'
+	
 	export default {
 		components: {
 			shutLoose,
@@ -49,6 +54,8 @@
 			scTxt,
 			scBg,
 			radar,
+			
+			fireworkSati,
 		},
 		data() {
 			return {
@@ -56,11 +63,12 @@
 				list_two :[],
 				list : [],
 				isLoaded : false ,
-				type: 1,
+				type: 1,////1旋转2旋转立方体3二十面体4双旋转立方体5旋转魔方
 				margin_t_b_ma:200,
 				margin_t_b_td:4,
 				bg_img_sl:'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
 				
+				is_fkSati: false,
 			}
 		},
 		onLoad(options) {
@@ -73,6 +81,15 @@
 			
 			that.pageShowHander();
 			that.loadData()
+		},
+		onReady() {
+			
+			this.$nextTick(() => {//后面记得销毁哈，不使用时设置为false
+				setTimeout(() => {
+					this.is_fkSati = true;
+				}, 50)
+			})
+			
 		},
 		// #ifdef MP-WEIXIN
 		//微信小程序的分享
@@ -113,7 +130,7 @@
 				// #endif
 				that.margin_t_b_ma = margin_t_b_ma ;
 				that.margin_t_b_td = margin_t_b_td ;
-				console.log(that.margin_t_b_td)
+				
 			},
 			setDate_init(data) {
 				let that = this;

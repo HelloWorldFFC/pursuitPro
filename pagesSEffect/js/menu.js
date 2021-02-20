@@ -33,14 +33,14 @@ const res_home = {
 		},
 		"list_two": {
 			"data": [{
-					name: '旋转相册',
+					name: '旋转',
 					img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
 					url: '',
 					type: 1,
 				},
 				{
 
-					name: '旋转立方体相册',
+					name: '旋转立方体',
 					img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
 					url: '',
 					type: 2,
@@ -54,7 +54,7 @@ const res_home = {
 				},
 				{
 
-					name: '双旋转立方体相册',
+					name: '双旋转立方体',
 					img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
 					url: '',
 					type: 4,
@@ -83,6 +83,12 @@ const res_home = {
 				// 	url: '',
 				// 	type:23,
 				// },
+				{
+					name: '礼花',
+					img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
+					url: '',
+					type:31,
+				},
 			],
 		},
 		"list_th": {
