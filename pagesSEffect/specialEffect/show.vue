@@ -21,7 +21,7 @@
 		 txtColor11="#3498db"></scTxt>
 
 
-		<scBg v-if="type==22" :type="index+1" v-for="(item,index) in 4" :key="index">
+		<scBg v-if="type==22" :type="index+1" v-for="(item,index) in 4" :key="index" :height="200" :width="600">
 			<view>
 				<radar colorName="gold" :height="200" :width="200"></radar>
 			</view>
@@ -36,6 +36,57 @@
 
 
 		<fireworkSati v-if="is_fkSati&&type==31" :show_fw_re="is_fkSati" />
+		
+		<blow v-if="type==41" canvasId="canvasId1" :height="200" :width="600" refs="card" style="position: relative;margin: 0 40upx;"
+		 @complete="seatShow" :disabled="false" title="刮文本" watermark="刮一刮" @init="init_blow" :is_show="is_show_blow" :result_txt="result_blow" themeColor="#33CCCC" :txtFontSize="txtFontSize_blow" :txtColor="txtColor_blow">
+		</blow>
+		
+		<!-- <blowAny v-if="type==41" canvasId="canvasId1" :height="200" :width="600" refs="card" style="position: relative;margin: 0 40upx;"
+		 @complete="seatShow" :disabled="false" title="刮文本" watermark="刮一刮" @init="init_blow">
+			<view class="blow" v-if="is_show_blow" style="height:200rpx;width:600rpx;position: absolute;">
+				<view class="box" :style="{background: themeColor }">
+					<view class="result" :style="[{'font-size':txtFontSize_blow+'rpx'},{color: txtColor_blow }]">
+						<text>{{result_blow}}</text>
+					</view>
+		
+				</view>
+		
+			</view>
+		</blowAny> -->
+		
+		<blowImg v-if="type==42" canvasId="canvasId1" :height="200" :width="600" refs="card" style="position: relative;margin: 0 40upx;" @complete="seatShow"
+		 :disabled="false" title="刮图片" watermark="刮一刮" @init="init_blow" :is_show="is_show_blow" :result_img="result_img_blow"></blowImg>
+		
+		<!-- <blowAny  v-if="type==42" canvasId="canvasId1" :height="200" :width="600" refs="card" style="position: relative;margin: 0 40upx;" @complete="seatShow"
+		 :disabled="false" title="刮图片" watermark="刮一刮" @init="init_blow">
+			<view style="position: absolute;" v-if="is_show_blow" >
+			
+				<view>
+					<image style="height:200rpx;width:600rpx;"  :src="result_img_blow"></image>
+				</view>
+			
+			</view>
+			
+		
+		</blowAny> -->
+		
+		<blowAny  v-if="type==43" canvasId="canvasId1" :height="200" :width="600" refs="card" style="position: relative;margin: 0 40upx;" @complete="seatShow"
+		 :disabled="false" title="刮自定义" watermark="刮一刮" @init="init_blow">
+			<view style="position: absolute;" v-if="is_show_blow" >
+				<!-- 自定义内容 -->
+				<view>
+					<scBg :height="200" :width="600">
+						<view>
+							<radar colorName="hotPink" :height="200" :width="200"></radar>
+						</view>
+					</scBg>
+				</view>
+			
+			</view>
+			
+		
+		</blowAny>
+		
 	</view>
 </template>
 
@@ -54,7 +105,10 @@
 	import radar from '../components/ay-stpvary/radar.vue';
 
 	import fireworkSati from '../components/ay-firework/firework_sati.vue'
-
+	
+	import blow from '../components/ay-lottery/blow.vue';
+	import blowAny from '../components/ay-lottery/blow_any.vue';
+	import blowImg from '../components/ay-lottery/blow_img.vue';
 	export default {
 		components: {
 			shutLoose,
@@ -68,10 +122,22 @@
 			radar,
 
 			fireworkSati,
+			
+			blow,
+			blowAny,
+			blowImg,
 		},
 		data() {
 			return {
-				colorName_rd: 'orangeRed',
+				//刮一刮
+				result_img_blow: 'https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg',
+				themeColor: '#33CCCC',
+				txtFontSize_blow: 50,
+				txtColor_blow: '#FFFFFF',
+				is_show_blow: false, //防止画布画好前闪烁
+				result_blow: '谢谢参与',
+				
+				colorName_rd: 'orangeRed',//aqua hotPink lime gold orangeRed
 				list_th: [],
 				list_two: [],
 				list: [],
@@ -92,6 +158,8 @@
 		},
 		onLoad(options) {
 			let that = this;
+			
+			//礼花循环播放
 			that.isRemove_timer = false; //重新进入，启用timer
 
 			let data = options.data ? JSON.parse(decodeURIComponent(options.data)) : false;
@@ -103,42 +171,19 @@
 			that.pageShowHander();
 			that.loadData()
 		},
-		onReady() {
-			let that = this;
-			that.play_fw();
-
-
-		},
-		onShow: function() {
-			let that = this;
-			if (that.isScreen_rest) {
-				that.isRemove_timer = false; //开启屏幕重新进入，启用timer
-				that.play_fw()
-			}
-
-		},
-		onHide: function() {
-			let that = this;
-			that.isScreen_rest = true; //说明息屏了
-			that.isRemove_timer = true;
-			//移除定时器
-			let timerName = that.timerName;
-			if (timerName !== '') {
-				clearTimeout(timerName);
-
-			}
-		},
-		onUnload() {
-			let that = this;
-			that.isRemove_timer = true;
-			//移除定时器
-			let timerName = that.timerName;
-			if (timerName !== '') {
-				clearTimeout(timerName);
-
-			}
-		},
 		methods: {
+			//刮一刮
+			init_blow() {
+				this.is_show_blow = true;
+			},
+			reset: function() {
+				this.$refs.card.init();
+			},
+			
+			seatShow: function() {
+				
+			},
+			//礼花播放
 			play_fw() {
 				let that = this;
 
@@ -193,11 +238,30 @@
 				that.list_th = data.list_th.data;
 
 				that.txt_sc = data.turn_page_txt.ct;
-
+				
+				that.result_blow = that.getShowTxt(data.lottery_list.data);
+				that.result_img_blow = that.getShowImg(data.list_th.data);
+				
 				uni.hideLoading();
 
 				that.isLoaded = true;
 
+			},
+			getShowTxt(list) {
+				let that = this;
+				//随机获取list的值
+				let num = Math.floor(Math.random() * 10); //可均衡获取0到9的随机整数
+				let legth = list.length || 0;
+				let index = num < legth ? num : (legth - 1);
+				return list[index].name || '哈哈'
+			},
+			getShowImg(list) {
+				let that = this;
+				//随机获取list的值
+				let num = Math.floor(Math.random() * 10); //可均衡获取0到9的随机整数
+				let legth = list.length || 0;
+				let index = num < legth ? num : (legth - 1);
+				return list[index].img || 'https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg'
 			},
 			pageShowHander() {
 				let that = this;
@@ -212,7 +276,51 @@
 
 				that.type = data.type;
 			},
-		}
+		},
+		onReady() {
+			let that = this;
+			
+			//礼花播放
+			that.play_fw();
+		
+		
+		},
+		onShow: function() {
+			let that = this;
+			
+			//礼花循环播放
+			if (that.isScreen_rest) {
+				that.isRemove_timer = false; //开启屏幕重新进入，启用timer
+				that.play_fw()
+			}
+		
+		},
+		onHide: function() {
+			let that = this;
+			
+			//礼花循环播放
+			that.isScreen_rest = true; //说明息屏了
+			that.isRemove_timer = true;
+			//移除定时器
+			let timerName = that.timerName;
+			if (timerName !== '') {
+				clearTimeout(timerName);
+		
+			}
+		},
+		onUnload() {
+			let that = this;
+			
+			//礼花循环播放
+			that.isRemove_timer = true;
+			//移除定时器
+			let timerName = that.timerName;
+			if (timerName !== '') {
+				clearTimeout(timerName);
+		
+			}
+		},
+		
 	}
 </script>
 

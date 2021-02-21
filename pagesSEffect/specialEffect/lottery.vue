@@ -1,18 +1,26 @@
 <template>
 	<view class="content">
 
-		<aylottery :type="1" themeColor="#33CCCC" btn_Color="#ffffff" seled_Color="#DB7093" seled_t_Color="#98FB98" un_seled_Color="#00BFFF"
-		 un_seled_t_Color="#33CCCC" :result_txt="result_turn" @show="show_turn" @again="again_turn" :show_again="true" again_txt="重新开始" :tips_init="tips_init_turn" :no_z_init="no_z_init_turn"></aylottery>
-		
-		
-		<aylottery :type="2" :list="list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun" @toDetailPage="toDetailPage"></aylottery>
-		
-		<aylottery :type="3" :list="list_r" :height="600" :width="600" :chance_num_init="chance_num_init" @result="resultFun_chance" @toDetailPage="toDetailPage" :stay_index="stay_index_r"></aylottery>
+		<aylottery :type="1" themeColor="#33CCCC" btn_Color="#ffffff" seled_Color="#DB7093" seled_t_Color="#98FB98"
+		 un_seled_Color="#00BFFF" un_seled_t_Color="#33CCCC" :result_txt="result_turn" @show="show_turn" @again="again_turn"
+		 :show_again="true" again_txt="重新开始" :tips_init="tips_init_turn" :no_z_init="no_z_init_turn"></aylottery>
 
-		<!-- #ifdef H5 -->
-		<aylottery :type="4" style="margin-top: 40upx;" ref="blowRef" :result_txt="result_blow" :height="150" :width="350"
-		 themeColor="#33CCCC" txtColor="#ffffff" :txtFontSize="50" canvasId="canvasId2"></aylottery>
-		<!-- #endif -->
+
+		<aylottery :type="2" :list="list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"
+		 @toDetailPage="toDetailPage"></aylottery>
+
+		<aylottery :type="3" :list="list_r" :height="600" :width="600" :chance_num_init="chance_num_init" @result="resultFun_chance"
+		 @toDetailPage="toDetailPage" :stay_index="stay_index_r"></aylottery>
+
+
+		<aylottery :type="4" canvasId="canvasId1" :height="200" :width="600" refs="card" style="position: relative;margin: 20upx 40upx;"
+		 @complete="seatShow" :disabled="false" title="刮文本" watermark="刮一刮" @init="init_blow" :is_show="is_show_blow" :result_txt="result_blow" themeColor="#33CCCC" :txtFontSize="txtFontSize_blow" :txtColor="txtColor_blow">
+		</aylottery>
+		
+		<!-- <aylottery :type="5" canvasId="canvasId2" :height="200" :width="600" refs="card" style="position: relative;margin: 0 40upx;" @complete="seatShow"
+		 :disabled="false" title="刮图片" watermark="刮一刮" @init="init_blow" :is_show="is_show_blow" :result_img="result_img_blow"> -->
+		 
+		</aylottery>
 		
 	</view>
 </template>
@@ -20,19 +28,29 @@
 <script>
 	import menu from '../js/menu.js';
 	import aylottery from '../components/ay-lottery/ay-lottery.vue';
+	
 	export default {
 		components: {
 			aylottery,
+			
 		},
 
 		data() {
 			return {
+				//刮一刮
+				result_img_blow: 'https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg',
+				themeColor: '#33CCCC',
+				txtFontSize_blow: 50,
+				txtColor_blow: '#FFFFFF',
+				is_show_blow: false, //防止画布画好前闪烁
+				result_blow: '谢谢参与',
+				
 				stay_index_r_init: 4,
 				stay_index_r: 1,
 				tips_init_turn: '点击',
 				no_z_init_turn: '点击',
 				result_turn: '',
-				result_blow: '谢谢参与',
+				
 				chance_num_init: 6,
 				list: [],
 				list_r: [],
@@ -54,17 +72,27 @@
 		// #endif
 		onReady: function() {
 			let that = this;
-			
+
 			// #ifdef H5
 			this.$nextTick(() => {
 				setTimeout(function() {
-					that.$refs.blowRef.initBlow()
+					//that.$refs.blowRef.initBlow();
 				}, 50)
 			})
 			// #endif
-			
+
 		},
 		methods: {
+			init_blow() {
+				this.is_show_blow = true;
+			},
+			reset: function() {
+				this.$refs.card.init();
+			},
+
+			seatShow: function() {
+				
+			},
 			toDetailPage(e) {
 				let list = e.list;
 				let idx = e.curIndex;
@@ -162,5 +190,34 @@
 </script>
 
 <style lang="scss">
+	.blow {
 
+		background-size: contain;
+		margin: 0rpx auto;
+		box-sizing: border-box;
+		position: relative;
+		overflow: hidden;
+
+		.box {
+			width: 100%;
+			height: 100%;
+			// background: #aaaa7f;
+			border-radius: 10rpx;
+			position: relative;
+			overflow: hidden;
+
+			.result {
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				// font-size: 50rpx;
+				// color: #FFFFFF;
+			}
+
+
+		}
+
+
+	}
 </style>

@@ -30,15 +30,21 @@
 		data() {
 			return {
 				scrollMaxheight: this.vWindowHeight,
-				list: [{
-						title: '姨妈记录',
-						toPageUrl: '/pages/emmenia/emmenia',
+				list: [
+					{
+						title: '动画效果',
+						toPageUrl: '/pagesSEffect/index/index',
 					},
 					{
 						title: '景区导航',
 						//toPageUrl: '/pagesScan/scenicspot/scenicspot',
 						toPageUrl: '/pagesScan/scenicspot/scenicspot_5A',
 					},
+					{
+						title: '姨妈记录',
+						toPageUrl: '/pages/emmenia/emmenia',
+					},
+					
 					{
 						title: '有效期记录',
 						toPageUrl: '/pages/validTerm/validTerm',
@@ -47,10 +53,7 @@
 						title: '定时提醒',
 						toPageUrl: '/pages/timingReminder/timingReminder',
 					},
-					{
-						title: '动画效果',
-						toPageUrl: '/pagesSEffect/index/index',
-					},
+					
 					{
 						title: '涂鸦',
 						toPageUrl: '/pages/scrawl/scrawl',

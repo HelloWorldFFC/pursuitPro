@@ -92,6 +92,27 @@ const res_home = {
 					url: '',
 					type:31,
 				},
+				{
+					
+					name: '刮文本',
+					img: 'https://cdn.pixabay.com/photo/2016/11/29/13/09/blur-1869731__340.jpg',
+					url: '',
+					type:41,
+				},
+				{
+					
+					name: '刮图片',
+					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+					url: '',
+					type:42,
+				},
+				{
+					
+					name: '刮自定义',
+					img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
+					url: '',
+					type:43,
+				},
 			],
 		},
 		"list_th": {

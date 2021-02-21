@@ -178,13 +178,14 @@
 						page = `/pagesSEffect/index/index`;
 						break;
 					case 2:
-						page = `/pagesSEffect/specialEffect/turn`;
+						page = `/pagesScan/scenicspot/scenicspot_5A`;
 						break;
 					case 3:
+						//pagesSEffect/specialEffect/lottery2
 						page = `/pagesSEffect/specialEffect/lottery`;
 						break;
 					case 4:
-						page = `/pagesSEffect/specialEffect/lottery2`;
+						page = `/pagesSEffect/specialEffect/turn`;
 						break;
 					default:
 						break;

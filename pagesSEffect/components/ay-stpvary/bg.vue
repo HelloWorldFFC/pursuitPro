@@ -57,7 +57,7 @@
 		position: relative;
 		width: 600rpx;
 		height: 200rpx;
-		margin: 50rpx auto;
+		margin: 0rpx auto;
 		border-radius: 10rpx;
 		background: linear-gradient(90deg, #F0E68C 0%, #FF8C00 100%);
 		animation: gC1 3s infinite;
