@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view :class="'t'+(type)"><slot /></view>
+		<view :style="style_box" :class="'t'+(type)"><slot /></view>
 	</view>
 </template>
 
@@ -11,7 +11,36 @@
 				type: Number,
 				default: 1, //1:  2: 3：4 
 			},
-			
+			height: {
+				type: Number,
+				default: 200
+			},
+			width: {
+				type: Number,
+				default: 600
+			},
+			borderRadius: {
+				type: Number,
+				default: 10
+			},
+		},
+		computed: {
+			style_box() {
+				let that = this;
+				var height = parseInt(that.height);
+				var width = parseInt(that.width);
+				var style = '';
+				if (height > 0) {
+					style = `height:${height}rpx;`;
+				}
+				if (width > 0) {
+					style += `width:${width}rpx;`;
+				}
+				
+				style += `border-radius:${that.borderRadius}rpx;`;
+				
+				return style;
+			},
 		},
 		data() {
 			return {
@@ -30,7 +59,7 @@
 		height: 200rpx;
 		margin: 50rpx auto;
 		border-radius: 10rpx;
-		background: linear-gradient(90deg, #ffc700 0%, #e91e1e 100%);
+		background: linear-gradient(90deg, #F0E68C 0%, #FF8C00 100%);
 		animation: gC1 3s infinite;
 	}
 
@@ -46,7 +75,7 @@
 		height: 200rpx;
 		margin: 50rpx auto;
 		border-radius: 10rpx;
-		background: #ffc700;
+		background: #FFDEAD;
 		animation: gC2 3s infinite alternate;
 	}
 

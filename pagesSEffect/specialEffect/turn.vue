@@ -5,7 +5,16 @@
 			<ayturn :type="3" :height="400" :width="300" :cover="cover_auto"  :list="list_page_auto"></ayturn>
 		</view>
 		
-		<ayturn :type="1" :height="200" :width="300"  :list="list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200"  :list="list"></ayturn>
+		
+		
+		
+		
+		
+		<ayturn :type="2" :height="640" :width="400" :list="list_page">
+			
+		</ayturn>
+		
 		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
 		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
 		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
@@ -15,7 +24,6 @@
 		
 		<ayturn :type="4"  :height="150" :width="150" :pros_img="pros_img" :cons_img="cons_img"></ayturn>
 		
-		<ayturn :type="2" :height="640" :width="400" :list="list_page"></ayturn>
 	</view>
 
 

@@ -89,7 +89,7 @@
 				style += `margin:${that.margin_t_b}% auto;`;
 				
 				// #ifdef MP-WEIXIN
-				style += `margin-left:${-that.width}rpx;`;
+				// style += `margin-left:${-that.width}rpx;`;
 				// #endif
 				
 				return style;

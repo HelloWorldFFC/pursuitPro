@@ -1,8 +1,8 @@
 <template>
-	<view>
-		<view style="position: relative;">
-			<view class="box">
-				<view v-for="(item,index) in 6" :key="index">
+	<view class="box-view">
+		<view style="position: relative;" class="box-view">
+			<view class="box box-view">
+				<view v-for="(item,index) in 6" :key="index" class="box-view">
 					<span v-for="(item,index) in 5" :key="index"></span>
 				</view>
 			</view>
@@ -21,7 +21,7 @@
 		animation: ani 4s linear infinite;
 	}
 
-	view {
+	.box-view {
 		transform-style: preserve-3d;
 		transform: translate(-50%, -50%) rotate3d(0, 1, 0, 72deg);
 		position: absolute;
@@ -47,7 +47,7 @@
 	span:before {
 		/*利用边框在span中做一个三角形，实现嵌套，让span变成边框,span:before变成要显示的东西*/
 		content: '';
-		border-color: transparent transparent rgba(0, 123, 123, 0.5) transparent;
+		border-color: transparent transparent rgba(255,105,180, 0.5) transparent;
 		/*设置每面的颜色*/
 		border-width: 165.2upx 92upx;
 		border-style: solid;

@@ -60,32 +60,35 @@ const res_home = {
 					type: 4,
 				},
 				{
+					
 					name: '旋转魔方',
-					img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2019/05/28/12/09/bee-4235093__340.jpg',
 					url: '',
 					type: 5,
 				},
-				// {
-				// 	name: '文字渐变',
-				// 	img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
-				// 	url: '',
-				// 	type:21,
-				// },
+				{
+					name: '文字渐变',
+					img: 'https://cdn.pixabay.com/photo/2021/01/26/21/16/macaw-5952965__340.jpg',
+					url: '',
+					type:21,
+				},
 				{
 					name: '背景渐变',
 					img: 'https://cdn.pixabay.com/photo/2020/11/19/15/32/sculpture-5758884__340.jpg',
 					url: '',
 					type: 22,
 				},
-				// {
-				// 	name: '扫描',
-				// 	img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
-				// 	url: '',
-				// 	type:23,
-				// },
 				{
+					
+					name: '扫描',
+					img: 'https://cdn.pixabay.com/photo/2020/10/07/18/40/waves-5635959__340.jpg',
+					url: '',
+					type:23,
+				},
+				{
+					
 					name: '礼花',
-					img: 'https://cdn.pixabay.com/photo/2020/12/01/15/26/lighthouse-5794639__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
 					url: '',
 					type:31,
 				},

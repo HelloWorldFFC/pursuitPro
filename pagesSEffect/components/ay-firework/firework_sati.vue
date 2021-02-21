@@ -15,6 +15,7 @@
 	let fireCanvasBox = null;
 	export default {
 		props: {
+			
 			/*
 				礼花数量（最好小于500,太多会卡顿）
 			*/
@@ -122,6 +123,9 @@
 				*/
 				pixelRatio: systenInfo.pixelRatio
 			}
+		},
+		watch: {
+			
 		},
 		created() {
 			console.log('created');

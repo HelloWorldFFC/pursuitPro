@@ -27,5 +27,6 @@ const amapPlugin_key_wx = '填入自己申请的高德小程序的key';
 ## 特别鸣谢（主要但不限于以下）
 [ColorUI的css样式库](https://ext.dcloud.net.cn/plugin?id=239)
 [动画效果给的灵感](https://ext.dcloud.net.cn/plugin?id=3685)
+[js的礼花](https://ext.dcloud.net.cn/plugin?id=1198)
 
 
