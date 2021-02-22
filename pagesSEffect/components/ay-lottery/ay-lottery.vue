@@ -87,7 +87,7 @@
 		props: {
 			type: {
 				type: Number,
-				default: 1, //1:翻牌  2:跑马灯 3：转盘 4： 刮一刮（文本） 4： 刮一刮（图片）
+				default: 1, //1:翻牌  2:跑马灯 3：转盘 4： 刮一刮（文本） 5： 刮一刮（图片）
 			},
 			list: {
 				type: Array,
