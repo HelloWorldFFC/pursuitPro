@@ -32,7 +32,30 @@ const res_home = {
 			],
 		},
 		"list_two": {
-			"data": [{
+			"data": [
+				{
+					
+					name: '刮文本',
+					img: 'https://cdn.pixabay.com/photo/2016/11/29/13/09/blur-1869731__340.jpg',
+					url: '',
+					type:41,
+				},
+				{
+					
+					name: '刮图片',
+					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+					url: '',
+					type:42,
+				},
+				{
+					
+					name: '刮自定义',
+					img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
+					url: '',
+					type:43,
+				},
+				
+				{
 					name: '旋转',
 					img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
 					url: '',
@@ -66,6 +89,16 @@ const res_home = {
 					url: '',
 					type: 5,
 				},
+				
+				{
+					
+					name: '礼花',
+					img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
+					url: '',
+					type:31,
+				},
+				
+				
 				{
 					name: '文字渐变',
 					img: 'https://cdn.pixabay.com/photo/2021/01/26/21/16/macaw-5952965__340.jpg',
@@ -84,34 +117,6 @@ const res_home = {
 					img: 'https://cdn.pixabay.com/photo/2020/10/07/18/40/waves-5635959__340.jpg',
 					url: '',
 					type:23,
-				},
-				{
-					
-					name: '礼花',
-					img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
-					url: '',
-					type:31,
-				},
-				{
-					
-					name: '刮文本',
-					img: 'https://cdn.pixabay.com/photo/2016/11/29/13/09/blur-1869731__340.jpg',
-					url: '',
-					type:41,
-				},
-				{
-					
-					name: '刮图片',
-					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
-					url: '',
-					type:42,
-				},
-				{
-					
-					name: '刮自定义',
-					img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
-					url: '',
-					type:43,
 				},
 			],
 		},
