@@ -24,6 +24,11 @@
 		
 		<ayturn :type="4"  :height="150" :width="150" :pros_img="pros_img" :cons_img="cons_img"></ayturn>
 		
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-da9ca613908f616c" ad-intervals="30"></ad>
+		</view>
+		<!-- #endif -->
 	</view>
 
 

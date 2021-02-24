@@ -51,7 +51,7 @@
 			}
 			
 			//#ifdef MP-WEIXIN
-			_this.marginLeft = 40;
+			//_this.marginLeft = 40;
 			// #endif
 			
 		},

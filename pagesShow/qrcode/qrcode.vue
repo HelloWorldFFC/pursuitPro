@@ -10,6 +10,12 @@
 		<view style="margin-top: 100upx;" @tap="toCrtQrCode">
 			<button style="width: 400upx;" class="cf-bgcolorTheme">生成二维码</button>
 		</view>
+		
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-da9ca613908f616c" ad-intervals="30"></ad>
+		</view>
+		<!-- #endif -->
 	</view>
 </template>
 

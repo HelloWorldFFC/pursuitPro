@@ -3,7 +3,7 @@
 		<!-- #ifdef MP-WEIXIN -->
 		<kefu></kefu>
 		<!-- #endif -->
-		<scroll-view scroll-y class="cf-scrollBox " :style="{ 'max-height': scrollMaxheight + 'px'}">
+		<!-- <scroll-view scroll-y class="cf-scrollBox " :style="{ 'max-height': scrollMaxheight + 'px'}"> -->
 			<view class="cf-grid">
 				<view class="cf-grid-Item" v-for="(item,index) in list" :key="index" @tap="toItem(item)">
 					<view class="cf-box">
@@ -16,7 +16,12 @@
 					</view>
 				</view>
 			</view>
-		</scroll-view>
+		<!-- </scroll-view> -->
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-da9ca613908f616c" ad-intervals="30"></ad>
+		</view>
+		<!-- #endif -->
 	</view>
 </template>
 

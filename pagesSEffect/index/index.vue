@@ -2,6 +2,11 @@
 	<view>
 		<tiled :list="list" :hengNumber="2" @toDetailPage="toPage" img_last="lgg"></tiled>
 		<tiled :list="list_two" :hengNumber="3" @toDetailPage="toPage_two" backgroundColor="#87CEEB" nameColor="#fff" img_last="lg"></tiled>
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-da9ca613908f616c" ad-intervals="30"></ad>
+		</view>
+		<!-- #endif -->
 	</view>
 	
 </template>

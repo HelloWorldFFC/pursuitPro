@@ -32,7 +32,7 @@
 				<subNavTitle :list="shuImgTxtSubNav" @toDetailPage="toDetailPage_subT(2)"></subNavTitle>
 				<shuImgTxt :list="shuImgTxtList" :themeColor="themeColor" @toDetailPage="toDetailPage"></shuImgTxt>
 			</view>
-
+			
 			<view class="paddingHeng-Theme marginBottom-Theme">
 				<subNavTitle :list="hengTxtImgSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<hengTxtImg :list="hengTxtImgList" :themeColor="themeColor" @toDetailPage="toDetailPage"></hengTxtImg>
@@ -46,7 +46,7 @@
 				<subNavTitle :list="hengImgTxtSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<hengImgTxt :list="hengImgTxtList" :themeColor="themeColor" @toDetailPage="toDetailPage"></hengImgTxt>
 			</view>
-
+			
 			<view class="paddingHeng-Theme marginBottom-Theme">
 				<subNavTitle :list="shuImgTxtSubNav_two" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<shuImgTxt :list="shuImgTxtList_two" :themeColor="themeColor" @toDetailPage="toDetailPage"></shuImgTxt>
@@ -64,8 +64,12 @@
 				<subNavTitle :list="hengImgTxtTSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<hengImgTxtT :list="hengImgTxtTList" :themeColor="themeColor" @toDetailPage="toDetailPage"></hengImgTxtT>
 			</view>
+			<!-- #ifdef MP-WEIXIN -->
+			<view class="cf-ad">
+				<ad unit-id="adunit-da9ca613908f616c" ad-intervals="30"></ad>
+			</view>
+			<!-- #endif -->
 			<underscore></underscore>
-
 		<!-- </scroll-view> -->
 	</view>
 </template>

@@ -43,7 +43,7 @@
 		<view style="margin-top: 26upx;">
 			<hengItem :list="tipList" @toDetailPage="toDetailPage_tip"></hengItem>
 		</view>
-
+		
 	</view>
 </template>
 

@@ -47,7 +47,17 @@
 			<button style="width: 400upx;" class="cf-bgcolorTheme">确定计算</button>
 		</view>
 		<compoundsEndModal :compoundsObj="compoundsObj" :list="list" :showModal="showModal" @closeModalEvent="closeModal"></compoundsEndModal> 
+		
+		
+		
 		<view class="cf-bottomCenter cf-colorHui" >如有错误请联系客服</view>
+		
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-da9ca613908f616c" ad-intervals="30"></ad>
+		</view>
+		<!-- #endif -->
+		
 	</view>
 </template>
 

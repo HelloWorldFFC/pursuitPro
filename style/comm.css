@@ -5,6 +5,9 @@ page,
 		/* overflow: hidden; */ /* 导致没有自动的滚动条 */
 		background-color: #fff;
 }
+.cf-ad{
+	padding: 20upx;
+}
 .cf-bottomCenter{
 		width: 100%;
 		text-align: center;
