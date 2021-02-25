@@ -8,9 +8,9 @@
 		<!-- #endif -->
 		<tiled :list="list_two" :hengNumber="3" @toDetailPage="toPage_two" backgroundColor="#87CEEB" nameColor="#fff" img_last="lg"></tiled>
 		<!-- #ifdef MP-WEIXIN -->
-		<view class="cf-ad">
+		<!-- <view class="cf-ad">
 			<ad unit-id="adunit-da9ca613908f616c" ad-intervals="30"></ad>
-		</view>
+		</view> -->
 		<!-- #endif -->
 	</view>
 	

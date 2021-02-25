@@ -1,7 +1,7 @@
 <template>
 	<view class="cf-content">
 		<!-- #ifdef MP-WEIXIN -->
-		<kefu></kefu>
+		<!-- <kefu></kefu> -->
 		<!-- #endif -->
 		<!-- <scroll-view scroll-y class="cf-scrollBox " :style="{ 'max-height': scrollMaxheight + 'px'}"> -->
 			<view class="cf-grid">

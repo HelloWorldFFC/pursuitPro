@@ -13,11 +13,7 @@
 		<aylottery :type="2" :list="list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"
 		 @toDetailPage="toDetailPage"></aylottery>
 		
-		<!-- #ifdef MP-WEIXIN -->
-		<view class="cf-ad">
-			<ad unit-id="adunit-8f6c4b5b2cfbf8de" ad-type="video" ad-theme="white"></ad>
-		</view>
-		<!-- #endif -->
+		
 		
 		<aylottery :type="3" :list="list_r" :height="600" :width="600" :chance_num_init="chance_num_init" @result="resultFun_chance"
 		 @toDetailPage="toDetailPage" :stay_index="stay_index_r"></aylottery>
@@ -34,7 +30,7 @@
 		
 		<!-- #ifdef MP-WEIXIN -->
 		<view class="cf-ad">
-			<ad unit-id="adunit-da9ca613908f616c" ad-intervals="30"></ad>
+			<ad unit-id="adunit-8f6c4b5b2cfbf8de" ad-type="video" ad-theme="white"></ad>
 		</view>
 		<!-- #endif -->
 		

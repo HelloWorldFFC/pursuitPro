@@ -8,7 +8,7 @@
 			</view>
 		</view>
 		<!-- #ifdef MP-WEIXIN -->
-		<kefu></kefu>
+		<!-- <kefu></kefu> -->
 		<!-- #endif -->
 		<scroll-view scroll-y class="cf-scrollBox scrollBox" :style="{ height: vHeight + 'px'}" :scroll-top="scrollTop" :lower-threshold="800" @scrolltolower="scrolltolowerFun">
 			<!-- <ayitemone :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemone> -->

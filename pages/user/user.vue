@@ -80,12 +80,12 @@
 						isKefu: true,
 					},
 
-					{
-						img: 'https://cdn.pixabay.com/photo/2017/12/10/17/07/dachstein-3010323__340.jpg',
-						name: '今日天气',
-						toPageUrl: '/pagesScan/weather/weather',
+					// {
+					// 	img: 'https://cdn.pixabay.com/photo/2017/12/10/17/07/dachstein-3010323__340.jpg',
+					// 	name: '今日天气',
+					// 	toPageUrl: '/pagesScan/weather/weather',
 
-					},
+					// },
 					{
 						img: 'https://cdn.pixabay.com/photo/2015/05/15/14/38/telephone-booth-768610__340.jpg',
 						name: '说明',

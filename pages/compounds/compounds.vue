@@ -1,7 +1,7 @@
   <template>
 	<view style="width: 100%;">
 		<!-- #ifdef MP-WEIXIN -->
-		<kefu></kefu>
+		<!-- <kefu></kefu> -->
 		<!-- #endif -->
 		<view class="cu-form-group">
 			<view class="title">周期：</view>
