@@ -32,7 +32,11 @@
 				<subNavTitle :list="shuImgTxtSubNav" @toDetailPage="toDetailPage_subT(2)"></subNavTitle>
 				<shuImgTxt :list="shuImgTxtList" :themeColor="themeColor" @toDetailPage="toDetailPage"></shuImgTxt>
 			</view>
-			
+			<!-- #ifdef MP-WEIXIN -->
+			<view class="cf-ad">
+				<ad unit-id="adunit-857f5c9dbc28f928" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
+			</view>
+			<!-- #endif -->
 			<view class="paddingHeng-Theme marginBottom-Theme">
 				<subNavTitle :list="hengTxtImgSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<hengTxtImg :list="hengTxtImgList" :themeColor="themeColor" @toDetailPage="toDetailPage"></hengTxtImg>
@@ -42,6 +46,7 @@
 				<subNavTitle :list="shuImgTxtSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<shuImgTxt :list="shuImgTxtList" :themeColor="themeColor" @toDetailPage="toDetailPage"></shuImgTxt>
 			</view>
+	
 			<view class="paddingHeng-Theme marginBottom-Theme">
 				<subNavTitle :list="hengImgTxtSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<hengImgTxt :list="hengImgTxtList" :themeColor="themeColor" @toDetailPage="toDetailPage"></hengImgTxt>
@@ -51,6 +56,12 @@
 				<subNavTitle :list="shuImgTxtSubNav_two" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<shuImgTxt :list="shuImgTxtList_two" :themeColor="themeColor" @toDetailPage="toDetailPage"></shuImgTxt>
 			</view>
+			
+			<!-- #ifdef MP-WEIXIN -->
+			<view class="cf-ad">
+				<ad unit-id="adunit-8f6c4b5b2cfbf8de" ad-type="video" ad-theme="white"></ad>
+			</view>
+			<!-- #endif -->
 			<view class="paddingHeng-Theme marginBottom-Theme">
 				<subNavTitle :list="hengTxtImgTSubNav" @toDetailPage="toDetailPage_subT(1)"></subNavTitle>
 				<hengTxtImgT :list="hengTxtImgTList" :themeColor="themeColor" @toDetailPage="toDetailPage"></hengTxtImgT>

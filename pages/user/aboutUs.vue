@@ -12,6 +12,11 @@
 			<view class="name">手机验证码</view>
 			<view >{{phone_code}}</view>
 		</view>
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-857f5c9dbc28f928" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
+		</view>
+		<!-- #endif -->
 		<view class="cf-btmC-fixed-box">
 			<view class="cf-btmC-fixed cf-colorHui" >如有侵权或疑问请联系客服</view>
 		</view>

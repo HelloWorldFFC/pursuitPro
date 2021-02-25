@@ -1,6 +1,11 @@
 <template>
 	<view>
 		<tiled :list="list" :hengNumber="2" @toDetailPage="toPage" img_last="lgg"></tiled>
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-857f5c9dbc28f928" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
+		</view>
+		<!-- #endif -->
 		<tiled :list="list_two" :hengNumber="3" @toDetailPage="toPage_two" backgroundColor="#87CEEB" nameColor="#fff" img_last="lg"></tiled>
 		<!-- #ifdef MP-WEIXIN -->
 		<view class="cf-ad">

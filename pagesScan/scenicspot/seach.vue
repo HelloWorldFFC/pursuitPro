@@ -15,6 +15,12 @@
 			</baidu-map>
 		</view>
 		<!-- #endif -->
+		
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-8f6c4b5b2cfbf8de" ad-type="video" ad-theme="white"></ad>
+		</view>
+		<!-- #endif -->
 	</view>
 </template>
 

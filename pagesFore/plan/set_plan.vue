@@ -15,6 +15,11 @@
 		<view style="margin-top: 100upx;" @tap="toAdd">
 			<button style="width: 400upx;" class="cf-bgcolorTheme">保存</button>
 		</view>
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-8f6c4b5b2cfbf8de" ad-type="video" ad-theme="white"></ad>
+		</view>
+		<!-- #endif -->
 	</view>
 </template>
 

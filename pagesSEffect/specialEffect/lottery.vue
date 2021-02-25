@@ -5,10 +5,20 @@
 		 un_seled_Color="#00BFFF" un_seled_t_Color="#33CCCC" :result_txt="result_turn" @show="show_turn" @again="again_turn"
 		 :show_again="true" again_txt="重新开始" :tips_init="tips_init_turn" :no_z_init="no_z_init_turn"></aylottery>
 
-
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-857f5c9dbc28f928" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
+		</view>
+		<!-- #endif -->
 		<aylottery :type="2" :list="list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"
 		 @toDetailPage="toDetailPage"></aylottery>
-
+		
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-8f6c4b5b2cfbf8de" ad-type="video" ad-theme="white"></ad>
+		</view>
+		<!-- #endif -->
+		
 		<aylottery :type="3" :list="list_r" :height="600" :width="600" :chance_num_init="chance_num_init" @result="resultFun_chance"
 		 @toDetailPage="toDetailPage" :stay_index="stay_index_r"></aylottery>
 
