@@ -5,7 +5,7 @@
 			<ayturn :type="3" :height="400" :width="300" :cover="cover_auto"  :list="list_page_auto"></ayturn>
 		</view>
 		
-		<ayturn :type="1" :height="100" :width="200"  :list="list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200"  :list="turn_thD_list"></ayturn>
 		
 		
 		
@@ -15,12 +15,12 @@
 			
 		</ayturn>
 		
-		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
-		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
-		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
-		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
-		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
-		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="turn_thD_list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="turn_thD_list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="turn_thD_list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="turn_thD_list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="turn_thD_list"></ayturn>
+		<ayturn :type="1" :height="100" :width="200" :marginTop="10" :list="turn_thD_list"></ayturn>
 		
 		<ayturn :type="4"  :height="150" :width="150" :pros_img="pros_img" :cons_img="cons_img"></ayturn>
 		
@@ -44,7 +44,7 @@
 
 		data() {
 			return {
-				list: [],
+				turn_thD_list: [],
 				list_page:[],
 				list_page_auto:[],
 				cover_auto:{},
@@ -79,7 +79,7 @@
 				//console.log(res_home)
 				let data = res_home.data;
 			
-				that.list = data.turn_thD_list.data;
+				that.turn_thD_list = data.turn_thD_list.data;
 				// that.list_page = data.turn_page_list.data;
 				// that.list_page_auto = data.turn_pageAuto_list.data;
 				

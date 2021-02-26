@@ -10,7 +10,7 @@
 			<ad unit-id="adunit-857f5c9dbc28f928" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
 		</view>
 		<!-- #endif -->
-		<aylottery :type="2" :list="list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"
+		<aylottery :type="2" :list="lottery_list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"
 		 @toDetailPage="toDetailPage"></aylottery>
 		
 		
@@ -24,9 +24,9 @@
 		</aylottery> -->
 		
 		<!-- <aylottery :type="5" canvasId="canvasId2" :height="200" :width="600" refs="card" style="position: relative;margin: 0 40upx;" @complete="seatShow"
-		 :disabled="false" title="刮图片" watermark="刮一刮" @init="init_blow" :is_show="is_show_blow" :result_img="result_img_blow"> -->
+		 :disabled="false" title="刮图片" watermark="刮一刮" @init="init_blow" :is_show="is_show_blow" :result_img="result_img_blow">
 		 
-		</aylottery>
+		</aylottery> -->
 		
 		<!-- #ifdef MP-WEIXIN -->
 		<view class="cf-ad">
@@ -61,10 +61,10 @@
 				stay_index_r: 1,
 				tips_init_turn: '点击',
 				no_z_init_turn: '点击',
-				result_turn: '',
+				result_turn: '好运降临',
 				
 				chance_num_init: 6,
-				list: [],
+				lottery_list: [],
 				list_r: [],
 			}
 		},
@@ -143,9 +143,9 @@
 				let that = this;
 				//随机获取list的值
 				let num = Math.floor(Math.random() * 10); //可均衡获取0到9的随机整数
-				let legth = that.list.length || 0;
+				let legth = that.lottery_list.length || 0;
 				let index = num < legth ? num : (legth - 1);
-				return that.list[index].name || '哈哈'
+				return that.lottery_list[index].name || '哈哈'
 			},
 			resultFun(e) {
 				let that = this;
@@ -184,7 +184,7 @@
 				//console.log(res_home)
 				let data = res_home.data;
 
-				that.list = data.lottery_list.data;
+				that.lottery_list = data.lottery_list.data;
 				that.list_r = data.lottery_r_list.data;
 
 				that.result_blow = that.getShowTxt();

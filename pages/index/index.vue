@@ -100,7 +100,7 @@
 	import shortcutNav from '@/components/ay-shortcutNav/shortcutNav.vue';
 
 
-	import goUpNotice from '@/components/notice-goUp/notice-goUp.vue';
+	import goUpNotice from '@/components/ay-notice-goUp/notice-goUp.vue';
 
 	import underscore from '@/components/ay-nav/underscore.vue';
 
