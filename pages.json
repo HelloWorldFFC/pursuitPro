@@ -507,25 +507,7 @@
 						}
 					}
 				},
-				{
-					"path": "weather/weather",
-					"style": {
-						// #ifdef H5 || MP-WEIXIN
-						"enablePullDownRefresh": true,
-						// #endif
-						"navigationBarTitleText": "今日天气",
-						// #ifdef H5
-						"navigationStyle": "custom",
-						// #endif 
-						"app-plus": {
-							// #ifdef MP-WEIXIN
-							"titleNView": {
-								"type": "transparent"
-							}
-							// #endif 
-						}
-					}
-				},
+				
 				{
 					"path": "setup/setup",
 					"style": {
