@@ -19,14 +19,26 @@
 		 @toDetailPage="toDetailPage" :stay_index="stay_index_r"></aylottery>
 
 
-		<!-- <aylottery :type="4" canvasId="canvasId1" :height="200" :width="600" refs="card" style="position: relative;margin: 20upx 40upx;"
-		 @complete="seatShow" :disabled="false" title="刮文本" watermark="刮一刮" @init="init_blow" :is_show="is_show_blow" :result_txt="result_blow" themeColor="#33CCCC" :txtFontSize="txtFontSize_blow" :txtColor="txtColor_blow">
-		</aylottery> -->
+		<aylottery :type="4" canvasId="canvasId1" :height="200" :width="600" style="margin: 20upx 40upx;" refs="card" @complete="seatShow" :disabled="false" title="刮文本" watermark="刮一刮" @init="init_blow" :is_show="is_show_blow" :result_txt="result_blow" themeColor="#33CCCC" :txtFontSize="txtFontSize_blow" :txtColor="txtColor_blow">
+		</aylottery>
 		
-		<!-- <aylottery :type="5" canvasId="canvasId2" :height="200" :width="600" refs="card" style="position: relative;margin: 0 40upx;" @complete="seatShow"
+		<aylottery :type="5" canvasId="canvasId2" :height="200" :width="600" refs="card" style="margin: 20upx 40upx;"  @complete="seatShow"
 		 :disabled="false" title="刮图片" watermark="刮一刮" @init="init_blow" :is_show="is_show_blow" :result_img="result_img_blow">
 		 
-		</aylottery> -->
+		</aylottery>
+		
+		<!-- <blowAny  canvasId="canvasId3" :height="200" :width="600" refs="card" style="margin: 20upx 40upx;"  @complete="seatShow"
+		 :disabled="false" title="刮自定义" watermark="刮一刮" @init="init_blow">
+			<view style="position: absolute;" v-if="is_show_blow" >
+				
+				<view style="margin: 40upx;">
+					自定义内容
+				</view>
+			
+			</view>
+			
+		
+		</blowAny> -->
 		
 		<!-- #ifdef MP-WEIXIN -->
 		<view class="cf-ad">
