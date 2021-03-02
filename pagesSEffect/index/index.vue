@@ -7,11 +7,6 @@
 		</view>
 		<!-- #endif -->
 		<tiled :list="list_two" :hengNumber="3" @toDetailPage="toPage_two" backgroundColor="#87CEEB" nameColor="#fff" img_last="lg"></tiled>
-		<!-- #ifdef MP-WEIXIN -->
-		<!-- <view class="cf-ad">
-			<ad unit-id="adunit-da9ca613908f616c" ad-intervals="30"></ad>
-		</view> -->
-		<!-- #endif -->
 	</view>
 	
 </template>
@@ -69,21 +64,26 @@
 			toPage(e) {
 				//console.log(e)
 				let item = e.item ;
-				let url = item.url ;
-				console.log("页面路径", url)
-				uni.navigateTo({
-					url: url
-				})
+				let isMenu = item.isMenu ;
+				
+				if(isMenu){
+					uni.navigateTo({
+						url: `/pagesSEffect/index/index_item` + `?data=${encodeURIComponent(JSON.stringify(item))}`,
+					})
+				}else{
+					uni.navigateTo({
+						url: `/pagesSEffect/index/show` + `?data=${encodeURIComponent(JSON.stringify(item))}`,
+					})
+					
+				}
+				
+				
+				// uni.navigateTo({
+				// 	url: url
+				// })
 				
 			},
-			toPage_two(e) {
-				//console.log(e)
-				let item = e.item ;
-				
-				uni.navigateTo({
-					url: `/pagesSEffect/specialEffect/show` + `?data=${encodeURIComponent(JSON.stringify(item))}`,
-				})
-			},
+			
 		},
 	}
 </script>

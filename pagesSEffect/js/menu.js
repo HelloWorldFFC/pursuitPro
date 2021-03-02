@@ -3,24 +3,216 @@ const res_home = {
 	"data": {
 		"list": {
 			"data": [{
-					name: '翻转',
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
-					url: '/pagesSEffect/specialEffect/turn'
-				},
-				{
 					name: '跳跃',
 					img: 'https://cdn.pixabay.com/photo/2021/01/04/07/38/lily-5886728__340.jpg',
-					url: '/pagesSEffect/specialEffect/lottery'
+					url: '',
+					type: '',
+					isMenu: true,
+					item: [{
+							name: '翻牌',
+							img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
+							url: '',
+							type: 'aylottery1',
+						},
+						{
+
+							name: '跑马灯_纯背景',
+							img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
+							url: '',
+							type: 'aylottery2',
+						},
+						{
+						
+							name: '跑马灯_背景图片',
+							img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
+							url: '',
+							type: 'aylottery2_img',
+						},
+						{
+
+							name: '转盘',
+							img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+							url: '',
+							type: 'aylottery3',
+						},
+						{
+
+							name: '刮文本',
+							img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
+							url: '',
+							type: 'aylottery4',
+						},
+						{
+
+							name: '刮图片',
+							img: 'https://cdn.pixabay.com/photo/2019/05/28/12/09/bee-4235093__340.jpg',
+							url: '',
+							type: 'aylottery5',
+						},
+					],
 				},
 				{
-					name: '波浪',
+					name: '立体旋转',
+					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+					isMenu: true,
+					type: '',
+					item: [{
+							name: '旋转',
+							img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
+							url: '',
+							type: 'thDTwo',
+						},
+						{
+
+							name: '旋转立方体',
+							img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
+							url: '',
+							type: 'shutLoose',
+						},
+						{
+
+							name: '二十面体',
+							img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+							url: '',
+							type: 'twtySets',
+						},
+						{
+
+							name: '双旋转立方体',
+							img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
+							url: '',
+							type: 'shutLooseTwo',
+						},
+						{
+
+							name: '旋转魔方',
+							img: 'https://cdn.pixabay.com/photo/2019/05/28/12/09/bee-4235093__340.jpg',
+							url: '',
+							type: 'magicCubeAuto',
+						},
+					],
+				},
+				{
+					name: '刮一刮',
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+
+					type: '',
+					isMenu: true,
+					item: [{
+
+							name: '刮文本',
+							img: 'https://cdn.pixabay.com/photo/2016/11/29/13/09/blur-1869731__340.jpg',
+							type: 'blow',
+						},
+						{
+
+							name: '刮图片',
+							img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+							url: '',
+							type: 'blowImg',
+						},
+						{
+
+							name: '刮自定义',
+							img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
+							url: '',
+							type: 'blowAny',
+						},
+					],
+				},
+
+				{
+					name: '翻转',
 					img: 'https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989__340.jpg',
-					url: '/pagesSEffect/specialEffect/wave'
+					url: '',
+					type: '',
+					isMenu: true,
+					item: [
+
+						{
+							name: '3d翻转',
+							img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
+							url: '',
+							type: 'ayturn1',
+						},
+						{
+
+							name: '手动翻页',
+							img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
+							url: '',
+							type: 'ayturn2',
+						},
+						{
+							name: '自动翻页',
+							img: 'https://cdn.pixabay.com/photo/2021/01/26/21/16/macaw-5952965__340.jpg',
+							url: '',
+							type: 'ayturn3',
+						},
+						{
+							name: '单面翻转',
+							img: 'https://cdn.pixabay.com/photo/2020/11/19/15/32/sculpture-5758884__340.jpg',
+							url: '',
+							type: 'ayturn4',
+						},
+
+					],
+
 				},
 				{
-					name: '烟花',
+					name: '爆花',
+					img: 'https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989__340.jpg',
+					url: '',
+					type: '',
+					isMenu: true,
+					item: [{
+							name: '礼花',
+							img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
+							url: '',
+							type: 'fireworkSati',
+						},
+						{
+
+							name: '烟花',
+							img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
+							url: '',
+							type: 'firework',
+						},
+					],
+
+				},
+				{
+					name: '其他',
 					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
-					url: '/pagesSEffect/specialEffect/firework'
+					url: '',
+					type: '',
+					isMenu: true,
+					item: [{
+							name: '文字渐变',
+							img: 'https://cdn.pixabay.com/photo/2021/01/26/21/16/macaw-5952965__340.jpg',
+							url: '',
+							type: 'scTxt',
+						},
+						{
+							name: '背景渐变',
+							img: 'https://cdn.pixabay.com/photo/2020/11/19/15/32/sculpture-5758884__340.jpg',
+							url: '',
+							type: 'scBg',
+						},
+						{
+
+							name: '扫描',
+							img: 'https://cdn.pixabay.com/photo/2020/10/07/18/40/waves-5635959__340.jpg',
+							url: '',
+							type: 'radar',
+						},
+						{
+							name: '波浪',
+							img: 'https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989__340.jpg',
+							url: '',
+							type: 'wave',
+						},
+					],
+
 				},
 				// {
 				// 	name: '测试',
@@ -30,94 +222,95 @@ const res_home = {
 
 
 			],
+
 		},
 		"list_two": {
 			"data": [
-				{
-					
-					name: '刮文本',
-					img: 'https://cdn.pixabay.com/photo/2016/11/29/13/09/blur-1869731__340.jpg',
-					url: '',
-					type:41,
-				},
-				{
-					
-					name: '刮图片',
-					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
-					url: '',
-					type:42,
-				},
-				{
-					
-					name: '刮自定义',
-					img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
-					url: '',
-					type:43,
-				},
-				
-				{
-					name: '旋转',
-					img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
-					url: '',
-					type: 1,
-				},
-				{
+				// {
 
-					name: '旋转立方体',
-					img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
-					url: '',
-					type: 2,
-				},
-				{
+				// 	name: '刮文本',
+				// 	img: 'https://cdn.pixabay.com/photo/2016/11/29/13/09/blur-1869731__340.jpg',
+				// 	url: '',
+				// 	type:41,
+				// },
+				// {
 
-					name: '二十面体',
-					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
-					url: '',
-					type: 3,
-				},
-				{
+				// 	name: '刮图片',
+				// 	img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+				// 	url: '',
+				// 	type:42,
+				// },
+				// {
 
-					name: '双旋转立方体',
-					img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
-					url: '',
-					type: 4,
-				},
-				{
-					
-					name: '旋转魔方',
-					img: 'https://cdn.pixabay.com/photo/2019/05/28/12/09/bee-4235093__340.jpg',
-					url: '',
-					type: 5,
-				},
-				
-				{
-					
-					name: '礼花',
-					img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
-					url: '',
-					type:31,
-				},
-				
-				
-				{
-					name: '文字渐变',
-					img: 'https://cdn.pixabay.com/photo/2021/01/26/21/16/macaw-5952965__340.jpg',
-					url: '',
-					type:21,
-				},
-				{
-					name: '背景渐变',
-					img: 'https://cdn.pixabay.com/photo/2020/11/19/15/32/sculpture-5758884__340.jpg',
-					url: '',
-					type: 22,
-				},
-				{
-					
-					name: '扫描',
-					img: 'https://cdn.pixabay.com/photo/2020/10/07/18/40/waves-5635959__340.jpg',
-					url: '',
-					type:23,
-				},
+				// 	name: '刮自定义',
+				// 	img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
+				// 	url: '',
+				// 	type:43,
+				// },
+
+				// {
+				// 	name: '旋转',
+				// 	img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
+				// 	url: '',
+				// 	type: 1,
+				// },
+				// {
+
+				// 	name: '旋转立方体',
+				// 	img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
+				// 	url: '',
+				// 	type: 2,
+				// },
+				// {
+
+				// 	name: '二十面体',
+				// 	img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+				// 	url: '',
+				// 	type: 3,
+				// },
+				// {
+
+				// 	name: '双旋转立方体',
+				// 	img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
+				// 	url: '',
+				// 	type: 4,
+				// },
+				// {
+
+				// 	name: '旋转魔方',
+				// 	img: 'https://cdn.pixabay.com/photo/2019/05/28/12/09/bee-4235093__340.jpg',
+				// 	url: '',
+				// 	type: 5,
+				// },
+
+				// {
+
+				// 	name: '礼花',
+				// 	img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
+				// 	url: '',
+				// 	type:31,
+				// },
+
+
+				// {
+				// 	name: '文字渐变',
+				// 	img: 'https://cdn.pixabay.com/photo/2021/01/26/21/16/macaw-5952965__340.jpg',
+				// 	url: '',
+				// 	type:21,
+				// },
+				// {
+				// 	name: '背景渐变',
+				// 	img: 'https://cdn.pixabay.com/photo/2020/11/19/15/32/sculpture-5758884__340.jpg',
+				// 	url: '',
+				// 	type: 22,
+				// },
+				// {
+
+				// 	name: '扫描',
+				// 	img: 'https://cdn.pixabay.com/photo/2020/10/07/18/40/waves-5635959__340.jpg',
+				// 	url: '',
+				// 	type:23,
+				// },
 			],
 		},
 		"list_th": {
@@ -206,32 +399,32 @@ const res_home = {
 		"turn_thD_list": {
 			"data": [{
 
-					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
 				},
 				{
 
-					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
+				},
+				{
+					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
 				},
 				{
 					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
 				},
 				{
-					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2019/05/28/12/09/bee-4235093__340.jpg',
 				},
 				{
-					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2016/11/29/13/09/blur-1869731__340.jpg',
 				},
 				{
-					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
 				},
 				{
-					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
 				},
 				{
-					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
-				},
-				{
-					img: 'https://cdn.pixabay.com/photo/2021/02/01/18/50/drop-5971598__340.jpg',
+					img: 'https://cdn.pixabay.com/photo/2020/11/19/15/32/sculpture-5758884__340.jpg',
 				},
 			],
 		},
@@ -315,29 +508,37 @@ const res_home = {
 		"lottery_list": {
 			"data": [{
 				img: "https://cdn.pixabay.com/photo/2017/01/21/13/55/nature-1997282__340.jpg",
-				name: "不要指望他"
+				name: "不要指望他",
+				img_bg: "https://cdn.pixabay.com/photo/2021/02/17/12/04/winter-6024017__340.jpg",
 			}, {
 				img: "https://cdn.pixabay.com/photo/2021/01/11/21/39/temple-5909803__340.jpg",
-				name: "你在开玩笑么？"
+				name: "你在开玩笑么？",
+				img_bg: "https://cdn.pixabay.com/photo/2021/02/17/12/04/winter-6024017__340.jpg",
 			}, {
 				img: "https://cdn.pixabay.com/photo/2020/01/13/23/15/snowboarding-4763731__340.jpg",
-				name: "可怕"
+				name: "可怕",
+				img_bg: "https://cdn.pixabay.com/photo/2021/02/17/12/04/winter-6024017__340.jpg",
 			}, {
 
 				img: "https://cdn.pixabay.com/photo/2019/11/30/21/37/stars-4664313__340.jpg",
-				name: "可能"
+				name: "可能",
+				img_bg: "https://cdn.pixabay.com/photo/2021/02/13/10/26/snow-6011069__340.jpg",
 			}, {
 				img: "https://cdn.pixabay.com/photo/2020/12/23/14/41/forest-5855196_640.jpg",
-				name: "不用担心"
+				name: "不用担心",
+				img_bg: "https://cdn.pixabay.com/photo/2021/02/13/01/29/woman-6010056__340.jpg",
 			}, {
 				img: "https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg",
-				name: "答案就在你身边"
+				name: "答案就在你身边",
+				img_bg: "https://cdn.pixabay.com/photo/2021/02/13/01/29/woman-6010056__340.jpg",
 			}, {
 				img: "https://cdn.pixabay.com/photo/2021/01/14/20/32/fish-5917864__340.jpg",
-				name: "大胆一点"
+				name: "大胆一点",
+				img_bg: "https://cdn.pixabay.com/photo/2021/02/13/01/29/woman-6010056__340.jpg",
 			}, {
 				img: "https://cdn.pixabay.com/photo/2020/01/03/21/32/field-4739176__340.jpg",
-				name: "好运将会降临"
+				name: "好运将会降临",
+				img_bg: "https://cdn.pixabay.com/photo/2021/02/13/10/26/snow-6011069__340.jpg",
 			}],
 		},
 		"lottery_r_list": {

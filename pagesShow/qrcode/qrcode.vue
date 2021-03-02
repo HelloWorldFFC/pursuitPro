@@ -1,7 +1,7 @@
 <template>
 	<view class="cf-shuCenter">
-		<view style="margin-top: 26upx;margin: 40upx;">
-			<ayQrcode ref="qrcode" :modal="modal_qr" :url="url" @hideQrcode="hideQrcode" />
+		<view style="margin: 40upx;">
+			<ayQrcode ref="qrcode" :modal="modal_qr" :url="url" @hideQrcode="hideQrcode" :height="260" :width="300"/>
 		</view>
 		<view class="cf-hengCenter input-box">
 		    <view style="padding-right: 20upx;">网址:</view>

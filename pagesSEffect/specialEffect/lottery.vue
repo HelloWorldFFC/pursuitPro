@@ -13,7 +13,9 @@
 		<aylottery :type="2" :list="lottery_list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"
 		 @toDetailPage="toDetailPage"></aylottery>
 		
-		
+		<aylottery :type="2"  :list="lottery_list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#F4A460" @result="resultFun"
+		 @toDetailPage="toDetailPage" theme_img_bg="https://cdn.pixabay.com/photo/2021/02/17/12/04/winter-6024017__340.jpg" :is_img_bg="true" box_shadow_Color="#F0F8FF" bg_img="https://cdn.pixabay.com/photo/2018/05/12/03/18/love-3392348__340.jpg"></aylottery>
+		 
 		
 		<aylottery :type="3" :list="list_r" :height="600" :width="600" :chance_num_init="chance_num_init" @result="resultFun_chance"
 		 @toDetailPage="toDetailPage" :stay_index="stay_index_r"></aylottery>
@@ -200,10 +202,11 @@
 				that.list_r = data.lottery_r_list.data;
 
 				that.result_blow = that.getShowTxt();
-				uni.hideLoading();
-
 				//第一次转盘停的位置
 				that.stay_index_r = that.stay_index_r_init;
+				uni.hideLoading();
+
+				
 
 				that.isLoaded = true;
 
