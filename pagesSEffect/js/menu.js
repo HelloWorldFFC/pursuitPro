@@ -49,6 +49,13 @@ const res_home = {
 							url: '',
 							type: 'aylottery5',
 						},
+						{
+						
+							name: '刮自定义',
+							img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
+							url: '',
+							type: 'aylottery6',
+						},
 					],
 				},
 				{
@@ -92,34 +99,34 @@ const res_home = {
 						},
 					],
 				},
-				{
-					name: '刮一刮',
-					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				// {
+				// 	name: '刮一刮',
+				// 	img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
 
-					type: '',
-					isMenu: true,
-					item: [{
+				// 	type: '',
+				// 	isMenu: true,
+				// 	item: [{
 
-							name: '刮文本',
-							img: 'https://cdn.pixabay.com/photo/2016/11/29/13/09/blur-1869731__340.jpg',
-							type: 'blow',
-						},
-						{
+				// 			name: '刮文本',
+				// 			img: 'https://cdn.pixabay.com/photo/2016/11/29/13/09/blur-1869731__340.jpg',
+				// 			type: 'blow',
+				// 		},
+				// 		{
 
-							name: '刮图片',
-							img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
-							url: '',
-							type: 'blowImg',
-						},
-						{
+				// 			name: '刮图片',
+				// 			img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
+				// 			url: '',
+				// 			type: 'blowImg',
+				// 		},
+				// 		{
 
-							name: '刮自定义',
-							img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
-							url: '',
-							type: 'blowAny',
-						},
-					],
-				},
+				// 			name: '刮自定义',
+				// 			img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
+				// 			url: '',
+				// 			type: 'blowAny',
+				// 		},
+				// 	],
+				// },
 
 				{
 					name: '翻转',
@@ -181,9 +188,9 @@ const res_home = {
 
 				},
 				{
-					name: '其他',
-					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
-					url: '',
+					name: '渐变',
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				
 					type: '',
 					isMenu: true,
 					item: [{
@@ -198,6 +205,15 @@ const res_home = {
 							url: '',
 							type: 'scBg',
 						},
+					],
+				},
+				{
+					name: '其他',
+					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
+					url: '',
+					type: '',
+					isMenu: true,
+					item: [
 						{
 
 							name: '扫描',

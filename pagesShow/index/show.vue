@@ -1,0 +1,301 @@
+<template>
+	<view>
+		
+		<ay-image-upload v-if="type=='ayImageUpload'"  :list="uploadTipList" @imgAdd="imgAddFun"></ay-image-upload>
+		
+		<view v-if="type=='ayQrcode'" style="margin-top: 26upx;margin: 40upx;">
+			<ayQrcode ref="qrcode" :modal="modal_qr" :url="url" @hideQrcode="hideQrcode" :height="300" :width="300"/>
+		</view>
+		
+		<!-- <ayDropdownList v-if="type=='ayDropdownList'" :maxheight="700" :marginLeft="152" :width="70" :isShow="isShow_ddList" :list="seleTypeList" @selectItem="selectItem_ddList">
+			<view style="margin-left: 40upx;" @tap="showDropdownList">自定义触发有下拉框的内容</view>
+		</ayDropdownList> -->
+		
+		<ayPopTips id="popup1" ref="popup1" v-if="type=='ayPopTips_center'" type="center" @closeModal="closeModal_tips" @toConfirm="toConfirm_tips" >
+			<view >
+				<view >自定义内容</view>
+			</view>
+		</ayPopTips>
+		
+		<ayPopTips id="popup1" ref="popup1" v-if="type=='ayPopTips_bottom'" type="bottom" @closeModal="closeModal_tips" @toConfirm="toConfirm_tips" >
+			<view >
+				<view >自定义内容</view>
+				<view  style="color: #FF0000;">自定义内容</view>
+			</view>
+		</ayPopTips>
+		
+		<ayCardOne v-if="type=='ayCardOne'">
+			
+		</ayCardOne>
+		<ayCardTwoList v-if="type=='ayCardOneList'" :list="card_list">
+			
+		</ayCardTwoList>
+		<ayCardOneList v-if="type=='ayCardOneList'" :list="card_list">
+			
+		</ayCardOneList>
+		
+		<cartsBall v-if="type=='cartsBall'" ref="cartsBall" :ballColor="'#fff'" :zIndex="6" :endPos="{
+		        x: 150, y: 650
+		    }"
+		 :bg_img="'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg'"></cartsBall>
+		<view v-if="type=='cartsBall'" @click="drop_cartsBall($event)">
+			
+			<view class="cf-btn-m-box">
+				<view class="cf-btn-m" :style="{'background-color': themeColor }" >点击跳出来</view>
+			</view>
+		</view>
+		
+		<fadeInOut v-if="type=='fadeInOut'"  :list="fade_list"></fadeInOut>
+		
+		<aybg v-if="type=='aybg'" :list="mark_list">
+			
+			<view>自定义内容</view>
+		</aybg>
+		
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="cf-ad">
+			<ad unit-id="adunit-857f5c9dbc28f928" ad-type="grid" grid-opacity="0.8" grid-count="5" ad-theme="white"></ad>
+		</view>
+		<!-- #endif -->
+		
+	</view>
+</template>
+
+<script>
+	import menu from '../js/menu.js';
+	
+	import aybg from '../components/ay-bg/ay-bg.vue'
+	import fadeInOut from '../components/ay-springing/fadeInOut.vue'
+	import cartsBall from '../components/ay-springing/cartsBall.vue'
+	import ayCardTwoList from "../components/ay-card/ay-card-two-list.vue"
+	import ayCardOne from "../components/ay-card/ay-card-one.vue"
+	import ayCardOneList from "../components/ay-card/ay-card-one-list.vue"
+	import ayPopTips from "../components/ay-pop/ay-pop-tips.vue"
+	// import ayDropdownList from "../components/ay-dropdown-filter/ay-dropdown-list.vue"
+	
+	import ayQrcode from "../components/ay-qrcode/ay-qrcode.vue"
+	
+	import ayImageUpload from '../components/ay-img-upload/ay-img-upload.vue'
+	export default {
+		components: {
+			ayImageUpload,
+			ayQrcode,
+			
+			// ayDropdownList,
+			ayPopTips,
+			
+			ayCardOne,
+			ayCardOneList,
+			ayCardTwoList,
+			
+			cartsBall,
+			fadeInOut,
+			
+			aybg,
+		},
+		data() {
+			return {
+				fade_list: [
+					
+				],
+				mark_list:[],
+				card_list:[],
+				//下拉框
+				isShow_ddList : false ,
+				seleTypeList:[
+					{
+						selTip:'测试',
+						text:'======',
+					},
+					{
+						selTip:'测试2',
+						text:'======',
+					},
+					{
+						selTip:'测试23',
+						text:'======',
+					},
+					{
+						selTip:'测试',
+						text:'======',
+					},
+					{
+						selTip:'测试2',
+						text:'======',
+					},
+					{
+						selTip:'测试23',
+						text:'======',
+					},
+					{
+						selTip:'测试',
+						text:'======',
+					},
+					{
+						selTip:'测试2',
+						text:'======',
+					},
+					{
+						selTip:'测试23',
+						text:'======',
+					},
+					{
+						selTip:'测试',
+						text:'======',
+					},
+					{
+						selTip:'测试2',
+						text:'======',
+					},
+					{
+						selTip:'测试23',
+						text:'======',
+					},
+				],
+				//二维码相关参数
+				modal_qr: false,
+				url: 'https://ext.dcloud.net.cn/plugin?id=3870', // 要生成的二维码值
+				
+				//凭证
+				themeColor: '#33CCCC',
+				uploadTipList: [{
+						name: '凭证1',
+						img: '',
+						remove: true,
+					},
+					{
+						name: '凭证2',
+						img: '',
+						remove: true,
+					},
+					{
+						name: '凭证3',
+						img: '',
+						remove: true,
+					},
+				],
+				
+			}
+		},
+		onLoad(options) {
+			let that = this;
+			
+			let data = options.data ? JSON.parse(decodeURIComponent(options.data)) : false;
+			////console.log(data)
+			if (data) {
+				that.setDate_init(data)
+			}
+
+			that.pageShowHander();
+			that.loadData()
+		},
+		methods: {
+			//加入购物车效果
+			drop_cartsBall() {
+				this.$refs.cartsBall.drop({
+					x: 5,
+					y: 200
+				})
+			},
+			//弹出框
+			toConfirm_tips(){
+				this.$refs.popup1.close();
+			},
+			closeModal_tips(){
+				this.$refs.popup1.close();
+			},
+			//下拉框
+			showDropdownList(){
+				let that = this;
+				that.isShow_ddList = !that.isShow_ddList ;
+			},
+			selectItem_ddList(e){
+				let that = this;
+				console.log('选中了'+ JSON.stringify(e.item) )
+				this.$api.msg_modal('选中了'+ JSON.stringify(e.item))
+				that.isShow_ddList = false ;
+			},
+			// 展示二维码
+			showQrcode() {
+				let _this = this;
+				this.modal_qr = true;
+				// uni.showLoading()
+				setTimeout(function() {
+					// uni.hideLoading()
+					_this.$refs.qrcode.crtQrCode()
+				}, 50)
+			},
+			//凭证
+			imgAddFun(e) {
+				let that = this;
+				console.log(e)
+				that.uploadTipList = e;
+			},
+			async loadData() {
+				let that = this;
+
+				uni.showLoading({
+					title: '加载中',
+					mask: true,
+				})
+
+				let res_home = await menu.res_home;
+				//console.log(res_home)
+				let data = res_home.data;
+				
+				that.card_list = data.card_list.data;
+				that.fade_list = data.fade_list.data;
+				that.mark_list  = data.mark_list.data;
+				
+				if(that.type=='ayQrcode'){
+					that.showQrcode();//一加载生成二维码
+				}else if(that.type.substr(0,10)=='ayPopTips_'){
+					this.$refs.popup1.open();//弹出确认框
+				}
+				
+				uni.hideLoading();
+
+				that.isLoaded = true;
+
+			},
+			
+			pageShowHander() {
+				let that = this;
+
+			},
+			setDate_init(data) {
+				let that = this;
+
+				uni.setNavigationBarTitle({
+					title: data.name
+				})
+
+				that.type = data.type;
+			},
+			
+		},
+		onReady() {
+			let that = this;
+			
+		
+		},
+		onShow: function() {
+			let that = this;
+			
+		
+		},
+		onHide: function() {
+			let that = this;
+			
+		},
+		onUnload() {
+			let that = this;
+			
+		},
+		
+	}
+</script>
+
+<style lang="scss">
+
+</style>

@@ -533,7 +533,7 @@ const res_home = {
 				},
 				{
 					img: 'https://cdn.pixabay.com/photo/2017/03/27/14/38/architecture-2179108__340.jpg',
-					name: '翻转',//立行
+					name: '常用',//立行
 					key: '4',
 				},
 			]

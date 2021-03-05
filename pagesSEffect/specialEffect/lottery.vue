@@ -29,18 +29,18 @@
 		 
 		</aylottery>
 		
-		<!-- <blowAny  canvasId="canvasId3" :height="200" :width="600" refs="card" style="margin: 20upx 40upx;"  @complete="seatShow"
+		<aylottery :type="6"  canvasId="canvasId3" :height="200" :width="600" refs="card" style="margin: 20upx 40upx;"  @complete="seatShow"
 		 :disabled="false" title="刮自定义" watermark="刮一刮" @init="init_blow">
 			<view style="position: absolute;" v-if="is_show_blow" >
 				
 				<view style="margin: 40upx;">
-					自定义内容
+					你可以自定义更漂亮的内容
 				</view>
 			
 			</view>
 			
 		
-		</blowAny> -->
+		</aylottery>
 		
 		<!-- #ifdef MP-WEIXIN -->
 		<view class="cf-ad">

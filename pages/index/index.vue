@@ -200,7 +200,7 @@
 						page = `/pagesSEffect/specialEffect/lottery`;
 						break;
 					case 4:
-						page = `/pagesSEffect/specialEffect/turn`;
+						page = `/pagesShow/index/index`;
 						break;
 					default:
 						break;
