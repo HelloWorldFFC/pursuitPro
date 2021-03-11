@@ -108,10 +108,12 @@
 		
 		
 		<aylottery :type="2" v-if="type=='aylottery2'" :list="lottery_list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#4169E1" @result="resultFun"
-		 @toDetailPage="toDetailPage"></aylottery>
+		 @toDetailPage="toDetailPage"
+		 :stay_index="stay_index_m"></aylottery>
 		
 		<aylottery :type="2" v-if="type=='aylottery2_img'" :list="lottery_list" themeColor="#33CCCC" bgColor="#1E90FF" bg_sd_Color="#F4A460" @result="resultFun"
-		 @toDetailPage="toDetailPage" theme_img_bg="https://cdn.pixabay.com/photo/2021/02/17/12/04/winter-6024017__340.jpg" :is_img_bg="true" box_shadow_Color="#F0F8FF" bg_img="https://cdn.pixabay.com/photo/2018/05/12/03/18/love-3392348__340.jpg"></aylottery>
+		 @toDetailPage="toDetailPage" theme_img_bg="https://cdn.pixabay.com/photo/2021/02/17/12/04/winter-6024017__340.jpg" :is_img_bg="true" box_shadow_Color="#F0F8FF" bg_img="https://cdn.pixabay.com/photo/2018/05/12/03/18/love-3392348__340.jpg"
+		 :stay_index="stay_index_m"></aylottery>
 		 
 		<aylottery :type="3" v-if="type=='aylottery3'" :list="list_r" :height="600" :width="600" :chance_num_init="chance_num_init" @result="resultFun_chance"
 		 @toDetailPage="toDetailPage" :stay_index="stay_index_r"></aylottery>
@@ -249,6 +251,9 @@
 				tips_init_turn: '点击',
 				no_z_init_turn: '点击',
 				result_turn: '好运降临',
+				stay_index_m : 1 ,//跑马灯
+				stay_index_m_init : 4,
+				
 				
 				chance_num_init: 6,
 				lottery_list: [],
@@ -337,7 +342,11 @@
 			resultFun(e) {
 				let that = this;
 				let item = e.item;
+				let list = e.list;
+				
 				this.$api.msg_modal("抽中了" + item.name, '恭喜您')
+				//定义下一次转的位置
+				that.stay_index_m = Math.round(Math.random() * (list.length - 1)); //随机数
 			
 			},
 			resultFun_chance(e) {

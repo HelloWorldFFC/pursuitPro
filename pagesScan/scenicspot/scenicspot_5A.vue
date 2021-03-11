@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<search preholder="请输入关键字"  :themeColor="themeColor" @toSearch="toSearchFun" ></search>
+		<search preholder="请输入关键字" :themeColor="themeColor" @toSearch="toSearchFun"></search>
 		<view style="position: fixed;top: 96upx;left: 0;z-index: 99999;">
 			<view style="position: relative;">
 				<dropdownFilter :filterData='filterData' :defaultIndex='defaultIndex' :composeList="composeList" @onSelected='onSelected'
@@ -10,28 +10,27 @@
 		<!-- #ifdef MP-WEIXIN -->
 		<!-- <kefu></kefu> -->
 		<!-- #endif -->
-		<scroll-view scroll-y class="cf-scrollBox scrollBox" :style="{ height: vHeight + 'px'}" :scroll-top="scrollTop" :lower-threshold="800" @scrolltolower="scrolltolowerFun">
+		<scroll-view scroll-y class="cf-scrollBox scrollBox" :style="{ height: vHeight + 'px'}" :scroll-top="scrollTop"
+		 :lower-threshold="800" @scrolltolower="scrolltolowerFun">
 			<!-- <ayitemone :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemone> -->
 			<ayitemtwo @switchFun="switch_goed_Fun" :list="list" @toAddress="toAddress" @toPhone="toPhone"></ayitemtwo>
 			<uniloadmore v-if="list.length>0" :status="loadingType"></uniloadmore>
-			<view v-if="list.length>0" class="cf-bottomCenter cf-origin-m" >信息来源于：中华人民共和国文化和旅游部（截止2021年）</view>
-			
+			<view v-if="list.length>0" class="cf-bottomCenter cf-origin-m">信息来源于：中华人民共和国文化和旅游部（截止2021年）</view>
+
 		</scroll-view>
 		<view class="cf-btmC-fixed-box">
 			<view class="cf-btmC-fixed cf-colorHui" v-if="list.length>0">如有错误请联系客服</view>
 		</view>
-		
+
 	</view>
 </template>
 
 <script>
-	//#ifdef MP-WEIXIN
-	// 在页面中定义插屏广告
-	let interstitialAd = null
-	// #endif
+	
+
 	//#ifdef APP-PLUS
-	
-	
+
+
 	import permit_app from "@/util/permit_app.js";
 	// #endif
 	import preDupliClick from '@/api/preDupliClick.js'
@@ -56,9 +55,9 @@
 		},
 		data() {
 			return {
-				vHeight : this.vScreenHeight - 128,
+				vHeight: this.vScreenHeight - 128,
 				//切换选项
-				scrollTop : 0 ,
+				scrollTop: 0,
 				//分页相关
 				sum_Yun: 0,
 				page: 1,
@@ -218,31 +217,15 @@
 		},
 		async onLoad() {
 			let that = this;
+			
 			//let list = jsondata.scenicspotList;
 			// #ifndef MP-WEIXIN
 			that.loadData_init()
 			// #endif
-			
+
 			that.getLocation_z();
+
 			
-			// #ifndef MP-WEIXIN
-			// 在页面onLoad回调事件中创建插屏广告实例
-			if (wx.createInterstitialAd) {
-			  interstitialAd = wx.createInterstitialAd({
-			    adUnitId: 'adunit-63fb46fd246c62b1'
-			  })
-			  interstitialAd.onLoad(() => {})
-			  interstitialAd.onError((err) => {})
-			  interstitialAd.onClose(() => {})
-			}
-			
-			// 在适合的场景显示插屏广告
-			if (interstitialAd) {
-			  interstitialAd.show().catch((err) => {
-			    console.error(err)
-			  })
-			}
-			// #endif
 		},
 		onReady: function() {
 			let that = this;
@@ -252,7 +235,7 @@
 		},
 		onShow() {
 			let that = this;
-			
+
 		},
 		// #ifdef MP-WEIXIN
 		//微信小程序的分享
@@ -261,11 +244,11 @@
 		},
 		// #endif
 		methods: {
-			getLocation_z(){
+			getLocation_z() {
 				// #ifdef MP-WEIXIN
 				this.getLocation_wx();
 				// #endif
-				
+
 				// #ifdef APP-PLUS
 				this.getLocation_app();
 				// #endif
@@ -273,7 +256,7 @@
 			//定位未授权处理
 			getlatlg_uni() {
 				let that = this;
-			
+
 				uni.getLocation({
 					type: 'gcj02',
 					success: function(res) {
@@ -281,7 +264,7 @@
 						let latitude = res.latitude;
 						console.log('当前位置的经度：' + res.longitude);
 						console.log('当前位置的纬度：' + res.latitude);
-						
+
 						getApp().globalData.latlgitude = {
 							latitude: latitude,
 							longitude: longitude,
@@ -289,85 +272,88 @@
 						that.loadData_init();
 					}
 				});
-			
-			
+
+
 			},
 			async getLocation_app() {
 				let that = this;
 				try {
-					let isAndroid = false ;
-				    const res = uni.getSystemInfoSync();
-				    if(res.platform == 'android'){
-						isAndroid = true ;
-					}else{
-						isAndroid = false ;
+					let isAndroid = false;
+					const res = uni.getSystemInfoSync();
+					if (res.platform == 'android') {
+						isAndroid = true;
+					} else {
+						isAndroid = false;
 					}
 					console.log('rrr')
 					var iscan = await permit_app.req_Permit_locatin(isAndroid)
-					if(iscan){
+					if (iscan) {
 						that.getlatlg_uni();
 					}
-					
+
 				} catch (e) {
-				    // error
+					// error
 				}
-				
+
 			},
-			toSearchFun(){
+			toSearchFun() {
 				let isonce = preDupliClick.setpreDupliClickVal(preDupliClick.preDupli.one);
 				if (!isonce) return;
-				
+
 				uni.navigateTo({
 					url: '/pagesScan/scenicspot/seach'
 				})
 			},
-			switch_goed_Fun(e){
+			switch_goed_Fun(e) {
+				
+				
+				
 				let that = this;
 				let item = e.item;
 				let index = e.index;
 				let isSwitch = item.notPlaned;
-				
-				let tip = '' ;
-				if(isSwitch){
+
+				let tip = '';
+				if (isSwitch) {
 					tip = '确认计划不去吗？';
-				}else{
+				} else {
 					tip = '确认计划去吗？';
-					let s_pl_list = storage.get_s_pl_list() ;
-					let s_pl_maxnum = storage.def_Data.s_pl_maxnum ;
-					if(s_pl_list.length >= s_pl_maxnum){
+					let s_pl_list = storage.get_s_pl_list();
+					let s_pl_maxnum = storage.def_Data.s_pl_maxnum;
+					if (s_pl_list.length >= s_pl_maxnum) {
 						that.$api.msg_modal('最多只有' + s_pl_maxnum + '个计划，请确认其他！！');
-						return ;
+						return;
 					}
 				}
 				uni.showModal({
 					title: '提醒',
-					content:  tip ,
+					content: tip,
 					success(res) {
 						if (res.confirm) {
-							
-							let id = item.id ;
+
+							let id = item.id;
 							let index1 = -1;
-							
-							that.list.forEach(item1=>{
-								item1.scenicspotList.forEach(item2=>{
-									if(id == item2.id){
+
+							that.list.forEach(item1 => {
+								item1.scenicspotList.forEach(item2 => {
+									if (id == item2.id) {
 										index1 = that.list.indexOf(item1);
-										return true ;
+										return true;
 									}
 								})
 							})
-							let nowPlan = !isSwitch ;
+							let nowPlan = !isSwitch;
 							that.list[index1].scenicspotList[index].notPlaned = nowPlan;
-							
-							let type = 1 ;
-							if(isSwitch){
-								type = 2 ;
+
+							let type = 1;
+							if (isSwitch) {
+								type = 2;
 							}
-							
-							storage.set_s_pl_list(id,type);
-							
+
+							storage.set_s_pl_list(id, type);
+
 						} else if (res.cancel) {
-							
+
 						}
 					}
 				})
@@ -375,12 +361,12 @@
 			loadData_init() {
 				let that = this;
 				that.initFenYe();
-				
+
 				uni.showLoading({
 					title: '加载中',
 					mask: true,
 				})
-				
+
 				let list = scenicspot.get_list_now(jsondata.scenicspotList_5A.data);
 				that.list_all = list;
 				that.loadData();
@@ -394,12 +380,12 @@
 				let two = res[1][0].value;
 				let thr = res[2][0].value;
 				//console.log(' one ' + one + ' two ' + two + ' thr ' + thr);
-				
+
 				uni.showLoading({
 					title: '加载中',
 					mask: true,
 				})
-				
+
 				var list_all = scenicspot.get_list_now(jsondata.scenicspotList_5A.data);
 				console.log(list_all)
 				if (one.length > 0) {
@@ -433,7 +419,7 @@
 				that.isHaveNextPage = true; //记录是否还有下一页
 				that.loadingType = 'more'; //加载更多状态
 				that.list = [];
-				
+
 				that.scrollTop = 0.01;
 				that.$nextTick(function() {
 					that.scrollTop = 0;
@@ -658,6 +644,6 @@
 	.scrollBox {
 		padding-top: 90upx;
 		padding-bottom: 80upx;
-		
+
 	}
 </style>

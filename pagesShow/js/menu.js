@@ -3,7 +3,7 @@ const res_home = {
 	"data": {
 		"list": {
 			"data": [{
-					name: '生成二维码',
+					name: '二维码',
 					img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
 					url: '',
 					type: 'ayQrcode',

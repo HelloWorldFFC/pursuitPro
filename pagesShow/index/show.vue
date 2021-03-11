@@ -11,15 +11,31 @@
 		
 		<view class="cf-shuCenter" v-if="type=='ayQrcode'">
 			<view style="margin: 40upx;">
-				<ayQrcode ref="qrcode" :modal="modal_qr" :url="url" @hideQrcode="hideQrcode" :height="300" :width="300" />
+				<ayQrcode ref="qrcode" qrcode_id="qrcode" :modal="modal_qr" :url="url" @hideQrcode="hideQrcode" :height="300" :width="300"
+				 />
 			</view>
-			<view class="cf-hengCenter input-box">
+			
+			<view style="margin: 40upx;">
+				<ayQrcode ref="qrcode2"  qrcode_id="qrcode2" :modal="modal_qr" :url="url" @hideQrcode="hideQrcode" :height="300" :width="300" 
+				themeColor="#33CCCC"
+				/>
+			</view>
+			
+			<view style="margin: 40upx;">
+				<ayQrcode ref="qrcode3" qrcode_id="qrcode3" :modal="modal_qr" :url="url" @hideQrcode="hideQrcode" :height="300" :width="300"
+				 themeColor="#dd524d"
+				 :is_themeImg="true"
+				  themeImg="https://cdn.pixabay.com/photo/2016/11/29/13/24/balloons-1869816__340.jpg"
+				  :height_img="40" 
+				  :width_img="40"/>
+			</view>
+			<!-- <view class="cf-hengCenter input-box">
 				<view style="padding-right: 20upx;">网址:</view>
 				<input name='url' v-model="url" type="text" :maxlength="url_maxlength" :placeholder="url" />
 			</view>
 			<view class="cf-btn-m-box"  @tap="toCrtQrCode">
 				<view class="cf-btn-m" :style="{'background-color': themeColor }">生成二维码</view>
-			</view>
+			</view> -->
 			
 		</view>
 
@@ -241,7 +257,9 @@
 				// uni.showLoading()
 				setTimeout(function() {
 					// uni.hideLoading()
-					_this.$refs.qrcode.crtQrCode()
+					_this.$refs.qrcode.crtQrCode();
+					_this.$refs.qrcode2.crtQrCode();
+					_this.$refs.qrcode3.crtQrCode();
 				}, 50)
 			},
 			//传入组件的方法

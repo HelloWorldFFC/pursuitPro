@@ -25,6 +25,7 @@
 </template>
 
 <script>
+
 	import aSearchList from '../components/ay-search/ay-search-list.vue';
 	import jsondata from '../js/jsondata.js'
 	import comm from '@/api/comm.js'
@@ -34,6 +35,8 @@
 	let amapPlugin = new amapFile.AMapWX({
 		key: comm.amapPlugin_key_wx , 
 	})
+	// 在页面中定义插屏广告
+	let interstitialAd = null
 	// #endif
 
 	//#ifdef APP-PLUS
@@ -68,7 +71,27 @@
 		},
 		onLoad(options) {
 			let that = this;
-
+			
+			// #ifdef MP-WEIXIN
+			// 在页面onLoad回调事件中创建插屏广告实例
+			if (wx.createInterstitialAd) {
+				interstitialAd = wx.createInterstitialAd({
+					adUnitId: 'adunit-63fb46fd246c62b1'
+				})
+				interstitialAd.onLoad(() => {})
+				interstitialAd.onError((err) => {})
+				interstitialAd.onClose(() => {})
+			}
+			
+			// 在适合的场景显示插屏广告
+			if (interstitialAd) {
+				interstitialAd.show().catch((err) => {
+					console.error(err)
+				})
+			}
+			
+			// #endif
+			
 			//console.log(options.searchType)
 			//let data = options.data ? JSON.parse(decodeURIComponent(options.data)) : false;
 			let data = options.searchType ? options.searchType : 1;

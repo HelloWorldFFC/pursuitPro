@@ -1,11 +1,30 @@
 <template>
 	<view class="cf-shuCenter">
 		<view style="margin: 40upx;">
-			<ayQrcode ref="qrcode" :modal="modal_qr" :url="url" @hideQrcode="hideQrcode" :height="260" :width="300"/>
+			<ayQrcode ref="qrcode" :modal="modal_qr" :url="url" @hideQrcode="hideQrcode" :height="260" :width="300" qrcode_id="qrcode"
+			 :themeColor="codeColor" :is_themeImg="true" :themeImg="themeImg" :height_img="40" :width_img="40" />
 		</view>
-		<view class="cf-hengCenter input-box">
-		    <view style="padding-right: 20upx;">网址:</view>
-		    <input name='url' v-model="url" type="text" :maxlength="url_maxlength" :placeholder="url" />
+
+		<view class="cf-hengStart box">
+			<view style="padding-right: 20upx;padding-left: 20upx;">网址:</view>
+			<view style="background-color: #FFFFFF;max-height: 700upx;padding-top: 50upx;">
+				<textarea placeholder-style="color:#cccccc" :maxlength="url_maxlength" v-model="url" placeholder="url" style="width: 500upx;height: 100upx;max-height: 500upx;border: 2upx solid #CCCCCC;margin: 0 auto;padding: 10upx;" />
+				</view>
+		   
+		</view>
+		
+		<view class="cf-hengStart box">
+		    <view style="padding-right: 20upx;padding-left: 20upx;">颜色:</view>
+			
+		   <input name='codeColor' v-model="codeColor" type="text" :maxlength="url_maxlength" :placeholder="codeColor" />
+		</view>
+		
+		<view class="cf-hengStart box">
+		    <view style="padding-right: 20upx;padding-left: 20upx;">图片:</view>
+			<view style="background-color: #FFFFFF;max-height: 700upx;">
+				<textarea placeholder-style="color:#cccccc" :maxlength="url_maxlength" v-model="themeImg" placeholder="themeImg" style="width: 500upx;height: 100upx;max-height: 500upx;border: 2upx solid #CCCCCC;margin: 0 auto;padding: 10upx;" />
+				</view>
+		   
 		</view>
 		
 		<view class="cf-btn-m-box"  @tap="toCrtQrCode">
@@ -29,6 +48,8 @@
 		},
 		data() {
 			return {
+				themeImg:'https://cdn.pixabay.com/photo/2016/11/29/13/24/balloons-1869816__340.jpg',
+				codeColor: '#33CCCC',
 				themeColor: '#33CCCC',
 				url_maxlength :1000,
 				//二维码相关参数
@@ -72,6 +93,7 @@
 					return;
 				}
 				
+				
 				uni.showToast({
 				  title: '生成中...',
 				  icon: 'loading',
@@ -91,7 +113,7 @@
 </script>
 
 <style lang="scss">
-	.input-box{
-		
+	.box{
+		margin: 20upx;
 	}
 </style>
