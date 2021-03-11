@@ -7,8 +7,9 @@
 		    <view style="padding-right: 20upx;">网址:</view>
 		    <input name='url' v-model="url" type="text" :maxlength="url_maxlength" :placeholder="url" />
 		</view>
-		<view style="margin-top: 100upx;" @tap="toCrtQrCode">
-			<button style="width: 400upx;" class="cf-bgcolorTheme">生成二维码</button>
+		
+		<view class="cf-btn-m-box"  @tap="toCrtQrCode">
+			<view class="cf-btn-m" :style="{'background-color': themeColor }">生成二维码</view>
 		</view>
 		
 		<!-- #ifdef MP-WEIXIN -->
@@ -28,6 +29,7 @@
 		},
 		data() {
 			return {
+				themeColor: '#33CCCC',
 				url_maxlength :1000,
 				//二维码相关参数
 				modal_qr: false,

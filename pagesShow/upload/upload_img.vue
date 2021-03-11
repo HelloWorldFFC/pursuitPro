@@ -1,8 +1,8 @@
 <template>
 	<view>
 		<ay-image-upload  :list="uploadTipList" @imgAdd="imgAddFun"></ay-image-upload>
-		<view style="text-align: center;margin-top: 100upx;"  @tap="toConfirm">
-			<view class="btnBox_Remark" :style="{'background-color': themeColor }">完成</view>
+		<view class="cf-btn-m-box"  @tap="toConfirm">
+			<view class="cf-btn-m" :style="{'background-color': themeColor }">完成</view>
 		</view>
 	</view>
 </template>
@@ -123,12 +123,5 @@
 </script>
 
 <style lang="scss">
-	.btnBox_Remark {
-		color: #FFFFFF;
-		width: 80%;
-		border-radius: 68upx;
-		margin: 20upx auto;
-		padding: 20upx;
-		font-size: 40upx;
-	}
+	
 </style>

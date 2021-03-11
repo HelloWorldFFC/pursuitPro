@@ -3,6 +3,20 @@ const res_home = {
 	"data": {
 		"list": {
 			"data": [{
+					name: '生成二维码',
+					img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
+					url: '',
+					type: 'ayQrcode',
+					isMenu: false,
+				},
+				{
+					name: '上传凭证',
+					img: 'https://cdn.pixabay.com/photo/2020/11/22/12/45/flowers-5766495__340.jpg',
+					url: '',
+					type: 'ayImageUpload',
+					isMenu: false,
+				},
+				{
 					name: '券背景',
 					img: 'https://cdn.pixabay.com/photo/2020/04/11/14/42/street-5030692__340.jpg',
 					isMenu: true,
@@ -14,37 +28,22 @@ const res_home = {
 							type: 'ayCardOneList',
 						},
 						{
-				
+
 							name: '标签',
 							img: 'https://cdn.pixabay.com/photo/2020/11/22/16/58/road-5767221__340.jpg',
 							url: '',
 							type: 'aybg',
 						},
-						
+
 					],
 				},
-				{
-						name: '生成二维码',
-						img: 'https://cdn.pixabay.com/photo/2021/01/24/21/52/grand-canyon-5946657__340.jpg',
-						url: '',
-						type: 'ayQrcode',
-						isMenu: false,
-					},
-					{
-						name: '上传凭证',
-						img: 'https://cdn.pixabay.com/photo/2016/11/29/06/20/anniversary-1867767__340.jpg',
-						url: '',
-						type: 'ayImageUpload',
-						isMenu: false,
-					},
 				{
 					name: '弹出框',
 					img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
 					url: '',
 					type: '',
 					isMenu: true,
-					item: [
-						{
+					item: [{
 							name: '中部弹出框',
 							img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
 							url: '',
@@ -56,26 +55,26 @@ const res_home = {
 							url: '',
 							type: 'ayPopTips_bottom',
 						},
-						
-						
-						
+
+
+
 					],
-				
+
 				},
 				{
-						name: '蹦跳',
-						img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
-						url: '',
-						type: 'cartsBall',
-						isMenu: false,
-					},
-					{
-						name: '动态播报',
-						img: 'https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989__340.jpg',
-						url: '',
-						type: 'fadeInOut',
-						isMenu: false,
-					},
+					name: '蹦跳',
+					img: 'https://cdn.pixabay.com/photo/2019/11/26/03/35/maple-4653495__340.jpg',
+					url: '',
+					type: 'cartsBall',
+					isMenu: false,
+				},
+				{
+					name: '动态播报',
+					img: 'https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989__340.jpg',
+					url: '',
+					type: 'fadeInOut',
+					isMenu: false,
+				},
 				// {
 				// 	name: '其他',
 				// 	img: 'https://cdn.pixabay.com/photo/2020/05/17/20/34/concept-5183469__340.jpg',
@@ -83,7 +82,7 @@ const res_home = {
 				// 	type: '',
 				// 	isMenu: true,
 				// 	item: [
-						
+
 				// 	],
 
 				// },
@@ -312,7 +311,7 @@ const res_home = {
 					title: '100元',
 					subtitle: '优惠券',
 					tips: '2020-12-31 18:18:18过期',
-		
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#33CCCC',
 				},
@@ -322,7 +321,7 @@ const res_home = {
 					title: '10元',
 					subtitle: '优惠券',
 					tips: '2020-12-31 18:18:18过期',
-		
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#8E24AA',
 				},
@@ -332,7 +331,7 @@ const res_home = {
 					title: '50元',
 					subtitle: '优惠券',
 					tips: '2020-12-31 18:18:18过期',
-				
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#039BE5',
 				},
@@ -342,7 +341,7 @@ const res_home = {
 					title: '1元',
 					subtitle: '优惠券',
 					tips: '2020-12-31 18:18:18过期',
-				
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#FFB6C1',
 				},
@@ -352,7 +351,7 @@ const res_home = {
 					title: '20元',
 					subtitle: '优惠券',
 					tips: '2020-12-31 18:18:18过期',
-				
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#26A69A',
 				},
@@ -362,44 +361,43 @@ const res_home = {
 					title: '5元',
 					subtitle: '优惠券',
 					tips: '2020-12-31 18:18:18过期',
-				
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#DC143C',
 				},
-				
+
 				{
 					type: 7,
 					width: 600,
 					title: '30元',
 					subtitle: '优惠券',
 					tips: '2020-12-31 18:18:18过期',
-				
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#FFA500',
 				},
 			],
 		},
 		"mark_list": {
-			"data": [
-				{
+			"data": [{
 					type: 1,
 					width: 600,
 					title: '会员专享',
-					
+
 					themeColor: '#33CCCC',
 				},
 				{
 					type: 1,
 					width: 600,
 					title: '会员专享',
-					
+
 					themeColor: '#8E24AA',
 				},
 				{
 					type: 1,
 					width: 600,
 					title: '会员专享',
-					
+
 					themeColor: '#DC143C',
 				},
 				{
@@ -407,7 +405,7 @@ const res_home = {
 					width: 600,
 					title: '会员专享',
 					tips: '2020-12-31 18:18:18过期',
-				
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#8E24AA',
 				},
@@ -416,7 +414,7 @@ const res_home = {
 					width: 600,
 					title: '会员专享',
 					tips: '2020-12-31 18:18:18过期',
-				
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#33CCCC',
 				},
@@ -425,7 +423,7 @@ const res_home = {
 					width: 600,
 					title: '会员专享',
 					tips: '2020-12-31 18:18:18过期',
-				
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#DC143C',
 				},
@@ -435,7 +433,7 @@ const res_home = {
 					title: '家庭号专享',
 					subtitle: '',
 					tips: '2020-12-31 18:18:18过期',
-				
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#039BE5',
 				},
@@ -445,7 +443,7 @@ const res_home = {
 					title: '限品类',
 					subtitle: '优惠券',
 					tips: '2020-12-31 18:18:18过期',
-						
+
 					desc: '1、商城、美食可用\n2、过期作废',
 					themeColor: '#8E24AA',
 				},
@@ -453,31 +451,31 @@ const res_home = {
 					type: 5,
 					width: 600,
 					title: '满减限品类家庭号专享',
-					
+
 					themeColor: '#33CCCC',
 				},
-				
+
 				{
-						type: 6,
-						width: 600,
-						title: '新到',
-						subtitle: '优惠券',
-						tips: '2020-12-31 18:18:18过期',
-						
-						desc: '1、商城、美食可用\n2、过期作废',
-						themeColor: '#33CCCC',
-					},
+					type: 6,
+					width: 600,
+					title: '新到',
+					subtitle: '优惠券',
+					tips: '2020-12-31 18:18:18过期',
+
+					desc: '1、商城、美食可用\n2、过期作废',
+					themeColor: '#33CCCC',
+				},
 				{
 					type: 7,
 					width: 600,
 					title: '新到',
-					
+
 					themeColor: '#DC143C',
 				},
 			],
 		},
-		
-		
+
+
 	},
 }
 

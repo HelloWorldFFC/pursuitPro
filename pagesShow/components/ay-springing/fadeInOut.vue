@@ -133,10 +133,18 @@
 		},
 		methods: {
 			listsChange(){
-				if (this.lists.length == 0) {
+				try{
+					//微信小程序[].length 会报错
+					if (this.lists.length == 0) {
+						this.show = false;
+						return;
+					}
+				}catch(e){
 					this.show = false;
 					return;
+					//TODO handle the exception
 				}
+				
 				
 				let count = 0;
 				this.content = this.lists[0];
