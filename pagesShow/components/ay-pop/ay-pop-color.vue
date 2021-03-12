@@ -26,7 +26,7 @@
 </template>
 
 <script>
-	import color from '../../js/color.js';
+	import color from './color.js';
 	import uniPopup from './uni-popup.vue';
 	export default {
 		components: {
