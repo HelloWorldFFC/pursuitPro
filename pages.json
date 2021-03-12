@@ -480,6 +480,25 @@
 							// #endif 
 						}
 					}
+				},
+				{
+					"path": "record/colophon",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "版本记录",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
 				}
 				
 
@@ -564,7 +583,27 @@
 							// #endif 
 						}
 					}
+				},
+				{
+					"path": "setup/set_gift",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "设置礼物",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
 				}
+				
 				
 
 
@@ -808,7 +847,28 @@
 							// #endif 
 						}
 					}
+				},
+				{
+					"path": "specialEffect/gift",
+					"style": {
+						// #ifdef H5 || MP-WEIXIN
+						"enablePullDownRefresh": true,
+						// #endif
+						"navigationBarTitleText": "礼物",
+						// #ifdef H5
+						"navigationStyle": "custom",
+						// #endif 
+						"app-plus": {
+							// #ifdef MP-WEIXIN
+							"titleNView": {
+								"type": "transparent"
+							}
+							// #endif 
+						}
+					}
 				}
+				
+				
 				
 					
 			]

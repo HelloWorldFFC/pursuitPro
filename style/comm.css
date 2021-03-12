@@ -254,3 +254,18 @@ page,
 	font-size: 40upx;
 }
 
+.cf-fixed-right{
+	position: absolute;
+	top: 20upx;
+	right: 0upx;
+	z-index: 2;
+	width: 24%;
+	font-size: 30upx;
+}
+
+.cf-tab-m {
+	text-align: center;
+	text-decoration: underline;
+	color: #0081FF;
+	font-size: 38upx;
+}

@@ -641,6 +641,90 @@ const res_home = {
 				},
 			],
 		},
+		"gift_list": {
+			"data": [{
+					index: 0,
+					name: '巧克力',
+					isAward: true,
+					val: 1,
+					type: 2,
+		
+					img: 'https://cdn.pixabay.com/photo/2020/11/23/15/00/butterfly-5770034__340.jpg',
+				},
+				{
+					index: 1,
+					name: '鲜花',
+					isAward: true,
+					type: 2,
+					img: 'https://cdn.pixabay.com/photo/2021/01/07/15/02/york-minster-5897525__340.jpg',
+				},
+				{
+		
+					index: 2,
+					name: '裙子',
+					val: 2,
+					isAward: true,
+					type: 2,
+					img: 'https://cdn.pixabay.com/photo/2021/01/20/21/03/purple-5935577__340.jpg',
+				},
+				{
+		
+					index: 3,
+					name: '口红',
+					isAward: true,
+					type: 2,
+					img: 'https://cdn.pixabay.com/photo/2021/01/13/18/07/tree-5914851__340.jpg',
+				},
+				{
+					index: 4,
+					name: '高跟鞋',
+					val: 2,
+					isAward: true,
+					type: 2,
+		
+					img: 'https://cdn.pixabay.com/photo/2021/01/11/18/41/snowfall-5909261__340.jpg',
+				},
+				{
+					index: 5,
+					name: '红包',
+					isAward: true,
+					type: 2,
+					img: 'https://cdn.pixabay.com/photo/2021/01/05/19/55/winter-5892335__340.jpg',
+				},
+				{
+		
+					index: 6,
+					name: '首饰',
+					val: 4,
+					isAward: true,
+					type: 2,
+		
+					img: 'https://cdn.pixabay.com/photo/2018/11/11/19/46/christmas-3809544__340.jpg',
+				},
+				{
+					index: 7,
+					name: '玩具熊',
+					isAward: true,
+					type: 2,
+					img: 'https://cdn.pixabay.com/photo/2020/12/15/20/50/christmas-5834904__340.jpg',
+				},
+				{
+					index: 8,
+					name: '香水',
+					val: 5,
+					isAward: true,
+					type: 2,
+					img: 'https://cdn.pixabay.com/photo/2016/11/14/16/20/snowflake-1823942__340.jpg',
+				},
+				{
+					index: 9,
+					name: '杯子',
+					isAward: true,
+					type: 2,
+					img: 'https://cdn.pixabay.com/photo/2020/12/01/16/11/ornaments-5794746__340.jpg',
+				},
+			],
+		},
 	},
 }
 

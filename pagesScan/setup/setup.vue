@@ -56,7 +56,11 @@
 						name: '我的愿望',
 						toPageUrl: '/pagesFore/plan/set_plan',
 					},
-					
+					{
+						img: '',
+						name: '礼物',
+						toPageUrl: '/pagesScan/setup/set_gift',
+					},
 
 				],
 				isBackToHome: false,
