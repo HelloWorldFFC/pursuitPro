@@ -5,7 +5,7 @@
 			 :themeColor="codeColor" :is_themeImg="true" :themeImg="themeImg" :height_img="40" :width_img="40" />
 		</view>
 
-		<view class="cf-hengStart box">
+		<view class="cf-hengStart box-ct">
 			<view style="padding-right: 20upx;padding-left: 20upx;">网址:</view>
 			<view style="background-color: #FFFFFF;max-height: 700upx;padding-top: 50upx;">
 				<textarea placeholder-style="color:#cccccc" :maxlength="url_maxlength" v-model="url" placeholder="url" style="width: 500upx;height: 100upx;max-height: 500upx;border: 2upx solid #CCCCCC;margin: 0 auto;padding: 10upx;" />
@@ -13,13 +13,13 @@
 		   
 		</view>
 		
-		<view class="cf-hengStart box">
+		<view class="cf-hengStart box-ct">
 		    <view style="padding-right: 20upx;padding-left: 20upx;">颜色:</view>
 			
-		   <input name='codeColor' v-model="codeColor" type="text" :maxlength="url_maxlength" :placeholder="codeColor" />
+		   <input name='codeColor' disabled="true" @tap="sel_color" v-model="codeColor" type="text" :maxlength="url_maxlength" :placeholder="codeColor" :style="'color:'+codeColor"/>
 		</view>
 		
-		<view class="cf-hengStart box">
+		<view class="cf-hengStart box-ct">
 		    <view style="padding-right: 20upx;padding-left: 20upx;">图片:</view>
 			<view style="background-color: #FFFFFF;max-height: 700upx;">
 				<textarea placeholder-style="color:#cccccc" :maxlength="url_maxlength" v-model="themeImg" placeholder="themeImg" style="width: 500upx;height: 100upx;max-height: 500upx;border: 2upx solid #CCCCCC;margin: 0 auto;padding: 10upx;" />
@@ -31,6 +31,11 @@
 			<view class="cf-btn-m" :style="{'background-color': themeColor }">生成二维码</view>
 		</view>
 		
+		<ayPopColor id="popup1" ref="popup1" type="bottom" @closeModal="closeModal_tips"
+		 @toConfirm="toConfirm_tips">
+			
+		</ayPopColor>
+		
 		<!-- #ifdef MP-WEIXIN -->
 		<view class="cf-ad">
 			<ad unit-id="adunit-da9ca613908f616c" ad-intervals="30"></ad>
@@ -40,11 +45,12 @@
 </template>
 
 <script>
+	import ayPopColor from "../components/ay-pop/ay-pop-color.vue"
 	import ayQrcode from "../components/ay-qrcode/ay-qrcode.vue"
 	export default {
 		components: {
 			ayQrcode,
-
+			ayPopColor,
 		},
 		data() {
 			return {
@@ -63,6 +69,18 @@
 			that.showQrcode();//一加载生成二维码
 		},
 		methods: {
+			//弹出框
+			toConfirm_tips(e) {
+				this.codeColor = e.val ;
+				this.$refs.popup1.close();
+			},
+			closeModal_tips() {
+				this.$refs.popup1.close();
+			},
+			sel_color(){
+				this.$refs.popup1.open(); //弹出确认框
+			},
+			
 			// 展示二维码
 			showQrcode() {
 				let _this = this;
@@ -113,7 +131,8 @@
 </script>
 
 <style lang="scss">
-	.box{
+	.box-ct{
 		margin: 20upx;
+		margin-left: 100upx;
 	}
 </style>
